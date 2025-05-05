@@ -1,0 +1,10 @@
+#command to run test class specific test class from cmd
+mvn -Dtest=EmailSenderTest test
+
+
+#command to run spring-boot application from cmd 
+mvn spring-boot:run
+
+#Runs only the testEmailSending method from EmailSenderTest. from cmd
+mvn -Dtest=EmailSenderTest#testEmailSending test
+
