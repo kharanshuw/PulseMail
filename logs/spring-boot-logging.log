@@ -1,0 +1,7 @@
+2025-05-07T01:22:16.685+05:30  INFO 11788 --- [demo] [main] com.example.demo.EmailSenderTest         : Starting EmailSenderTest using Java 21.0.4 with PID 11788 (started by Pratik in D:\spring boot project vs-code\demo)
+2025-05-07T01:22:16.702+05:30  INFO 11788 --- [demo] [main] com.example.demo.EmailSenderTest         : No active profile set, falling back to 1 default profile: "default"
+2025-05-07T01:22:17.657+05:30  INFO 11788 --- [demo] [main] com.example.demo.EmailSenderTest         : Started EmailSenderTest in 1.232 seconds (process running for 2.125)
+2025-05-07T01:22:18.372+05:30  INFO 11788 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Starting email send process with attachment.
+2025-05-07T01:22:18.372+05:30  INFO 11788 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Preparing to send email from: kharanshuw@gmail.com  to: pratikwanare1999@gmail.com  with subject: testing inputStream and attachment: Screenshot
+2025-05-07T01:22:18.407+05:30  INFO 11788 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Email content prepared successfully. Proceeding with sending the email...
+2025-05-07T01:22:28.530+05:30  INFO 11788 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Email with attachment successfully sent to pratikwanare1999@gmail.com 

@@ -8,3 +8,14 @@ mvn spring-boot:run
 #Runs only the testEmailSending method from EmailSenderTest. from cmd
 mvn -Dtest=EmailSenderTest#testEmailSending test
 
+mvn -Dtest=EmailSenderTest#emailsendwithhtmltest test
+
+mvn -Dtest=EmailSenderTest#emailwithfile test
+
+
+mvn -Dtest=EmailSenderTest#emailwithinputstram test
+
+
+
+#article for demo
+https://mailtrap.io/blog/spring-send-email/
