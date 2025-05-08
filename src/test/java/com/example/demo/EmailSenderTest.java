@@ -3,13 +3,11 @@ package com.example.demo;
 import com.example.demo.service.EmailService;
 import com.example.demo.service.impl.EmailServiceImpl;
 
-import static org.mockito.Mockito.never;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
-import org.assertj.core.api.InputStreamAssert;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
