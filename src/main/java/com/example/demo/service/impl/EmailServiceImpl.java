@@ -1,9 +1,10 @@
 package com.example.demo.service.impl;
 
-import java.io.File;
-import java.io.InputStream;
-import java.util.Arrays;
-
+import com.example.demo.service.EmailService;
+import jakarta.activation.DataSource;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.mail.util.ByteArrayDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +14,9 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.service.EmailService;
-
-import jakarta.activation.DataSource;
-import jakarta.mail.MessagingException;
-import jakarta.mail.internet.MimeMessage;
-import jakarta.mail.util.ByteArrayDataSource;
+import java.io.File;
+import java.io.InputStream;
+import java.util.Arrays;
 
 @Service
 public class EmailServiceImpl implements EmailService {
@@ -136,9 +134,7 @@ public class EmailServiceImpl implements EmailService {
         } catch (MailException e) {
 
             logger.error("Email delivery failed due to mail server issue: {}", e.getMessage());
-        }
-
-        catch (Exception e) {
+        } catch (Exception e) {
 
             logger.error("Failed to send email to {}: {}", Arrays.toString(to), e.getMessage());
         }
@@ -205,9 +201,7 @@ public class EmailServiceImpl implements EmailService {
             logger.error("Failed to construct HTML email: {}", e.getMessage(), e);
         } catch (MailException e) {
             logger.error("Email delivery failed due to SMTP issue: {}", e.getMessage(), e);
-        }
-
-        catch (Exception e) {
+        } catch (Exception e) {
             logger.error("Unexpected error while sending HTML email to {}: {}", to, e.getMessage(), e);
 
         }
@@ -309,7 +303,7 @@ public class EmailServiceImpl implements EmailService {
 
     /**
      * Sends an email with a file attachment using JavaMailSender.
-     *
+     * <p>
      * This method constructs an email message, validates parameters,
      * and attaches a file from an InputStream before sending.
      *
@@ -325,7 +319,7 @@ public class EmailServiceImpl implements EmailService {
      *                                  issue.
      */
     public void sendEmailWithFile(String to, String subjecString, String messageString, InputStream inputStream,
-            String fromString, String filenameString) {
+                                  String fromString, String filenameString) {
 
         try {
             logger.info("Starting email send process with attachment.");
@@ -379,7 +373,7 @@ public class EmailServiceImpl implements EmailService {
 
             mimeMessageHelper.setFrom(fromString);
             mimeMessageHelper.setTo(to);
-            mimeMessageHelper.setText(messageString);
+            mimeMessageHelper.setText(messageString, true);
 
             mimeMessageHelper.setSubject(subjecString);
 
@@ -407,5 +401,5 @@ public class EmailServiceImpl implements EmailService {
 
     }
 
-    
+
 }

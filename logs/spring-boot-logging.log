@@ -1,7 +1,86 @@
-2025-05-07T01:22:16.685+05:30  INFO 11788 --- [demo] [main] com.example.demo.EmailSenderTest         : Starting EmailSenderTest using Java 21.0.4 with PID 11788 (started by Pratik in D:\spring boot project vs-code\demo)
-2025-05-07T01:22:16.702+05:30  INFO 11788 --- [demo] [main] com.example.demo.EmailSenderTest         : No active profile set, falling back to 1 default profile: "default"
-2025-05-07T01:22:17.657+05:30  INFO 11788 --- [demo] [main] com.example.demo.EmailSenderTest         : Started EmailSenderTest in 1.232 seconds (process running for 2.125)
-2025-05-07T01:22:18.372+05:30  INFO 11788 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Starting email send process with attachment.
-2025-05-07T01:22:18.372+05:30  INFO 11788 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Preparing to send email from: kharanshuw@gmail.com  to: pratikwanare1999@gmail.com  with subject: testing inputStream and attachment: Screenshot
-2025-05-07T01:22:18.407+05:30  INFO 11788 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Email content prepared successfully. Proceeding with sending the email...
-2025-05-07T01:22:28.530+05:30  INFO 11788 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Email with attachment successfully sent to pratikwanare1999@gmail.com 
+2025-05-09T00:50:45.681+05:30  INFO 1256 --- [demo] [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.4 with PID 1256 (D:\intellij-project\demo\target\classes started by Pratik in D:\intellij-project\demo)
+2025-05-09T00:50:45.703+05:30  INFO 1256 --- [demo] [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-05-09T00:50:46.492+05:30  INFO 1256 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-09T00:50:46.510+05:30  INFO 1256 --- [demo] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-09T00:50:46.510+05:30  INFO 1256 --- [demo] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-09T00:50:46.573+05:30  INFO 1256 --- [demo] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-09T00:50:46.573+05:30  INFO 1256 --- [demo] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 820 ms
+2025-05-09T00:50:46.946+05:30  INFO 1256 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-09T00:50:46.951+05:30  INFO 1256 --- [demo] [main] com.example.demo.DemoApplication         : Started DemoApplication in 1.753 seconds (process running for 2.085)
+2025-05-09T00:59:23.672+05:30  INFO 1256 --- [demo] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-09T00:59:23.673+05:30  INFO 1256 --- [demo] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-09T00:59:23.674+05:30  INFO 1256 --- [demo] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-05-09T01:04:20.986+05:30  INFO 1256 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : Received request to send email: EmailRequest [toString=pratikwanare1999@gmail.com, subjectString=testing simple rest api, messageString=hello testing simple rest api]
+2025-05-09T01:04:20.986+05:30  INFO 1256 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : Sending email to: pratikwanare1999@gmail.com, Subject: testing simple rest api
+2025-05-09T01:04:20.986+05:30  INFO 1256 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Preparing to send email to: pratikwanare1999@gmail.com
+2025-05-09T01:04:26.561+05:30  INFO 1256 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Email successfully sent to: pratikwanare1999@gmail.com
+2025-05-09T01:04:26.563+05:30  INFO 1256 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : Email sent successfully to pratikwanare1999@gmail.com
+2025-05-09T01:13:22.157+05:30  INFO 1256 --- [demo] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-09T01:13:22.181+05:30  INFO 1256 --- [demo] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-09T01:13:32.972+05:30  INFO 11144 --- [demo] [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.4 with PID 11144 (D:\intellij-project\demo\target\classes started by Pratik in D:\intellij-project\demo)
+2025-05-09T01:13:32.972+05:30  INFO 11144 --- [demo] [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-05-09T01:13:33.599+05:30  INFO 11144 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-09T01:13:33.615+05:30  INFO 11144 --- [demo] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-09T01:13:33.615+05:30  INFO 11144 --- [demo] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-09T01:13:33.647+05:30  INFO 11144 --- [demo] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-09T01:13:33.657+05:30  INFO 11144 --- [demo] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 643 ms
+2025-05-09T01:13:33.934+05:30  INFO 11144 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-09T01:13:33.940+05:30  INFO 11144 --- [demo] [main] com.example.demo.DemoApplication         : Started DemoApplication in 1.347 seconds (process running for 1.587)
+2025-05-09T01:16:31.410+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-09T01:16:31.411+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-09T01:16:31.413+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-05-09T01:18:04.443+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : Received request to send email with file: Screenshot 2025-05-06 220242.png
+2025-05-09T01:18:04.443+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : Attempting to send email to: pratikwanare1999@gmail.com, Subject: testing simple rest api
+2025-05-09T01:18:04.449+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Starting email send process with attachment.
+2025-05-09T01:18:04.449+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Preparing to send email from: kharanshuw@gmail.com to: pratikwanare1999@gmail.com with subject: testing simple rest api and attachment: file
+2025-05-09T01:18:04.491+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Email content prepared successfully. Proceeding with sending the email...
+2025-05-09T01:18:16.396+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Email with attachment successfully sent to pratikwanare1999@gmail.com
+2025-05-09T01:18:16.398+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : Email sent successfully to pratikwanare1999@gmail.com
+2025-05-09T01:20:31.508+05:30  INFO 11144 --- [demo] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-09T01:20:31.525+05:30  INFO 11144 --- [demo] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-09T01:21:02.686+05:30  INFO 3404 --- [demo] [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.4 with PID 3404 (D:\intellij-project\demo\target\classes started by Pratik in D:\intellij-project\demo)
+2025-05-09T01:21:02.688+05:30  INFO 3404 --- [demo] [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-05-09T01:21:03.310+05:30  INFO 3404 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-09T01:21:03.322+05:30  INFO 3404 --- [demo] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-09T01:21:03.322+05:30  INFO 3404 --- [demo] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-09T01:21:03.362+05:30  INFO 3404 --- [demo] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-09T01:21:03.362+05:30  INFO 3404 --- [demo] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 636 ms
+2025-05-09T01:21:03.641+05:30  INFO 3404 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-09T01:21:03.647+05:30  INFO 3404 --- [demo] [main] com.example.demo.DemoApplication         : Started DemoApplication in 1.329 seconds (process running for 1.579)
+2025-05-09T01:21:12.832+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-09T01:21:12.833+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-09T01:21:12.834+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-05-09T01:22:49.550+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-4] c.example.demo.controller.ApiController  : Received request to send email with file: Screenshot 2025-05-09 012239.png
+2025-05-09T01:22:49.551+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-4] c.example.demo.controller.ApiController  : Attempting to send email to: pratikwanare1999@gmail.com, Subject: testing simple rest api
+2025-05-09T01:22:49.552+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-4] c.e.demo.service.impl.EmailServiceImpl   : Starting email send process with attachment.
+2025-05-09T01:22:49.553+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-4] c.e.demo.service.impl.EmailServiceImpl   : Preparing to send email from: kharanshuw@gmail.com to: pratikwanare1999@gmail.com with subject: testing simple rest api and attachment: fileimage/png
+2025-05-09T01:22:49.584+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-4] c.e.demo.service.impl.EmailServiceImpl   : Email content prepared successfully. Proceeding with sending the email...
+2025-05-09T01:23:01.857+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-4] c.e.demo.service.impl.EmailServiceImpl   : Email with attachment successfully sent to pratikwanare1999@gmail.com
+2025-05-09T01:23:01.858+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-4] c.example.demo.controller.ApiController  : Email sent successfully to pratikwanare1999@gmail.com
+2025-05-09T01:36:04.918+05:30  INFO 3404 --- [demo] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-09T01:36:04.924+05:30  INFO 3404 --- [demo] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-09T01:43:27.492+05:30  INFO 12064 --- [demo] [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.4 with PID 12064 (D:\intellij-project\demo\target\classes started by Pratik in D:\intellij-project\demo)
+2025-05-09T01:43:27.495+05:30  INFO 12064 --- [demo] [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-05-09T01:43:28.120+05:30  INFO 12064 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-09T01:43:28.136+05:30  INFO 12064 --- [demo] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-09T01:43:28.136+05:30  INFO 12064 --- [demo] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-09T01:43:28.167+05:30  INFO 12064 --- [demo] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-09T01:43:28.183+05:30  INFO 12064 --- [demo] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 644 ms
+2025-05-09T01:43:28.454+05:30  INFO 12064 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-09T01:43:28.464+05:30  INFO 12064 --- [demo] [main] com.example.demo.DemoApplication         : Started DemoApplication in 1.344 seconds (process running for 1.584)
+2025-05-09T01:43:37.400+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-09T01:43:37.401+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-09T01:43:37.401+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-05-09T01:43:37.491+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : Received request to send email with file: Screenshot 2025-05-09 012239.png
+2025-05-09T01:43:37.492+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : Attempting to send email to: pratikwanare1999@gmail.com, Subject: testing simple rest api
+2025-05-09T01:43:37.492+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : file extention type is image/png
+2025-05-09T01:43:37.493+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : actual extention is png
+2025-05-09T01:43:37.493+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : original filename is Screenshot 2025-05-09 012239.png
+2025-05-09T01:43:37.493+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : file name updated after adding extention Screenshot 2025-05-09 012239.png
+2025-05-09T01:43:37.494+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Starting email send process with attachment.
+2025-05-09T01:43:37.494+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Preparing to send email from: kharanshuw@gmail.com to: pratikwanare1999@gmail.com with subject: testing simple rest api and attachment: Screenshot 2025-05-09 012239.png
+2025-05-09T01:43:37.520+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Email content prepared successfully. Proceeding with sending the email...
+2025-05-09T01:43:43.165+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Email with attachment successfully sent to pratikwanare1999@gmail.com
+2025-05-09T01:43:43.166+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : Email sent successfully to pratikwanare1999@gmail.com
+2025-05-09T01:44:15.386+05:30  INFO 12064 --- [demo] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-09T01:44:15.402+05:30  INFO 12064 --- [demo] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete

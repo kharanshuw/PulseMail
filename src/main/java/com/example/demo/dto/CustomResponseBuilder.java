@@ -3,6 +3,9 @@ package com.example.demo.dto;
 import org.springframework.http.HttpStatus;
 
 public class CustomResponseBuilder {
+
+    
+
     private String message;
 
     private HttpStatus status;
@@ -39,7 +42,12 @@ public class CustomResponseBuilder {
         this.status = status;
     }
 
+    public CustomResponseBuilder() {
+    }
 
-    
-
+    public CustomResponseBuilder(String message, HttpStatus status, boolean success) {
+        this.message = message;
+        this.status = status;
+        this.success = success;
+    }
 }
