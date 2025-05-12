@@ -6,21 +6,49 @@ import { useEffect } from 'react'
 
 function App() {
 
-  const [darkmode, setdarkmode] = useState(false);
+
+  // ✅ Retrieve dark mode state from localStorage or default to false
+  const [darkmode, setdarkmode] = useState(() => {
+    const storedDarkMode = localStorage.getItem("darkmode") === "true";
+    console.log("🔍 Initial Dark Mode State from localStorage:", storedDarkMode); // ✅ Debugging log
+    return storedDarkMode;
+
+  }
+  );
 
   useEffect(
     () => {
+      // ✅ Apply dark mode class based on state
+
       if (darkmode) {
         document.documentElement.classList.add('dark');
+
+        console.log("🌑 Dark mode enabled"); // ✅ Debugging log
+
       }
       else {
         document.documentElement.classList.remove('dark');
+
+        console.log("☀️ Light mode enabled"); // ✅ Debugging log
+
       }
+
+      // ✅ Store the dark mode state in localStorage
+
+      localStorage.setItem("darkmode", darkmode);
+
+      console.log("💾 Dark mode state saved to localStorage:", darkmode); // ✅ Debugging log
+
+
     }, [darkmode]
   )
 
 
-
+  /**
+   * 🔄 Toggle Dark Mode
+   * 
+   * This function toggles dark mode state between true and false.
+   */
   const toggleDarkMode = () => {
     setdarkmode(
       prevMode => !prevMode
@@ -31,7 +59,7 @@ function App() {
   return (
     <>
 
-      <div className='min-h-screen bg-gray-200 dark:bg-neutral-950 relative transition-colors duration-300'>
+      <div className='min-h-screen bg-gray-200 dark:bg-neutral-950 relative'>
 
         <button
           onClick={toggleDarkMode}
