@@ -1,6 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import { sendEmail } from '../services/email_service';
+import { Editor } from '@tinymce/tinymce-react';
+import { useRef } from 'react';
+
 
 /**
  * 📧 Email Sender Component
@@ -20,6 +23,13 @@ function EmailSender() {
 
     // ✅ State to track whether email is being sent
     const [sending, setSending] = useState(false);
+
+
+    // ✅ Load API key from environment variables
+    const editorRef = useRef(null);
+
+    // ✅ Create a ref to store editor instance
+    const apikey = import.meta.env.VITE_TINY_MCE_API_KEY;
 
 
 
@@ -49,6 +59,7 @@ function EmailSender() {
      * @param {Event} event - The form submission event.
      */
     async function handlesubmit(event) {
+
         event.preventDefault();
 
         // ✅ Validation: Ensure all fields are filled
@@ -130,7 +141,7 @@ function EmailSender() {
 
 
             {/* Email Card Wrapper */}
-            <div className='email_card md:w-1/3 w-full border shadow p-4 sm:mx-4 md:mx-0 bg-white dark:bg-gray-700 rounded-lg'>
+            <div className='email_card md:w-1/2 w-full border shadow p-4 sm:mx-4 md:mx-0 bg-white dark:bg-gray-700 rounded-lg'>
 
 
                 <h1 className='text-gray-900 font-bold text-3xl dark:text-white capitalize'>
@@ -201,7 +212,11 @@ function EmailSender() {
 
 
                     {/* Message Textarea */}
-                    <div className='mb-4'>
+
+
+                    {/* 
+                    
+                                        <div className='mb-4'>
 
                         <label htmlFor="message"
                             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
@@ -216,6 +231,78 @@ function EmailSender() {
 
                     </div>
 
+                    */}
+
+                    {/* Message Textarea */}
+
+                    <div className='mt-3 mb-3'>
+
+
+
+                        <label className='capitalize block mb-2 text-sm font-medium text-gray-900 dark:text-neutral-50'>your message</label>
+
+
+                        <Editor
+
+                            /**
+                             * 📝 Handles editor content change
+                             * Updates the email message state dynamically
+                             */
+
+                            onEditorChange={(event) => {
+
+                                console.log("✏️ Editor content updated!");
+                                console.log(event);
+
+
+                                setEmaildata({ ...emaildata, "message": editorRef.current.getContent() });
+                            }}
+
+                            /**
+ * 🚀 Initializes the TinyMCE editor instance
+ * Stores reference to editor for future use
+ */
+
+                            apiKey={apikey}
+                            onInit={(_evt, editor) => {
+                                console.log("✅ TinyMCE Editor Initialized!");
+                                editorRef.current = editor;
+                            }}
+
+
+                            /**
+ * ⚙️ TinyMCE Configuration Settings
+ * Defines plugins, toolbar buttons, and UI behavior
+ */
+
+                            init={{
+                                plugins: [
+                                    // Core editing features
+                                    'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+                                    // Your account includes a free trial of TinyMCE premium features
+                                    // Try the most popular premium features until May 26, 2025:
+                                    'checklist', 'mediaembed', 'casechange', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown', 'importword', 'exportword', 'exportpdf'
+                                ],
+                                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+                                tinycomments_mode: 'embedded',
+                                tinycomments_author: 'Author name',
+                                mergetags_list: [
+                                    { value: 'First.Name', title: 'First Name' },
+                                    { value: 'Email', title: 'Email' },
+                                ],
+
+                                /**
+       * 🤖 Handles AI requests (Disabled by default)
+       * Replace with API implementation if needed
+       */
+                                ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
+                            }}
+
+                            initialValue="Write your message here"
+
+                        />
+
+                    </div>
 
 
                     {/* spinner */}
@@ -241,7 +328,7 @@ function EmailSender() {
 
 
 
-                        <p className='text-xl capitalize antialiased font-bold'>
+                        <p className='text-xl capitalize antialiased font-bold dark:text-white'>
                             sending email....
                         </p>
 
@@ -294,6 +381,9 @@ function EmailSender() {
             </div>
 
         </div>
+
+
+
     )
 }
 

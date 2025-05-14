@@ -29,7 +29,7 @@ export async function sendEmail(emaildata) {
 
         console.error("❌ Error sending email:", error.message);
         console.error("⚠️ Error Details:", error.response?.data || "No additional details available");
-
+        
         return null; // Return null in case of error
 
     }
