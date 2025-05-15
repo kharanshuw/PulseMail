@@ -16,6 +16,19 @@ mvn -Dtest=EmailSenderTest#emailwithfile test
 mvn -Dtest=EmailSenderTest#emailwithinputstram test
 
 
+mvn -Dtest=EmailSenderTest#getInboxMessages test
+
+
 
 #article for demo
 https://mailtrap.io/blog/spring-send-email/
+
+
+
+
+end points 
+
+http://localhost:8080/api/send_email_with_file
+
+
+http://localhost:8080/api/send

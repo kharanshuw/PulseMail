@@ -1,86 +1,385 @@
-2025-05-09T00:50:45.681+05:30  INFO 1256 --- [demo] [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.4 with PID 1256 (D:\intellij-project\demo\target\classes started by Pratik in D:\intellij-project\demo)
-2025-05-09T00:50:45.703+05:30  INFO 1256 --- [demo] [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
-2025-05-09T00:50:46.492+05:30  INFO 1256 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-05-09T00:50:46.510+05:30  INFO 1256 --- [demo] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-05-09T00:50:46.510+05:30  INFO 1256 --- [demo] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
-2025-05-09T00:50:46.573+05:30  INFO 1256 --- [demo] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-05-09T00:50:46.573+05:30  INFO 1256 --- [demo] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 820 ms
-2025-05-09T00:50:46.946+05:30  INFO 1256 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-05-09T00:50:46.951+05:30  INFO 1256 --- [demo] [main] com.example.demo.DemoApplication         : Started DemoApplication in 1.753 seconds (process running for 2.085)
-2025-05-09T00:59:23.672+05:30  INFO 1256 --- [demo] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-05-09T00:59:23.673+05:30  INFO 1256 --- [demo] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-05-09T00:59:23.674+05:30  INFO 1256 --- [demo] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-05-09T01:04:20.986+05:30  INFO 1256 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : Received request to send email: EmailRequest [toString=pratikwanare1999@gmail.com, subjectString=testing simple rest api, messageString=hello testing simple rest api]
-2025-05-09T01:04:20.986+05:30  INFO 1256 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : Sending email to: pratikwanare1999@gmail.com, Subject: testing simple rest api
-2025-05-09T01:04:20.986+05:30  INFO 1256 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Preparing to send email to: pratikwanare1999@gmail.com
-2025-05-09T01:04:26.561+05:30  INFO 1256 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Email successfully sent to: pratikwanare1999@gmail.com
-2025-05-09T01:04:26.563+05:30  INFO 1256 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : Email sent successfully to pratikwanare1999@gmail.com
-2025-05-09T01:13:22.157+05:30  INFO 1256 --- [demo] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-05-09T01:13:22.181+05:30  INFO 1256 --- [demo] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-05-09T01:13:32.972+05:30  INFO 11144 --- [demo] [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.4 with PID 11144 (D:\intellij-project\demo\target\classes started by Pratik in D:\intellij-project\demo)
-2025-05-09T01:13:32.972+05:30  INFO 11144 --- [demo] [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
-2025-05-09T01:13:33.599+05:30  INFO 11144 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-05-09T01:13:33.615+05:30  INFO 11144 --- [demo] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-05-09T01:13:33.615+05:30  INFO 11144 --- [demo] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
-2025-05-09T01:13:33.647+05:30  INFO 11144 --- [demo] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-05-09T01:13:33.657+05:30  INFO 11144 --- [demo] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 643 ms
-2025-05-09T01:13:33.934+05:30  INFO 11144 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-05-09T01:13:33.940+05:30  INFO 11144 --- [demo] [main] com.example.demo.DemoApplication         : Started DemoApplication in 1.347 seconds (process running for 1.587)
-2025-05-09T01:16:31.410+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-05-09T01:16:31.411+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-05-09T01:16:31.413+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-05-09T01:18:04.443+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : Received request to send email with file: Screenshot 2025-05-06 220242.png
-2025-05-09T01:18:04.443+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : Attempting to send email to: pratikwanare1999@gmail.com, Subject: testing simple rest api
-2025-05-09T01:18:04.449+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Starting email send process with attachment.
-2025-05-09T01:18:04.449+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Preparing to send email from: kharanshuw@gmail.com to: pratikwanare1999@gmail.com with subject: testing simple rest api and attachment: file
-2025-05-09T01:18:04.491+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Email content prepared successfully. Proceeding with sending the email...
-2025-05-09T01:18:16.396+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Email with attachment successfully sent to pratikwanare1999@gmail.com
-2025-05-09T01:18:16.398+05:30  INFO 11144 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : Email sent successfully to pratikwanare1999@gmail.com
-2025-05-09T01:20:31.508+05:30  INFO 11144 --- [demo] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-05-09T01:20:31.525+05:30  INFO 11144 --- [demo] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-05-09T01:21:02.686+05:30  INFO 3404 --- [demo] [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.4 with PID 3404 (D:\intellij-project\demo\target\classes started by Pratik in D:\intellij-project\demo)
-2025-05-09T01:21:02.688+05:30  INFO 3404 --- [demo] [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
-2025-05-09T01:21:03.310+05:30  INFO 3404 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-05-09T01:21:03.322+05:30  INFO 3404 --- [demo] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-05-09T01:21:03.322+05:30  INFO 3404 --- [demo] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
-2025-05-09T01:21:03.362+05:30  INFO 3404 --- [demo] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-05-09T01:21:03.362+05:30  INFO 3404 --- [demo] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 636 ms
-2025-05-09T01:21:03.641+05:30  INFO 3404 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-05-09T01:21:03.647+05:30  INFO 3404 --- [demo] [main] com.example.demo.DemoApplication         : Started DemoApplication in 1.329 seconds (process running for 1.579)
-2025-05-09T01:21:12.832+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-05-09T01:21:12.833+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-05-09T01:21:12.834+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2025-05-09T01:22:49.550+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-4] c.example.demo.controller.ApiController  : Received request to send email with file: Screenshot 2025-05-09 012239.png
-2025-05-09T01:22:49.551+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-4] c.example.demo.controller.ApiController  : Attempting to send email to: pratikwanare1999@gmail.com, Subject: testing simple rest api
-2025-05-09T01:22:49.552+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-4] c.e.demo.service.impl.EmailServiceImpl   : Starting email send process with attachment.
-2025-05-09T01:22:49.553+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-4] c.e.demo.service.impl.EmailServiceImpl   : Preparing to send email from: kharanshuw@gmail.com to: pratikwanare1999@gmail.com with subject: testing simple rest api and attachment: fileimage/png
-2025-05-09T01:22:49.584+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-4] c.e.demo.service.impl.EmailServiceImpl   : Email content prepared successfully. Proceeding with sending the email...
-2025-05-09T01:23:01.857+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-4] c.e.demo.service.impl.EmailServiceImpl   : Email with attachment successfully sent to pratikwanare1999@gmail.com
-2025-05-09T01:23:01.858+05:30  INFO 3404 --- [demo] [http-nio-8080-exec-4] c.example.demo.controller.ApiController  : Email sent successfully to pratikwanare1999@gmail.com
-2025-05-09T01:36:04.918+05:30  INFO 3404 --- [demo] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-05-09T01:36:04.924+05:30  INFO 3404 --- [demo] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-05-09T01:43:27.492+05:30  INFO 12064 --- [demo] [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.4 with PID 12064 (D:\intellij-project\demo\target\classes started by Pratik in D:\intellij-project\demo)
-2025-05-09T01:43:27.495+05:30  INFO 12064 --- [demo] [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
-2025-05-09T01:43:28.120+05:30  INFO 12064 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-05-09T01:43:28.136+05:30  INFO 12064 --- [demo] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-05-09T01:43:28.136+05:30  INFO 12064 --- [demo] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
-2025-05-09T01:43:28.167+05:30  INFO 12064 --- [demo] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-05-09T01:43:28.183+05:30  INFO 12064 --- [demo] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 644 ms
-2025-05-09T01:43:28.454+05:30  INFO 12064 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-05-09T01:43:28.464+05:30  INFO 12064 --- [demo] [main] com.example.demo.DemoApplication         : Started DemoApplication in 1.344 seconds (process running for 1.584)
-2025-05-09T01:43:37.400+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-05-09T01:43:37.401+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-05-09T01:43:37.401+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2025-05-09T01:43:37.491+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : Received request to send email with file: Screenshot 2025-05-09 012239.png
-2025-05-09T01:43:37.492+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : Attempting to send email to: pratikwanare1999@gmail.com, Subject: testing simple rest api
-2025-05-09T01:43:37.492+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : file extention type is image/png
-2025-05-09T01:43:37.493+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : actual extention is png
-2025-05-09T01:43:37.493+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : original filename is Screenshot 2025-05-09 012239.png
-2025-05-09T01:43:37.493+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : file name updated after adding extention Screenshot 2025-05-09 012239.png
-2025-05-09T01:43:37.494+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Starting email send process with attachment.
-2025-05-09T01:43:37.494+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Preparing to send email from: kharanshuw@gmail.com to: pratikwanare1999@gmail.com with subject: testing simple rest api and attachment: Screenshot 2025-05-09 012239.png
-2025-05-09T01:43:37.520+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Email content prepared successfully. Proceeding with sending the email...
-2025-05-09T01:43:43.165+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.e.demo.service.impl.EmailServiceImpl   : Email with attachment successfully sent to pratikwanare1999@gmail.com
-2025-05-09T01:43:43.166+05:30  INFO 12064 --- [demo] [http-nio-8080-exec-2] c.example.demo.controller.ApiController  : Email sent successfully to pratikwanare1999@gmail.com
-2025-05-09T01:44:15.386+05:30  INFO 12064 --- [demo] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-05-09T01:44:15.402+05:30  INFO 12064 --- [demo] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-14T20:19:37.010+05:30  INFO 7624 --- [demo] [main] com.example.demo.EmailSenderTest         : Starting EmailSenderTest using Java 21.0.4 with PID 7624 (started by Pratik in D:\spring boot project vs-code\demo)
+2025-05-14T20:19:37.013+05:30  INFO 7624 --- [demo] [main] com.example.demo.EmailSenderTest         : No active profile set, falling back to 1 default profile: "default"
+2025-05-14T20:19:38.040+05:30  INFO 7624 --- [demo] [main] com.example.demo.EmailSenderTest         : Started EmailSenderTest in 1.318 seconds (process running for 2.204)
+2025-05-14T20:19:42.375+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Congrats on your Registration, Source Catalyst
+2025-05-14T20:19:42.375+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:42.800+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : C-CAT January 2023 Admit Card
+2025-05-14T20:19:42.800+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:43.198+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Tata Consultancy Services is hiring for AML Transaction Monitoring / Sanction Screening Professionals - Mega Walk In Drive - 28th Jan 2023 - Pune
+2025-05-14T20:19:43.198+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:43.630+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Tata Consultancy Services is hiring for AML Transaction Monitoring / Sanction Screening Professionals - Mega Walk In Drive - 28th Jan 2023 - Pune
+2025-05-14T20:19:43.630+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:44.027+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : C-DAC March 2023 Admissions - First Round of Seat Allocations
+2025-05-14T20:19:44.027+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:44.484+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Dispatch of SBI Debit Card
+2025-05-14T20:19:44.484+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:45.032+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : C-CAT March 2023 Payment Receipt
+2025-05-14T20:19:45.032+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:45.449+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : C-CAT March 2023 Payment Receipt
+2025-05-14T20:19:45.451+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:45.831+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : C-DAC September 2023 Admissions - Second Round of Seat Allocations
+2025-05-14T20:19:45.831+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:46.230+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Offer of Admission (provisional) to C-DAC's PG-Diploma Course March 2023 Batch
+2025-05-14T20:19:46.230+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:46.628+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : E-account statement for your SBI account(s).
+2025-05-14T20:19:46.628+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:46.995+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : C-CAT March 2023 Payment Receipt
+2025-05-14T20:19:47.004+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:47.429+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : C-CAT March 2023 Payment Receipt
+2025-05-14T20:19:47.429+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:47.789+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Attendance update: Core Java-(Lab) on 13-Apr
+2025-05-14T20:19:47.789+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:48.220+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : E-account statement for your SBI account(s).
+2025-05-14T20:19:48.220+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:48.635+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : You have been added to March23_PG-DAC_KNOW-IT
+2025-05-14T20:19:48.635+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:49.049+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : AnujBhure invited you to AnujBhure/E_Farming_Market
+2025-05-14T20:19:49.051+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:49.432+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Feedback - Online Feedback System
+2025-05-14T20:19:49.432+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:49.961+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Congratulations! You have successfully submitted your IBM job application.
+2025-05-14T20:19:49.961+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:50.359+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Kharanshu, your application was sent to EG Allied Pvt. Ltd.
+2025-05-14T20:19:50.369+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:50.759+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Kharanshu, your application was sent to IRIS Software Group
+2025-05-14T20:19:50.759+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:51.475+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Your job alert for software developer fresher jobs in Pune, Maharashtra is now active
+2025-05-14T20:19:51.475+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:51.869+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Indeed Application: Web Developer
+2025-05-14T20:19:51.869+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:52.473+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Indeed Application: Software Developer
+2025-05-14T20:19:52.473+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:52.873+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Complete your application for GET CS / IT - 2023 Job
+2025-05-14T20:19:52.873+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:53.484+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Invitation to Take GET CS/IT Assessment
+2025-05-14T20:19:53.486+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:53.946+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Application Confirmation from Firstnaukri.com
+2025-05-14T20:19:53.946+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:54.536+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank you for Enquiry with TYASuite
+2025-05-14T20:19:54.552+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:54.949+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Confirm your application
+2025-05-14T20:19:54.949+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:55.327+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Verify email
+2025-05-14T20:19:55.327+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:55.759+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Apply to jobs at Heaptrace Technology, Aspire Techsoft and Kalp Technologies Pvt Ltd
+2025-05-14T20:19:55.759+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:56.142+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Kharanshu Wanare, Handpicked New Jobs for you - Engineer, Computer Science Faculty
+2025-05-14T20:19:56.155+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:56.539+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : “software engineer”: Uplers - QA Engineer (WFH) and more
+2025-05-14T20:19:56.539+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:56.953+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : “software engineer”: Uplers - QA Engineer (WFH) and more
+2025-05-14T20:19:56.953+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:57.352+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Your application results
+2025-05-14T20:19:57.352+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:57.750+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Confirm your application
+2025-05-14T20:19:57.750+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:58.148+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : “software engineer”: Cytel Inc. - Software Engineer II - C++ and more
+2025-05-14T20:19:58.154+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:58.565+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : “software engineer”: Cytel Inc. - Software Engineer II - C++ and more
+2025-05-14T20:19:58.567+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:58.994+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Kharanshu Wanare, Top companies are hiring on Naukri right now!
+2025-05-14T20:19:58.994+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:59.519+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Kharanshu Wanare, Immediate Requirement for Software Developer, Data Scientist, Intern
+2025-05-14T20:19:59.519+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:19:59.964+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Interview Schedule For for Fresher Java Developer Remote position
+2025-05-14T20:19:59.974+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:00.794+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : 1 new software developer fresher vacancy in Pune, Maharashtra
+2025-05-14T20:20:00.794+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:01.515+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : 🌍 Kharanshu, your September update
+2025-05-14T20:20:01.517+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:02.112+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Email for Test in iprogrammer.
+2025-05-14T20:20:02.113+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:02.512+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : E-account statement for your SBI account(s).
+2025-05-14T20:20:02.513+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:02.924+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Open the Door to Success with Launchpad - Explore exciting Job Openings!
+2025-05-14T20:20:02.924+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:03.457+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank you for your application to TalentKompass Deutschland
+2025-05-14T20:20:03.458+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:03.995+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : We have received your application
+2025-05-14T20:20:03.996+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:04.434+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Indeed Application: Java Internship
+2025-05-14T20:20:04.434+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:06.387+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : TalentKompass Deutschland: New update on your job application
+2025-05-14T20:20:06.388+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:06.758+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Enrollment Confirmation | Boundary Breaker Bootcamp: Hit A Career Six! - [Geek Week 2023]
+2025-05-14T20:20:06.758+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:07.159+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank you for your application
+2025-05-14T20:20:07.159+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:07.528+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Tower Research Capital: Application Received
+2025-05-14T20:20:07.528+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:08.156+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Kharanshu Wanare, Immediate Requirement for Engineer, Lead Assistant Manager
+2025-05-14T20:20:08.157+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:08.543+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Indeed Application: Java Internship
+2025-05-14T20:20:08.543+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:09.138+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Kharanshu, your application was sent to EPAM Systems
+2025-05-14T20:20:09.138+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:09.551+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank you for applying to Altera Digital Health!
+2025-05-14T20:20:09.551+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:09.969+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Instructions for Completing Your Form Later
+2025-05-14T20:20:09.969+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:10.352+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thanks for Applying at IDeaS - A SAS Company!
+2025-05-14T20:20:10.353+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:10.738+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Your application results
+2025-05-14T20:20:10.738+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:11.118+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Confirm your application
+2025-05-14T20:20:11.118+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:11.813+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : HBWSL Employment Application Tracker
+2025-05-14T20:20:11.813+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:12.228+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Job applied at Infosys Limited for Team Leader/Technical Leader
+2025-05-14T20:20:12.228+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:12.629+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Job applied at Busibud Solutions for Software Developer
+2025-05-14T20:20:12.629+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:13.210+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Job applied at Michelin for Software Engineer/Programmer
+2025-05-14T20:20:13.210+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:13.590+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Application Acknowledgement - Full Stack Developer, Java at Michelin
+2025-05-14T20:20:13.590+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:14.678+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Application for Software Developer Internship recieved, Thank you!
+2025-05-14T20:20:14.678+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:15.215+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Your job application to Sapours Technologies Pvt. Ltd.
+2025-05-14T20:20:15.215+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:15.732+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Indeed Application: Fresher Engineer
+2025-05-14T20:20:15.732+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:16.113+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Indeed Application: Intern Software Testing
+2025-05-14T20:20:16.113+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:16.604+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Confirm your interest in a quick message to Sakshi Softech Pvt Ltd
+2025-05-14T20:20:16.605+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:17.043+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Confirm your interest in a quick message to Byte Sigma Technologies
+2025-05-14T20:20:17.043+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:17.479+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Forget Something? Complete Your Application
+2025-05-14T20:20:17.479+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:17.913+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Indeed Application: Software Engineer Trainee
+2025-05-14T20:20:17.913+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:18.280+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Your Honeywell Application Has Been Received
+2025-05-14T20:20:18.280+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:18.896+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Indeed Application: Software Developer (Fresher)
+2025-05-14T20:20:18.896+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:19.297+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Indeed Application: Software Trainee Engineer
+2025-05-14T20:20:19.297+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:19.721+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Indeed Application: Software Developer
+2025-05-14T20:20:19.721+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:20.499+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Indeed Application: Software Developer
+2025-05-14T20:20:20.499+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:21.230+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Apply to jobs at BigShyft, E Page Infotech and Arting Digital
+2025-05-14T20:20:21.230+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:21.911+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Welcome to the Talent Community at Deutsche Post DHL Group
+2025-05-14T20:20:21.911+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:22.362+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : We have received your application!
+2025-05-14T20:20:22.362+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:22.949+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank you for applying to HappyFox
+2025-05-14T20:20:22.949+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:23.645+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : DKatalis Online Test Instructions
+2025-05-14T20:20:23.645+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:24.256+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : IncubXperts Pre-Placement Talk (PG-DAC) today @ 4:00 PM
+2025-05-14T20:20:24.257+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:24.854+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Reg : Company Feedback Form For Students
+2025-05-14T20:20:24.854+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:25.225+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Feedback - ePariksha March 2023 Batch
+2025-05-14T20:20:25.225+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:25.590+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Kharanshu, your application was sent to Concentrix
+2025-05-14T20:20:25.590+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:26.004+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Verify your email address | Cuvette
+2025-05-14T20:20:26.004+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:26.400+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Welcome to the Nissan Jobs Portal
+2025-05-14T20:20:26.400+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:26.781+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank you for your Application
+2025-05-14T20:20:26.781+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:27.174+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Your candidate reference number - UBS.
+2025-05-14T20:20:27.174+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:27.577+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Your application for Software Engineer (283170BR)
+2025-05-14T20:20:27.577+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:28.150+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Your application for Software Engineer (283170BR)
+2025-05-14T20:20:28.150+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:28.516+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Security alert
+2025-05-14T20:20:28.516+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:29.257+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Security alert
+2025-05-14T20:20:29.257+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:29.631+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank you for your application at KONE
+2025-05-14T20:20:29.631+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:30.109+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Confirm your identity for job Trainee - 2073
+2025-05-14T20:20:30.110+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:30.470+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Confirm your identity
+2025-05-14T20:20:30.470+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:30.869+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Your recent job application for Trainee - 2073
+2025-05-14T20:20:30.869+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:31.228+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Welcome to DATAECONOMY
+2025-05-14T20:20:31.228+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:31.630+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank you for applying to GoGuardian
+2025-05-14T20:20:31.630+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:32.031+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : IT Support - Confirmation of your application
+2025-05-14T20:20:32.031+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:32.418+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Complete Your Cisco Job Application
+2025-05-14T20:20:32.418+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:32.800+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Workday Inbox - Your Daily Digest
+2025-05-14T20:20:32.800+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:33.200+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Get Noticed by Employers: Update your Cuvette profile
+2025-05-14T20:20:33.200+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:33.616+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Reset your Superset Password :: Instructions
+2025-05-14T20:20:33.616+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:33.992+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Your application at Eurofins India IT Solutions
+2025-05-14T20:20:33.992+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:34.393+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Kharanshu Wanare, Urgently hiring for Trainer, Developer, Engineering Intern
+2025-05-14T20:20:34.393+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:34.826+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Verify your ICC account
+2025-05-14T20:20:34.826+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:35.361+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank you for your online submission
+2025-05-14T20:20:35.361+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:35.781+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank you for applying at Embassy Tech Village
+2025-05-14T20:20:35.781+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:36.187+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : You're invited to access Zoho Corporation's Candidate Portal
+2025-05-14T20:20:36.187+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:36.594+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Zoho: Thanks for Applying!
+2025-05-14T20:20:36.594+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:37.006+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank you for applying to ADP!
+2025-05-14T20:20:37.012+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:37.527+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Syncious Software Development Interviews
+2025-05-14T20:20:37.527+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:38.054+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : RE: Syncious Software Development Interviews
+2025-05-14T20:20:38.055+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:38.427+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : New message from Syncious Systems Private Limited
+2025-05-14T20:20:38.427+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:38.794+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : [Important Notice] Your Jira subscription is being deactivated
+2025-05-14T20:20:38.794+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:39.145+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Syncious Systems Private Limited is waiting for your reply
+2025-05-14T20:20:39.145+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:39.644+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Anisha just messaged you
+2025-05-14T20:20:39.644+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:40.112+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : We have requirement for Fresher Program Control Service for contract to hire position through Teamlease Digital payroll (Source: foundit)
+2025-05-14T20:20:40.112+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:40.550+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Moving ahead with your candidature
+2025-05-14T20:20:40.550+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:40.983+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Employment application received
+2025-05-14T20:20:40.983+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:41.360+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Welcome to DATAECONOMY
+2025-05-14T20:20:41.360+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:41.743+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : ADP is impressed by your professional profile: Join our Talent Network!
+2025-05-14T20:20:41.743+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:42.110+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Cognitive Ability Test
+2025-05-14T20:20:42.110+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:42.509+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Citi-US Test link - 10 AM - 6th Nov 2023
+2025-05-14T20:20:42.509+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:42.873+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Intimation of Account recovery request on IRCTC
+2025-05-14T20:20:42.873+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:43.320+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Intimation of Account recovery request on IRCTC
+2025-05-14T20:20:43.320+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:43.750+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : QualiTlabs - Fresher Hiring - Confirmation required from Kharanshu Wanare , kharanshuw@gmail.com
+2025-05-14T20:20:43.750+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:44.149+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : You have registered for Flexera Full Stack Engineer Hiring Challenge on HackerEarth
+2025-05-14T20:20:44.149+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:44.548+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank you for registering your profile
+2025-05-14T20:20:44.548+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:44.945+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Your application for Software Engineer - Intern at Resilinc
+2025-05-14T20:20:44.945+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:45.323+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Bristlecone Online Assessment
+2025-05-14T20:20:45.323+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:45.711+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank you for your application to Parallel Wireless
+2025-05-14T20:20:45.711+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:46.096+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : We would like to invite you to KONE Talent Community - Reminder
+2025-05-14T20:20:46.096+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:46.480+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Your candidate reference number - Synopsys.
+2025-05-14T20:20:46.480+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:46.911+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank you for applying with Genpact
+2025-05-14T20:20:46.911+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:47.308+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thanks for applying to Google
+2025-05-14T20:20:47.308+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:47.779+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank you for your interest in Adenza!
+2025-05-14T20:20:47.779+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:48.162+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Johnson Controls - We've received your application: WD30189326
+2025-05-14T20:20:48.162+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:48.544+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank you for applying to GoGuardian
+2025-05-14T20:20:48.544+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:48.943+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : You're invited to access PIGEON INNOVATIVE SOLUTIONS's Candidate Portal
+2025-05-14T20:20:48.943+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:49.373+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Welcome to Genpact Talent Community!
+2025-05-14T20:20:49.373+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:49.755+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank you for your application to Nielsen
+2025-05-14T20:20:49.755+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:50.377+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Your job application at Accrualify Inc was received!
+2025-05-14T20:20:50.377+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:50.791+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : XenonStack Hiring Portal
+2025-05-14T20:20:50.791+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:51.190+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank you for applying for Software Development Engineer - I - Backend New at Meesho!
+2025-05-14T20:20:51.190+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:51.590+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Kharanshu, Thank you for your application to Zoom Video Communications
+2025-05-14T20:20:51.590+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:51.989+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Email verification code: 473157
+2025-05-14T20:20:51.989+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:52.764+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Security alert
+2025-05-14T20:20:52.764+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:53.160+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thanks for applying to Infor!
+2025-05-14T20:20:53.160+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:53.631+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank You for Your Application!
+2025-05-14T20:20:53.631+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:54.205+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Invitation from an unknown sender: CMSS Aptitude Test - 1 (C-Dac 10) @ Tue 21 Nov 2023 6pm - 7pm (IST) (kharanshuw@gmail.com)
+2025-05-14T20:20:54.205+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:54.589+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Saama: Online Test Credentials
+2025-05-14T20:20:54.589+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:54.954+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Software Engineer 2 @ Dell Technologies
+2025-05-14T20:20:54.954+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:55.383+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Deadline to Apply for Live Project in Data-Driven Decision Making
+2025-05-14T20:20:55.383+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:55.830+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Class Recording : Getting started with Web development
+2025-05-14T20:20:55.830+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:56.230+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : DataEconomy - Fresher Drive Interview 2022/23 :
+2025-05-14T20:20:56.230+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:56.742+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : DataEconomy - LinkedIn Drive - Fresher 2022/23
+2025-05-14T20:20:56.742+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:57.107+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Kharanshu, does color psychology intrigue you? Attend this free expert session!
+2025-05-14T20:20:57.107+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:57.506+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Important: Email ID Verification for Your Savings/Salary Account Opening
+2025-05-14T20:20:57.506+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:57.911+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Updation of your Mobile Number
+2025-05-14T20:20:57.911+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:58.320+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Updation of your Email ID
+2025-05-14T20:20:58.320+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:58.707+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : You've been Selected for Assessment Round for CDAC - Fresher Drive (Aptitude) 2
+2025-05-14T20:20:58.707+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:59.106+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : MCQ round Completed!
+2025-05-14T20:20:59.106+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:59.474+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : You've been Selected for Assessment Round for CDAC - Technical MCQ (Java)
+2025-05-14T20:20:59.474+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:20:59.867+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : MCQ round Completed!
+2025-05-14T20:20:59.867+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:00.622+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Application for QA Automation Fresher recieved, Thank you!
+2025-05-14T20:21:00.622+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:00.974+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Confirm your identity
+2025-05-14T20:21:00.990+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:01.342+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Your recent job application for Advisory Software Engineering Executive - INTG10012528
+2025-05-14T20:21:01.342+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:02.029+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thanks for submitting your application for a job at Amrut Software
+2025-05-14T20:21:02.029+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:02.425+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Corporate Resources Application Successful | Use PrepAI to ace the interview⚡
+2025-05-14T20:21:02.425+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:02.825+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Corporate Resources Application Successful | Use PrepAI to ace the interview⚡
+2025-05-14T20:21:02.825+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:03.222+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : A.P. Moller - Maersk Application Successful | Use PrepAI to ace the interview⚡
+2025-05-14T20:21:03.222+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:03.622+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Indeed Application: Development Associate Freshers
+2025-05-14T20:21:03.622+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:04.183+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Kharanshu, your contest is open for participation
+2025-05-14T20:21:04.183+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:04.690+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Bristlecone Group Discussion - 1
+2025-05-14T20:21:04.690+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:05.721+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Verify your candidate account
+2025-05-14T20:21:05.726+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:06.520+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Your Application
+2025-05-14T20:21:06.520+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:07.215+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank You for Applying at AMD
+2025-05-14T20:21:07.215+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:08.284+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Your single-use code
+2025-05-14T20:21:08.284+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:08.664+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Your Code - 23514
+2025-05-14T20:21:08.664+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:09.096+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Indeed Application: Java Developer
+2025-05-14T20:21:09.096+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:09.560+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Indeed Application: JAVA Developer-Junior Engineer
+2025-05-14T20:21:09.560+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:10.034+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Indeed Application: Associate Software Trainee
+2025-05-14T20:21:10.034+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:10.542+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Indeed Application: Software Developer
+2025-05-14T20:21:10.542+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:11.021+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : YASH- Technologies - Welcome / Thanks for Creating Account
+2025-05-14T20:21:11.021+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:11.389+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Keep track of your application
+2025-05-14T20:21:11.389+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------
+2025-05-14T20:21:11.757+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : Thank you for Applying to Amazon!
+2025-05-14T20:21:11.757+05:30  INFO 7624 --- [demo] [main] c.e.demo.service.impl.EmailServiceImpl   : -----------------------------------------------------------------

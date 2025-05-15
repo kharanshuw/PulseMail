@@ -15,6 +15,7 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin("*")
 public class ApiController {
 
     Logger logger = LoggerFactory.getLogger(ApiController.class);
@@ -43,20 +44,20 @@ public class ApiController {
 
         logger.info("Received request to send email: {}", emailRequest);
 
-        if (emailRequest.getToString() == null || emailRequest.getToString().isBlank()) {
+        if (emailRequest.getTo() == null || emailRequest.getTo().isBlank()) {
             logger.warn("Validation failed: Recipient email is empty.");
 
             return ResponseEntity.badRequest().body("Recipient email is required.");
         }
 
-        if (emailRequest.getSubjectString() == null || emailRequest.getSubjectString().isBlank()) {
+        if (emailRequest.getSubject() == null || emailRequest.getSubject().isBlank()) {
 
             logger.warn("Validation failed: Email subject is empty.");
 
             return ResponseEntity.badRequest().body("Email subject is required.");
         }
 
-        if (emailRequest.getMessageString() == null || emailRequest.getMessageString().isBlank()) {
+        if (emailRequest.getMessage() == null || emailRequest.getMessage().isBlank()) {
 
             logger.warn("Validation failed: Email message is empty.");
 
@@ -65,12 +66,12 @@ public class ApiController {
 
         // ✅ Call the email service to send an email with the provided details
 
-        logger.info("Sending email to: {}, Subject: {}", emailRequest.getToString(), emailRequest.getSubjectString());
+        logger.info("Sending email to: {}, Subject: {}", emailRequest.getTo(), emailRequest.getSubject());
 
-        emailService.sendEmail(emailRequest.getToString(), emailRequest.getSubjectString(),
-                emailRequest.getMessageString(), "kharanshuw@gmail.com");
+        emailService.sendEmailWithHtml(emailRequest.getTo(), emailRequest.getSubject(),
+                emailRequest.getMessage(), "kharanshuw@gmail.com");
 
-        logger.info("Email sent successfully to {}", emailRequest.getToString());
+        logger.info("Email sent successfully to {}", emailRequest.getTo());
 
         // ✅ Prepare a custom response object to indicate success
 
@@ -85,7 +86,6 @@ public class ApiController {
         return ResponseEntity.ok(customResponseBuilder);
     }
 
-
     /**
      * Sends an email with a file attachment.
      * <p>
@@ -93,25 +93,27 @@ public class ApiController {
      * It then invokes the {@link EmailService} to send the email.
      * </p>
      *
-     * @param emailRequest The email request containing recipient, subject, and message.
+     * @param emailRequest The email request containing recipient, subject, and
+     *                     message.
      * @param file         The attached file to be sent along with the email.
      * @return {@link ResponseEntity} containing the response status and message.
-     * @throws IllegalArgumentException If required fields in {@code emailRequest} are missing.
-     * @throws IOException              If there is an issue processing the attached file.
+     * @throws IllegalArgumentException If required fields in {@code emailRequest}
+     *                                  are missing.
+     * @throws IOException              If there is an issue processing the attached
+     *                                  file.
      */
     @PostMapping("/send_email_with_file")
-    public ResponseEntity<CustomResponseBuilder> sendEmailWithFile(@RequestPart("emailrequest") EmailRequest emailRequest,
-                                                                   @RequestPart("file") MultipartFile file) throws IOException {
-
+    public ResponseEntity<CustomResponseBuilder> sendEmailWithFile(
+            @RequestPart("emailrequest") EmailRequest emailRequest,
+            @RequestPart("file") MultipartFile file) throws IOException {
 
         logger.info("Received request to send email with file: {}", file.getOriginalFilename());
-
 
         try {
 
             // ✅ Validate the email request to ensure required fields are provided
 
-            if (emailRequest.getToString() == null || emailRequest.getToString().isBlank()) {
+            if (emailRequest.getTo() == null || emailRequest.getTo().isBlank()) {
 
                 logger.warn("Validation failed: Recipient email is empty.");
 
@@ -125,7 +127,7 @@ public class ApiController {
 
                 return ResponseEntity.badRequest().body(customResponseBuilder);
             }
-            if (emailRequest.getSubjectString() == null || emailRequest.getSubjectString().isBlank()) {
+            if (emailRequest.getSubject() == null || emailRequest.getSubject().isBlank()) {
                 logger.warn("Validation failed: Email subject is empty.");
 
                 CustomResponseBuilder customResponseBuilder = new CustomResponseBuilder();
@@ -138,7 +140,7 @@ public class ApiController {
 
                 return ResponseEntity.badRequest().body(customResponseBuilder);
             }
-            if (emailRequest.getMessageString() == null || emailRequest.getMessageString().isBlank()) {
+            if (emailRequest.getMessage() == null || emailRequest.getMessage().isBlank()) {
                 logger.warn("Validation failed: Email message is empty.");
 
                 CustomResponseBuilder customResponseBuilder = new CustomResponseBuilder();
@@ -148,7 +150,6 @@ public class ApiController {
                 customResponseBuilder.setStatus(HttpStatus.BAD_REQUEST);
 
                 customResponseBuilder.setSuccess(false);
-
 
                 return ResponseEntity.badRequest().body(customResponseBuilder);
             }
@@ -167,7 +168,8 @@ public class ApiController {
 
             }
 
-            logger.info("Attempting to send email to: {}, Subject: {}", emailRequest.getToString(), emailRequest.getSubjectString());
+            logger.info("Attempting to send email to: {}, Subject: {}", emailRequest.getTo(),
+                    emailRequest.getSubject());
 
             // ✅ Extract Content Type (MIME Type)
 
@@ -192,18 +194,18 @@ public class ApiController {
 
             logger.info("file name updated after adding extention " + originalName);
 
-
             // ✅ Send the email along with the file attachment
 
-            emailService.sendEmailWithFile(emailRequest.getToString(), 
-                    emailRequest.getSubjectString(), 
-                    emailRequest.getMessageString(), 
-                    file.getInputStream(), 
+            emailService.sendEmailWithFile(emailRequest.getTo(),
+                    emailRequest.getSubject(),
+                    emailRequest.getMessage(),
+                    file.getInputStream(),
                     "kharanshuw@gmail.com", originalName);
 
-            logger.info("Email sent successfully to {}", emailRequest.getToString());
+            logger.info("Email sent successfully to {}", emailRequest.getTo());
 
-            CustomResponseBuilder customResponseBuilder1 = new CustomResponseBuilder("email send successfully", HttpStatus.OK, true);
+            CustomResponseBuilder customResponseBuilder1 = new CustomResponseBuilder("email send successfully",
+                    HttpStatus.OK, true);
 
             return ResponseEntity.ok(customResponseBuilder1);
 

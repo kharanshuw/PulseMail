@@ -1,13 +1,18 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.model.EmailMessage;
 import com.example.demo.service.EmailService;
 import jakarta.activation.DataSource;
+import jakarta.mail.Folder;
 import jakarta.mail.MessagingException;
+import jakarta.mail.Session;
+import jakarta.mail.Store;
 import jakarta.mail.internet.MimeMessage;
 import jakarta.mail.util.ByteArrayDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -16,12 +21,30 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.InputStream;
+import java.security.NoSuchProviderException;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Properties;
 
 @Service
 public class EmailServiceImpl implements EmailService {
 
     private JavaMailSender javaMailSender;
+
+    @Value("${mail.store.protocol}")
+    private String protocol;
+
+    @Value("${mail.imaps.host}")
+    private String host;
+
+    @Value("${mail.imaps.port}")
+    private String port;
+
+    @Value("${spring.mail.username}")
+    private String username;
+
+    @Value("${spring.mail.password}")
+    private String password;
 
     private final Logger logger = LoggerFactory.getLogger(EmailServiceImpl.class);
 
@@ -319,7 +342,7 @@ public class EmailServiceImpl implements EmailService {
      *                                  issue.
      */
     public void sendEmailWithFile(String to, String subjecString, String messageString, InputStream inputStream,
-                                  String fromString, String filenameString) {
+            String fromString, String filenameString) {
 
         try {
             logger.info("Starting email send process with attachment.");
@@ -401,5 +424,38 @@ public class EmailServiceImpl implements EmailService {
 
     }
 
+    public List<EmailMessage> getInboxMessages() {
+        try {
 
+            Properties properties = new Properties();
+
+            properties.setProperty("mail.store.protocol", protocol);
+
+            properties.setProperty("mail.imaps.host", host);
+
+            properties.setProperty("mail.imaps.port", port);
+
+            Session session = Session.getDefaultInstance(properties);
+
+            Store store = session.getStore();
+
+            store.connect(username, password);
+
+            Folder folder = store.getFolder("INBOX");
+
+            folder.open(Folder.READ_ONLY);
+
+            jakarta.mail.Message[] messages = folder.getMessages();
+
+            for (jakarta.mail.Message message : messages) {
+                logger.info(message.getSubject());
+                logger.info("-----------------------------------------------------------------");
+            }
+
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
+        return null;
+    }
 }

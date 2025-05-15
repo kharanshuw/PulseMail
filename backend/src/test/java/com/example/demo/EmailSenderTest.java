@@ -75,4 +75,9 @@ public class EmailSenderTest {
 
     }
 
+
+@Test
+    public void getInboxMessages(){
+        emailService.getInboxMessages();
+    }
 }

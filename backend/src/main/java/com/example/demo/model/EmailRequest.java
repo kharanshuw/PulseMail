@@ -1,41 +1,44 @@
 package com.example.demo.model;
 
 public class EmailRequest {
-    private String toString;
+    private String to;
 
-    private String subjectString;
+    private String subject;
 
-    private String messageString;
+    private String message;
 
-    public String getToString() {
-        return toString;
+    public String getTo() {
+        return to;
     }
 
-    public void setToString(String toString) {
-        this.toString = toString;
+    public void setTo(String to) {
+        this.to = to;
     }
 
-    public String getSubjectString() {
-        return subjectString;
+    public String getSubject() {
+        return subject;
     }
 
-    public void setSubjectString(String subjectString) {
-        this.subjectString = subjectString;
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
-    public String getMessageString() {
-        return messageString;
+    public String getMessage() {
+        return message;
     }
 
-    public void setMessageString(String messageString) {
-        this.messageString = messageString;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     @Override
     public String toString() {
-        return "EmailRequest [toString=" + toString + ", subjectString=" + subjectString + ", messageString="
-                + messageString + "]";
+        return "EmailRequest [to=" + to + ", subject=" + subject + ", message=" + message + "]";
     }
+
+    
+
+    
 
     
 }

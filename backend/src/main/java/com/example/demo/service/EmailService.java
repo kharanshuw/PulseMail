@@ -2,6 +2,9 @@ package com.example.demo.service;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.List;
+
+import com.example.demo.model.EmailMessage;
 
 public interface EmailService {
 
@@ -15,4 +18,6 @@ public interface EmailService {
 
     public void sendEmailWithFile(String to, String subjecString, String messageString, InputStream inputStream,
             String fromString, String filenameString);
+
+    public List<EmailMessage> getInboxMessages();
 }
