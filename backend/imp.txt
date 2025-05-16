@@ -16,7 +16,7 @@ mvn -Dtest=EmailSenderTest#emailwithfile test
 mvn -Dtest=EmailSenderTest#emailwithinputstram test
 
 
-mvn -Dtest=EmailSenderTest#testGetInboxMessages  test
+mvn -Dtest=EmailTest#reciveingemail test
  
 
 

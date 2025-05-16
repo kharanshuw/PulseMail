@@ -1,0 +1,3 @@
+
+//command to run specific method of springboottest
+mvn -Dtest=EmailTest#reciveingemail test
