@@ -1,0 +1,156 @@
+Problem Statement: Online Shopping System
+
+You are tasked with developing a simplified version of an online shopping system. The system should have the following functionalities:
+
+1. Users: There are two types of users: Customers and Admins. Customers can browse products, add them to their cart, and proceed to checkout. Admins can add new products, remove existing products, and view all orders.
+
+2. Products: Each product has a name, price, and quantity available.
+
+3. Cart: Customers can add products to their cart, view their cart, remove items from the cart, and proceed to checkout.
+
+4. Orders: After checkout, an order is created containing the list of products purchased, total price, and customer information.
+
+5. Interfaces: Implement interfaces such as `Product`, `User`, `Cart`, and `Order` to ensure proper encapsulation and abstraction.
+
+
+
+Sol
+import java.util.*;
+// Interface for product
+interface Product {
+    String getName();
+    double getPrice();
+    int getQuantity();
+}
+
+// Class representing a product
+class ConcreteProduct implements Product {
+    private String name;
+    private double price;
+    private int quantity;
+
+    public ConcreteProduct(String name, double price, int quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public double getPrice() {
+        return price;
+    }
+
+    @Override
+    public int getQuantity() {
+        return quantity;
+    }
+}
+
+// Interface for user
+interface User {
+    String getName();
+}
+
+// Class representing a customer
+class Customer implements User {
+    private String name;
+
+    public Customer(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+}
+
+// Interface for cart
+interface Cart {
+    void addProduct(Product product, int quantity);
+    void removeProduct(Product product);
+    void viewCart();
+}
+
+// Class representing a shopping cart
+class ShoppingCart implements Cart {
+    private Map<Product, Integer> cartItems;
+
+    public ShoppingCart() {
+        cartItems = new HashMap<>();
+    }
+
+    @Override
+    public void addProduct(Product product, int quantity) {
+        cartItems.put(product, cartItems.getOrDefault(product, 0) + quantity);
+    }
+
+    @Override
+    public void removeProduct(Product product) {
+        cartItems.remove(product);
+    }
+
+    @Override
+    public void viewCart() {
+        for (Map.Entry<Product, Integer> entry : cartItems.entrySet()) {
+            System.out.println("Product: " + entry.getKey().getName() + ", Quantity: " + entry.getValue());
+        }
+    }
+}
+
+// Interface for order
+interface Order {
+    double calculateTotal();
+}
+
+// Class representing an order
+class ConcreteOrder implements Order {
+    private List<Product> products;
+
+    public ConcreteOrder(List<Product> products) {
+        this.products = products;
+    }
+
+    @Override
+    public double calculateTotal() {
+        double total = 0;
+        for (Product product : products) {
+            total += product.getPrice();
+        }
+        return total;
+    }
+}
+
+public class OnlineShoppingSystem {
+    public static void main(String[] args) {
+        // Creating products
+        Product product1 = new ConcreteProduct("Laptop", 1000.0, 5);
+        Product product2 = new ConcreteProduct("Smartphone", 500.0, 10);
+
+        // Creating a customer
+        User customer = new Customer("John");
+
+        // Adding products to cart
+        Cart cart = new ShoppingCart();
+        cart.addProduct(product1, 2);
+        cart.addProduct(product2, 3);
+
+        // Viewing cart
+        cart.viewCart();
+
+        // Creating an order
+        List<Product> productsInOrder = new ArrayList<>(cart.cartItems.keySet());
+        Order order = new ConcreteOrder(productsInOrder);
+
+        // Calculating total
+        double total = order.calculateTotal();
+        System.out.println("Total: $" + total);
+    }
+}
+
+

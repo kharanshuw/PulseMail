@@ -1,18 +1,21 @@
 package com.example.demo;
 
+import com.example.demo.model.EmailMessage;
 import com.example.demo.service.EmailService;
 import com.example.demo.service.impl.EmailServiceImpl;
-
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.List;
 
 @SpringBootTest
 public class EmailSenderTest {
@@ -76,8 +79,20 @@ public class EmailSenderTest {
     }
 
 
-@Test
-    public void getInboxMessages(){
-        emailService.getInboxMessages();
+    @Test
+    public void testGetInboxMessages() {
+        // ✅ Call service method
+        List<EmailMessage> messages = emailService.getInboxMessages();
+
+        // ✅ Assertions
+        assertNotNull(messages, "Inbox messages list should not be null");
+        assertTrue(messages.size() > 0, "There should be at least one email in the inbox");
+
+        // ✅ Verify first message properties (adjust assertions based on expected behavior)
+        EmailMessage email = messages.get(0);
+        assertNotNull(email.getSubject(), "Email subject should not be null");
+        assertNotNull(email.getContent(), "Email content should not be null");
+        assertNotNull(email.getFiles(), "Attachments list should not be null");
     }
+
 }

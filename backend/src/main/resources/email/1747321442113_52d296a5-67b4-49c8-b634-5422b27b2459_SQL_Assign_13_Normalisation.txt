@@ -1,0 +1,28 @@
+Database Normalization Assignment
+Scenario:
+You are tasked with designing and normalizing a database for a small online bookstore. The bookstore needs to keep track of information about books, authors, customers, orders, and sales. The initial database design is not normalized, and your job is to normalize it to at least 3rd normal form.
+
+Tasks:
+Analyze the Initial Database Design:
+Review the initial database design and identify tables, attributes, primary keys, foreign keys, and potential normalization issues.
+
+Identify Functional Dependencies:
+Identify functional dependencies in the database schema. List them for each table.
+
+Normalize the Database to 1st Normal Form (1NF):
+Modify the initial design to ensure that it complies with the requirements of 1st Normal Form.
+
+Normalize the Database to 2nd Normal Form (2NF):
+Ensure that the database design complies with the requirements of 2nd Normal Form. Break down tables as needed.
+
+Normalize the Database to 3rd Normal Form (3NF):
+Ensure that the database design complies with the requirements of 3rd Normal Form. Break down tables as needed.
+
+Write SQL Scripts:
+Provide SQL scripts to create the normalized tables in the database.
+
+Explain the Normalization Process:
+Write a brief explanation of the steps you took to normalize the database, highlighting the transformations made at each step.
+
+Demonstrate Sample Queries:
+Write sample SQL queries that demonstrate how to retrieve information from the normalized tables, ensuring the integrity of the data.

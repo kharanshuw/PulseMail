@@ -1,0 +1,29 @@
+1. Abstract Shapes: Create an abstract class "Shape" with abstract methods for calculating area and perimeter. Implement concrete classes for various shapes such as Circle, Rectangle, and Triangle inheriting from the Shape class.
+
+2. Final Class Example: Design a final class "MathConstants" containing final fields for mathematical constants like PI and E. Demonstrate how to use these constants in a Java program.
+
+3. Static Utility Class: Develop a static utility class "StringUtils" with static methods for common string operations like reversing a string, counting occurrences of a substring, and converting a string to uppercase.
+
+4. Interface Implementation: Define an interface "Animal" with methods like eat(), sleep(), and makeSound(). Create classes like Dog, Cat, and Bird implementing this interface and provide their own implementations for these methods.
+
+5. Abstract Banking System: Design an abstract class "BankAccount" with abstract methods for deposit, withdraw, and balance inquiry. Extend this class to create concrete classes like SavingsAccount and CurrentAccount with their specific implementation.
+
+6. Final Method Usage: Create a final class "Calculator" with a final method "add" for adding two numbers. Demonstrate how to use this class and method in a Java program.
+
+7. Static Factory Method: Implement a static factory method in a class "ConnectionManager" to obtain database connections. Ensure that only a limited number of connections are allowed to be created.
+
+8. Interface for Database Operations: Define an interface "DatabaseOperations" with methods for CRUD operations (Create, Read, Update, Delete) on a database. Implement this interface in classes like MySQLDatabase and OracleDatabase.
+
+9. Abstract Geometric Shapes: Extend the Shape example by adding abstract methods for calculating volume in the abstract Shape class. Implement concrete classes like Sphere, Cube, and Cylinder inheriting from Shape and providing their volume calculation logic.
+
+10. Final Variable Usage: Create a final class "Constants" with final variables for representing various physical constants like the speed of light, gravitational constant, and Planck's constant. Demonstrate how to access these constants in a Java program.
+
+11. Abstract Employee Management System: Design an abstract class "Employee" with abstract methods for calculating salary and displaying employee information. Implement concrete classes like "HourlyEmployee" and "SalariedEmployee" inheriting from the Employee class, each with its own salary calculation logic.
+
+12. Final Method in Inheritance Hierarchy: Create a final method "displayInfo" in a base class "Person" for displaying basic information like name and age. Extend this class to create derived classes like "Student" and "Teacher" and ensure that the "displayInfo" method cannot be overridden.
+
+13. Static Counter Implementation: Implement a static counter in a class "Product" to keep track of the number of instances created. Ensure that each time a new instance of the Product class is created, the counter increments automatically.
+
+14. Interface for Sorting Algorithms: Define an interface "SortingAlgorithm" with a method "sort" for sorting arrays. Implement this interface in classes like "BubbleSort", "MergeSort", and "QuickSort", each providing its own sorting algorithm implementation.
+
+15. Final Constructor Example: Create a final class "ImmutablePoint" representing a point in 2D space with final fields for x and y coordinates. Ensure that the class has a constructor to initialize these coordinates, but once initialized, they cannot be modified.

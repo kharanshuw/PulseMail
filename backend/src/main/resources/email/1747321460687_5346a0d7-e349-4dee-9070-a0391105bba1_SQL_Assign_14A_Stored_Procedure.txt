@@ -1,0 +1,15 @@
+1. **Retrieve Actor Information by Last Name**:
+   Write a procedure that accepts an actor's last name as input and returns a list of all actors with that last name, including their first name, last name, and actor ID.
+
+2. **List Films by Category**:
+   Create a procedure that takes a category name as input and returns all films in that category, including film title, description, release year, and rating.
+
+3. **Calculate Total Payment by Customer**:
+   Develop a procedure that accepts a customer ID and returns the total amount paid by that customer. The result should include the customer ID, first name, last name, and total payment amount.
+
+4. **Count Rentals by Date Range**:
+   Implement a procedure that accepts a start date and an end date and returns the number of rentals made within that date range. Include the rental ID and rental date in the results.
+
+5. **Update Film Rental Rate**:
+   Write a procedure to update the rental rate of a specific film. The procedure should accept the film ID and the new rental rate as inputs and then update the rental rate for that film in the database. Return the film ID, old rental rate, and new rental rate as output.
+

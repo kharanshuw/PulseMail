@@ -1,0 +1,29 @@
+Problem Statement 1: Retrieve Customer Information with Rental History
+Retrieve the customer's first name, last name, and the number of rentals they have made. Include customers who have not made any rentals as well.
+
+Problem Statement 2: Display Films and Their Rental Count
+Display film titles along with the number of times each film has been rented. Include films that have not been rented at all.
+
+Problem Statement 3: List Customers and Their Rentals
+List customers with their rental details (rental ID, rental date, and return date if available). Include customers who have not made any rentals.
+
+Problem Statement 4: Show Films and Customers Who Rented Them
+Display film titles and the names of customers who have rented each film. Include films that have not been rented.
+
+Problem Statement 5: Explore Rental Returns and Late Fees
+Retrieve rental ID, return date, and any associated late fees. Include rentals that have not been returned yet, displaying a NULL return date for these rentals.
+
+Problem Statement 1: Retrieve Films and Rental Details
+Retrieve film titles and rental details (rental ID, rental date, and return date if available). Include films that have not been rented.
+
+Problem Statement 2: Display Rentals and Associated Customers
+Display rental details (rental ID, rental date, and return date if available) along with the names of customers who made those rentals. Include rentals that have not been rented.
+
+Problem Statement 3: List Payments with Customer Information
+List payment details (payment ID, amount, and payment date) along with the names of customers who made those payments. Include payments that have not been made.
+
+Problem Statement 4: Show Actors and Films They Acted In
+Display actor names and the titles of films they have acted in. Include actors who have not acted in any films.
+
+Problem Statement 5: Explore Staff and Their Associated Stores
+Retrieve staff details (staff ID, first name, last name) and the store they are associated with. Include staff who are not associated with any store.

@@ -1,0 +1,14 @@
+In Java, "Exception" and "Error" are both subclasses of the Throwable class, but they serve different purposes:
+
+1. Exception:
+   - Exceptions represent exceptional conditions that a Java program should catch and handle. They are generally caused by external factors that the program can anticipate and recover from.
+   - Exceptions are further divided into checked exceptions and unchecked exceptions.
+     - Checked exceptions are exceptions that must be either caught or declared in the method signature using the `throws` keyword. Examples include IOException, SQLException, etc.
+     - Unchecked exceptions, also known as runtime exceptions, do not need to be caught or declared. They typically indicate programming errors and are not recoverable at runtime. Examples include NullPointerException, ArrayIndexOutOfBoundsException, etc.
+
+2. Error:
+   - Errors, on the other hand, represent serious problems that are typically beyond the control of the program. They are not meant to be caught or handled by normal program flow.
+   - Errors are often caused by system failures, resource exhaustion, or other critical issues that the program cannot reasonably recover from.
+   - Examples of errors include OutOfMemoryError, StackOverflowError, etc.
+
+In summary, exceptions are meant to be caught and handled within the program logic, while errors are typically severe problems that are not expected to be recovered from during normal program execution.

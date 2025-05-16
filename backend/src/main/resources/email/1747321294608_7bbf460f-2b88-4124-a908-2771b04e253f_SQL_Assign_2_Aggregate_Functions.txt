@@ -1,0 +1,47 @@
+### Problem 1:
+**Find the total number of films in the database.**
+
+### Problem 2:
+**Find the average rental rate of all films.**
+
+### Problem 3:
+**Find the total number of rentals made.**
+
+### Problem 4:
+**Find the highest replacement cost of any film.**
+
+### Problem 5:
+**Find the total revenue generated from rentals.**
+
+### Problem 6:
+**Find the average length of films.**
+
+### Problem 7:
+**Find the minimum rental duration among all films.**
+
+### Problem 8:
+**Find the total number of distinct customer IDs in the rental table.**
+
+### Problem 9:
+**Find the average payment amount made by customers.**
+
+### Problem 10:
+**Find the total number of inventory items available.**
+
+### Problem 11:
+**Find the total number of distinct films rented.**
+
+### Problem 12:
+**Find the highest payment amount made by any customer.**
+
+### Problem 13:
+**Find the average length of films that have a rating of 'PG'.**
+
+### Problem 14:
+**Find the total number of payments made in May 2005.**
+
+### Problem 15:
+**Find the total number of films with a rental duration of 7 days.**
+
+### Problem 16:
+**Find the average replacement cost of films with a rental rate of 2.99.**

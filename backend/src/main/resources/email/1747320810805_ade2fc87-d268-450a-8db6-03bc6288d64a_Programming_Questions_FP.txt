@@ -1,0 +1,44 @@
+Program 1
+An array contains 30 integers. Write a program to read every 3rd element of the array, compute the square of the array and print the addition of all the suqares
+E.g. [1,2,2,4,5,6,7,8,3,10]
+Answer is (2x2) + (6x6) + (3x3) = 49
+
+Program 2
+Given five positive integers, find the minimum and maximum values that can be calculated by summing exactly four of the five integers. Then print the respective minimum and maximum values as a single line of two space-separated long integers.
+E.g. arr = [9,5,3,7,1]
+The minimum is 1+3+5+7 = 16 and the maximum is sum is 3+5+7+9 = 24.
+Then print 16 24
+
+Program 3
+Given a time in -hour AM/PM format, convert it to military (24-hour) time.
+Note: - 12:00:00AM on a 12-hour clock is 00:00:00 on a 24-hour clock.12:00:00PM on a 12-hour clock is 12:00:00 on a 24-hour clock.
+Example: s = “12:01:01PM” should return '12:01:00' and “12:01:00AM” should return '00:01:00'.
+
+Program 4
+Write a Java Program to check whether a given year is a leap year or not. 
+
+Program 5
+Java Program to Find the Sum of n Square Numbers.
+sum = n*(n+1)*(2n+1)/6
+
+Program 6
+Java Program to find if a number is prime or not. A number is said to be a prime number if it is divisible only by itself and unity.
+It should print all the prime number from 1 – 100;
+
+Program 7 :. Write a Java Program to Find Sum of the Series 1/1! + 2/2! + 3/3! + ……1/N!
+Program 8 : Write a Java Program to Count the Number of Occurrence of a number in an Array
+Program 9 : Write a Java Program to Find the Largest and Smallest Word in a String
+
+8.Write a Java program to convert days into Year, Months and Days
+9. Write a Java program to convert Integer value into Binary
+10. Write a Java program to remove duplicate values from array
+11. Write a Java program to multiply 2 matrices
+12. Write a Java program to reverse each word in sentence
+
+13.	Write a program to get maximum element from Vector
+14.	Write a program to perform binary search on Vector
+15.	Write a program to rotate a list for specified number of positions
+16.	What is TreeSet? Write a program showing its implementation
+17.	What is TreeMap? Write a program showing its implementation
+
+

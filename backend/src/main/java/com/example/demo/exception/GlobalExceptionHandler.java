@@ -1,11 +1,11 @@
 package com.example.demo.exception;
 
-import java.time.LocalDateTime;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.time.LocalDateTime;
 
 /**
  * Global Exception Handler for REST API.
@@ -16,7 +16,7 @@ public class GlobalExceptionHandler {
 
     /**
      * Handles generic exceptions.
-     * 
+     *
      * @param ex The exception thrown.
      * @return A standardized error response.
      */
@@ -31,7 +31,7 @@ public class GlobalExceptionHandler {
 
     /**
      * Handles IllegalArgumentException (e.g., validation errors).
-     * 
+     *
      * @param ex The exception thrown.
      * @return A bad request response.
      */

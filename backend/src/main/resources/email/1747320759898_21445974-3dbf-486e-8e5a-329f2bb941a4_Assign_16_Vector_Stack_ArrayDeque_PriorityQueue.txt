@@ -1,0 +1,43 @@
+1. Vector Operations: Implement a Java program that performs various operations on a vector, such as adding elements, removing elements, finding the size of the vector, and displaying its contents.
+
+2. Vector Sorting: Write a Java program that sorts a vector of integers in ascending order using the Vector class. Implement sorting algorithms such as bubble sort, selection sort, or insertion sort.
+
+3. Vector Search: Develop a Java program that searches for a specific element within a vector using the Vector class. Implement algorithms like linear search or binary search to efficiently locate the element.
+
+4. Vector Manipulation: Create a Java program that manipulates two vectors, performing operations like vector addition, subtraction, scalar multiplication, and dot product calculation using the Vector class.
+
+5. Vector Serialization: Design a Java application that serializes and deserializes a vector of custom objects using the Vector class. Save the vector to a file, then read it back into memory and reconstruct the original vector.
+
+Stack
+1. **Balanced Parentheses Checker**: Implement a Java program that checks whether a given string containing parentheses, brackets, and braces is balanced or not using the Stack class. The program should determine if the opening and closing symbols match correctly.
+
+2. **Postfix Expression Evaluator**: Write a Java program that evaluates a postfix expression using the Stack class. The program should support basic arithmetic operations like addition, subtraction, multiplication, and division.
+
+3. **Reverse String using Stack**: Develop a Java program that reverses a given string using the Stack class. The program should push each character onto the stack and then pop them off to construct the reversed string.
+
+4. **Expression Converter (Infix to Postfix)**: Create a Java program that converts an infix expression to a postfix expression using the Stack class. The program should handle operators like +, -, *, /, and parentheses.
+
+5. **Next Greater Element**: Design a Java program that finds the next greater element for each element in a given array using the Stack class. The program should output an array where each element represents the next greater element to the right in the original array.
+
+ArrayDeque
+
+1. **Palindrome Checker**: Develop a Java program that checks whether a given string is a palindrome or not using the ArrayDeque class. Utilize the deque data structure to efficiently compare characters from both ends of the string.
+
+2. **Sliding Window Maximum**: Write a Java program to find the maximum value in every sliding window of size k in a given array using the ArrayDeque class. Implement an efficient algorithm that maintains a deque of indices representing elements within the current window.
+
+3. **Queue Reconstruction by Height**: Implement a Java program that reconstructs a queue based on a list of people's heights and the number of people in front of them using the ArrayDeque class. Sort the people by height in non-decreasing order and insert them into the queue at the specified positions.
+
+4. **Minimum Stack with ArrayDeque**: Design a Java class that implements a stack supporting push, pop, top, and getMin operations using the ArrayDeque class. Ensure that the getMin operation returns the minimum element in the stack in constant time complexity.
+
+5. **Binary Tree Zigzag Level Order Traversal**: Create a Java program to perform a zigzag level order traversal of a binary tree using the ArrayDeque class. Traverse the tree level by level, alternating the direction of traversal between left and right at each level.
+
+PriorityQueue
+1. **Task Scheduler**: Develop a Java program that schedules tasks based on their priorities using the PriorityQueue class. Tasks with higher priority should be executed before tasks with lower priority. Implement operations such as adding tasks, removing tasks, and executing tasks based on their priority.
+
+2. **Merge K Sorted Lists**: Write a Java program to merge k sorted lists into one sorted list using the PriorityQueue class. The program should efficiently merge the lists by continually selecting the smallest element among the heads of the lists using a priority queue.
+
+3. **Kth Largest Element in an Array**: Implement a Java program to find the kth largest element in an unsorted array using the PriorityQueue class. The program should efficiently find the kth largest element by maintaining a priority queue of size k.
+
+4. **Dijkstra's Shortest Path Algorithm**: Design a Java program to find the shortest path in a weighted graph using Dijkstra's algorithm and the PriorityQueue class. The program should efficiently compute the shortest path from a source vertex to all other vertices in the graph.
+
+5. **Frequency Sort**: Develop a Java program that sorts an array of integers based on the frequency of occurrence using the PriorityQueue class. Elements with higher frequency should appear before elements with lower frequency, and elements with the same frequency should be sorted in non-decreasing order.

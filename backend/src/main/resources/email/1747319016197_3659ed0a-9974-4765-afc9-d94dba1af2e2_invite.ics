@@ -1,0 +1,53 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VTIMEZONE
+TZID:Asia/Kolkata
+X-LIC-LOCATION:Asia/Kolkata
+BEGIN:STANDARD
+TZOFFSETFROM:+0530
+TZOFFSETTO:+0530
+TZNAME:IST
+DTSTART:19700101T000000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Kolkata:20240107T170000
+DTEND;TZID=Asia/Kolkata:20240107T172000
+DTSTAMP:20240106T085559Z
+ORGANIZER;CN=Jyoti Das:mailto:0809jyotidas@gmail.com
+UID:nnr75e25h08hqee9rcflt0fou0@google.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE
+ ;CN=Jyoti Das;X-NUM-GUESTS=0:mailto:0809jyotidas@gmail.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=kirabiz.application@gmail.com;X-NUM-GUESTS=0:mailto:kirabiz.applica
+ tion@gmail.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=kharanshuw@gmail.com;X-NUM-GUESTS=0:mailto:kharanshuw@gmail.com
+X-GOOGLE-CONFERENCE:https://meet.google.com/rhk-vnoc-yon
+X-MICROSOFT-CDO-OWNERAPPTID:1462357346
+CREATED:20240106T085556Z
+DESCRIPTION:Event Name: Kirabiz Internship Interview\n\nThis is a Google Me
+ et web conference.\n\nYou can join this meeting from your computer\, tablet
+ \, or smartphone.\n\nLocation: This is a Google Meet web conference.\nYou c
+ an join this meeting from your computer\, tablet\, or smartphone.\nhttps://
+ calendly.com/events/4974773c-29e3-44df-b6e6-e538116516f3/google_meet\n\nPho
+ ne No.: +91 96890 25233\n\nNeed to make changes to this event?\nCancel: htt
+ ps://calendly.com/cancellations/d2605172-dc74-45f2-bec6-10980236a576\nResch
+ edule: https://calendly.com/reschedulings/d2605172-dc74-45f2-bec6-10980236a
+ 576\n\nPowered by Calendly.com\n\n\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~
+ :~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\nJoin with Google Meet: ht
+ tps://meet.google.com/rhk-vnoc-yon\n\nLearn more about Meet at: https://sup
+ port.google.com/a/users/answer/9282720\n\nPlease do not edit this section.\
+ n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:
+ ~:~:~::~:~::-
+LAST-MODIFIED:20240106T085556Z
+LOCATION:Google Meet (instructions in description)
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Kharanshu and KiraBiz
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

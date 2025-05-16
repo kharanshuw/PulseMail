@@ -1,0 +1,109 @@
+Calculating the time complexity of a piece of code involves analyzing how the runtime of the code increases with the size of the input. Here is a step-by-step guide to help you understand how to determine the time complexity, with a Java example.
+
+Step-by-Step Guide
+
+1. **Identify the basic operations**: Determine the fundamental operations performed by the code, such as arithmetic operations, comparisons, and assignments.
+
+2. **Count the operations in loops**: Analyze loops (for, while, etc.) to count how many times the basic operations inside them are executed.
+
+3. **Consider nested loops**: For nested loops, multiply the counts of operations in the inner loops by the number of times the outer loops execute.
+
+4. **Determine the dominant term**: Identify the term that grows the fastest as the input size increases. This term determines the time complexity.
+
+5. **Express in Big-O notation**: Use Big-O notation to express the time complexity, focusing on the dominant term and ignoring constant factors and less significant terms.
+
+Example in Java
+
+Let's analyze the following Java code to determine its time complexity:
+
+public class TimeComplexityExample {
+    public static void exampleMethod(int n) {
+        int sum = 0; // O(1)
+        
+        // Loop 1: Runs 'n' times
+        for (int i = 0; i < n; i++) { // O(n)
+            sum += i; // O(1) for each iteration, O(n) in total
+        }
+        
+        // Loop 2: Runs 'n' times, but inside another loop
+        for (int i = 0; i < n; i++) { // O(n)
+            for (int j = 0; j < n; j++) { // O(n) for each i, O(n * n) = O(n^2)
+                sum += i + j; // O(1) for each iteration, O(n^2) in total
+            }
+        }
+        
+        // Loop 3: Runs 'n' times with nested log(n) operations
+        for (int i = 0; i < n; i++) { // O(n)
+            int k = 1;
+            while (k < n) { // O(log n) for each i, O(n * log n) in total
+                sum += k;
+                k *= 2; // This results in log(n) iterations
+            }
+        }
+        
+        System.out.println(sum); // O(1)
+    }
+}
+
+Calculation of Time Complexity
+
+1. **Initialization**: The assignment `int sum = 0;` is a constant time operation, O(1).
+
+2. **First loop**:
+   ```java
+   for (int i = 0; i < n; i++) {
+       sum += i;
+   }
+   ```
+   - The loop runs `n` times.
+   - Each iteration performs a constant time operation, `sum += i`, which is O(1).
+   - Total time for this loop is O(n).
+
+3. **Second loop**:
+   ```java
+   for (int i = 0; i < n; i++) {
+       for (int j = 0; j < n; j++) {
+           sum += i + j;
+       }
+   }
+   ```
+   - The outer loop runs `n` times.
+   - The inner loop runs `n` times for each iteration of the outer loop.
+   - Each iteration of the inner loop performs a constant time operation, `sum += i + j`, which is O(1).
+   - Total time for this nested loop is O(n) * O(n) = O(n^2).
+
+4. **Third loop**:
+   for (int i = 0; i < n; i++) {
+       int k = 1;
+       while (k < n) {
+           sum += k;
+           k *= 2;
+       }
+   }
+   - The outer loop runs `n` times.
+   - The inner loop runs `log(n)` times for each iteration of the outer loop, because `k` is multiplied by 2 each time (`k *= 2`).
+   - Each iteration of the inner loop performs a constant time operation, `sum += k`, which is O(1).
+   - Total time for this nested loop is O(n) * O(log n) = O(n log n).
+
+5. **Final print statement**: The statement `System.out.println(sum);` is a constant time operation, O(1).
+
+### Total Time Complexity
+
+To find the overall time complexity, we combine the complexities of all parts:
+- O(1) (initialization)
+- O(n) (first loop)
+- O(n^2) (second loop)
+- O(n log n) (third loop)
+- O(1) (print statement)
+
+The dominant term among these is O(n^2), so the overall time complexity of the `exampleMethod` is **O(n^2)**.
+
+### Summary
+
+To determine the time complexity:
+1. Break down the code into basic operations.
+2. Analyze loops and nested loops to count the total number of operations.
+3. Identify the most significant term (the one that grows the fastest).
+4. Express the time complexity using Big-O notation.
+
+In this example, the most significant term was O(n^2) due to the nested loops, leading to an overall time complexity of O(n^2).

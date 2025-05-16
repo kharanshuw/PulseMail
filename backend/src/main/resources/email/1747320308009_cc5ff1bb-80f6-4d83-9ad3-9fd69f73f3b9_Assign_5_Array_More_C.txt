@@ -1,0 +1,9 @@
+1. Find a peak element which is not smaller than its neighbors
+2. Find the minimum and maximum element in an array	
+3. Find the Kth largest and Kth smallest number in an array	4. Find the Union and Intersection of the two sorted arrays
+5. Write a program to cyclically rotate an array by one
+6. Count Pairs with the given sum
+7. Find duplicates in an array
+8. Find the first repeating element in an array of integers
+9. Find the first non-repeating element in a given array of integers
+10. Count the number of occurances of numbers in an arrray of integers

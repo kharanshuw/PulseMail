@@ -1,0 +1,15 @@
+1. Palindrome Checker:
+   Write a Java program to check if a given string is a palindrome or not. The program should take a string input from the user and output whether the string is a palindrome or not.
+
+2. Factorial Calculation:
+   Write a Java program to calculate the factorial of a non-negative integer entered by the user. The program should use recursion to perform the factorial calculation.
+
+3. FizzBuzz:
+   Write a Java program that prints the numbers from 1 to 100. But for multiples of three, print "Fizz" instead of the number, and for the multiples of five, print "Buzz". For numbers that are multiples of both three and five, print "FizzBuzz".
+
+4. Binary Search:
+   Implement a binary search algorithm in Java to search for a specific element in a sorted array of integers. The program should take the array and the element to search for as inputs and return the index of the element if found, or -1 if not found.
+
+5. Matrix Multiplication:
+   Write a Java program to multiply two matrices of size m×n and n×p. The program should take the dimensions and elements of the two matrices as input from the user and output the resulting matrix after multiplication.
+

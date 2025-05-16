@@ -1,0 +1,10 @@
+Que 1: - Create a program to handle total earning (like you want to create a application for hotel booking and suppose 10 rooms book on that day).
+
+
+Que 2: - Implement a Java program that creates multiple threads, including one daemon thread. Each thread should perform a specific task. Observe the behavior of the daemon thread when the other threads finish execution.
+
+
+Que 3: - Implement a Java program that creates a thread and makes it sleep using the sleep() method. Interrupt the thread during its sleep and handle the InterruptedException to gracefully exit the thread.
+
+
+Que 4: - Create a Java program that simulates a bank account. Implement methods to deposit and withdraw money, and use synchronization to ensure that the account balance is updated correctly and that concurrent access is managed properly.

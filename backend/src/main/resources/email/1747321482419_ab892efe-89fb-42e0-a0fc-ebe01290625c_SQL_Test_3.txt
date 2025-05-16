@@ -1,0 +1,20 @@
+1. What is a stored procedure in the context of databases, and how does it differ from a regular SQL statement?
+2. Discuss the advantages and disadvantages of using stored procedures in a database system.
+3. How can stored procedures enhance the security and performance of a database application?
+4. Explain the purpose and functionality of a database function. Provide an example of a database function and its usage.
+5. Compare and contrast stored procedures and functions, highlighting their key differences and use cases.
+6. What is a database trigger? Describe its role and benefits in a database management system.
+7. Provide examples of scenarios where database triggers can be effectively utilized to maintain data integrity.
+8. Discuss the potential challenges and best practices associated with implementing triggers in a database.
+
+9. Explain the concept of an index in a database and how it improves query performance.
+10. Differentiate between clustered and non-clustered indexes, and explain when each type should be used.
+11. Discuss the impact of indexes on database write operations and how to mitigate potential drawbacks.
+12.Describe the JDBC (Java Database Connectivity) API and its significance in database programming.
+13. Explain the key components and steps involved in establishing a database connection using JDBC.
+14. Discuss prepared statements in the context of JDBC, including their advantages and usage compared to regular statements.
+
+
+
+
+

@@ -1,0 +1,95 @@
+Step 1: Identify Entities and Attributes
+
+Books
+ISBN (Primary Key)
+Title
+Publisher
+Publication Year
+Price
+Stock Quantity
+
+Authors
+Author ID (Primary Key)
+First Name
+Last Name
+
+Customers
+Customer ID (Primary Key)
+First Name
+Last Name
+Email
+Phone
+
+Orders
+Order ID (Primary Key)
+Customer ID (Foreign Key)
+Order Date
+Total Amount
+
+Sales (Sales items within an order)
+Sale ID (Primary Key)
+Order ID (Foreign Key)
+Book ISBN (Foreign Key)
+Quantity
+Subtotal
+
+Step 2: Analyze Dependencies and Relationships
+Books have a many-to-many relationship with Authors. An author can write multiple books, and a book can have multiple authors. To resolve this, we'll need an intermediate table.
+Orders have a many-to-one relationship with Customers, meaning a customer can place multiple orders.
+Sales have a many-to-one relationship with Orders, as each sale item is part of a specific order. Each sale item is also associated with a specific book.
+
+Step 3: Normalize the Database
+1st Normal Form (1NF)
+Ensure that each column contains atomic (indivisible) values, and there are no repeating groups.
+Books
+ISBN, Title, Publisher, Publication Year, and Price are atomic.
+Authors
+Author ID, First Name, and Last Name are atomic.
+Customers
+Customer ID, First Name, Last Name, Email, and Phone are atomic.
+Orders
+Order ID, Customer ID, Order Date, and Total Amount are atomic.
+Sales
+Sale ID, Order ID, Book ISBN, Quantity, and Subtotal are atomic.
+
+2nd Normal Form (2NF)
+Ensure that all non-key attributes are fully functionally dependent on the entire primary key.
+
+Books (No changes needed)
+Authors (No changes needed)
+Customers (No changes needed)
+Orders (No changes needed)
+Sales
+The combination of Sale ID is already dependent on Book ISBN. No partial dependencies exist.
+
+3rd Normal Form (3NF)
+Ensure that there are no transitive dependencies, i.e., non-key attributes depend only on the primary key.
+
+Books (No changes needed)
+Authors (No changes needed)
+Customers (No changes needed)
+Orders (No changes needed)
+Sales
+The Book ISBN and Quantity are dependent on Sale ID. However, the Subtotal is dependent on Quantity and Book ISBN. To achieve 3NF, create a new table for Books and their ISBN-Quantity associations:
+New Table: BookDetails
+Book ISBN (Primary Key)
+Quantity
+Subtotal
+The Sales table now references the BookDetails table by Book ISBN.
+
+Step 4: Final Entity-Relationship Diagram (ERD)
+The final ERD will consist of the following tables:
+
+Books
+Authors
+Customers
+Orders
+Sales
+BookDetails
+Each table should have a primary key, and foreign keys where necessary to maintain referential integrity.
+
+By following this normalization process, the database for the online bookstore is now in 3rd normal form, reducing data redundancy and ensuring data integrity.
+
+
+
+

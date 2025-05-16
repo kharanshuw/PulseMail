@@ -1,0 +1,50 @@
+1. **Filter out even numbers from a list of integers.
+2. **Find the maximum number in a list of integers.
+3. **Find the sum of all numbers in a list.
+4. **Convert a list of strings to uppercase.
+5. **Sort a list of strings alphabetically.
+6. **Get a list of unique numbers from a list with duplicates.
+7. **Count the number of elements in a list.
+8. **Find the average of a list of integers.
+9. **Check if any string in the list contains the letter 'a'.
+10. **Concatenate all strings in the list, separated by commas.
+11. **Filter out strings with length less than 5.**
+12. **Find the longest string in the list.**
+13. **Group a list of strings by their length.**
+14. **Partition a list of integers into even and odd.**
+15. **Calculate the product of all integers in a list.**
+16. **Remove the first element from a list using streams.**
+17. **Find the second highest number in a list of integers.**
+18. **Convert a list of integers to a list of their string representations.**
+19. **Check if all strings in the list are non-empty.**
+20. **Flatten a list of lists into a single list.**
+21. **Create a map from a list of strings with the string as the key and its length as the value.**
+22. **Find the first string that starts with the letter 'A'.**
+23. **Convert a list of integers to an array.**
+24. **Limit the list to the first 3 elements.**
+25. **Skip the first 2 elements in a list.**
+26. **Remove null elements from a list.**
+27. **Find the string with the minimum length.**
+28. **Join a list of strings with a custom separator.**
+29. **Find the frequency of each string in a list.**
+30. **Convert a list of integers to a list of their squares.**
+31. **Sort a list of strings by their lengths.**
+32. **Calculate the total length of all strings in the list.**
+33. **Filter out negative numbers from a list of integers.**
+34. **Reverse the order of a list of strings.**
+35. **Get a list of unique characters from a list of strings.**
+36. **Create a comma-separated string from a list of integers.**
+37. **Count how many strings in a list contain the letter 'e'.**
+38. **Create a map of string lengths and their corresponding strings.**
+39. **Calculate the average length of strings in a list.**
+40. **Filter and collect only positive numbers from a list.**
+41. **Concatenate a list of lists of strings into a single list of strings.**
+42. **Filter out strings that are palindromes.**
+43. **Create a list of the first letters of each string in a list.**
+44. **Find the string with the most occurrences of the letter 'a'.**
+45. **Remove duplicates from a list of strings while preserving order.**
+46. **Filter out numbers greater than a specified value.**
+47. **Create a set of all uppercase strings from a list.**
+48. **Calculate the sum of squares of a list of integers.**
+49. **Convert a list of strings to a map where the key is the string and the value is its reversed form.**
+50. **Find the shortest string in a list.**

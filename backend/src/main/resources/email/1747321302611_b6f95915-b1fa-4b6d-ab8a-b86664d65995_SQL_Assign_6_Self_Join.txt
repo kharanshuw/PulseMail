@@ -1,0 +1,16 @@
+Problem Statement 1: Retrieve Customers Who Have Rented the Same Film Twice
+Retrieve the customer IDs and film titles for customers who have rented the same film more than once.
+
+Problem Statement 2: Find Actors Who Have Worked Together in a Film
+Retrieve pairs of actor names who have worked together in the same film.
+
+Problem Statement 3: Identify Customers Who Share the Same Address
+Retrieve pairs of customer names who share the same address.
+
+Problem Statement 4: Find Employees and Their Managers
+Retrieve employee names and their corresponding manager names within the same department.
+
+Problem Statement 5: Identify Films with Similar Titles
+Retrieve pairs of film titles that have a similar title structure (e.g., differing by one character or having a common substring).
+
+

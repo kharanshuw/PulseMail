@@ -1,0 +1,10 @@
+1. Calculator Application: Create a simple calculator program that can perform basic arithmetic operations like addition, subtraction, multiplication, and division.
+
+2. Temperature Converter: Develop a program that converts temperatures between Celsius and Fahrenheit scales, allowing users to input a temperature in one scale and see the converted temperature in the other scale.
+
+3. Basic Address Book: Develop an address book program that allows users to store and manage contact information, including names, phone numbers, and email addresses.
+
+4. Simple ATM Simulator: Design a basic ATM simulator that allows users to check their balance, withdraw money, and deposit money into their account.
+
+5. Area Calculator: Build a program that calculates the area of basic geometric shapes like squares, rectangles, circles, and triangles based on user input.
+

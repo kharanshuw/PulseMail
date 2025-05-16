@@ -1,0 +1,40 @@
+1. **Retrieve the first 10 characters of the title of each film.**
+2. **Convert the titles of all films to uppercase.**
+3. **Find the length of each film title.**
+4. **Concatenate the first name and last name of each actor, separated by a space.**
+5. **Replace the word "Action" with "Thriller" in the film description.**
+6. **Extract the domain name from the email addresses of all customers.**
+7. **Find all films whose title starts with the letter 'A'.**
+8. **Trim leading and trailing spaces from the first names of customers.**
+9. **Find the position of the first occurrence of the word "GREAT" in the film description.**
+10. **Reverse the first name of each customer.**
+11. **Round the rental rate of each film to 2 decimal places.**
+12. **Calculate the square root of the replacement cost of each film.**
+13. **Find the absolute value of the difference between rental duration and length for each film.**
+14. **Raise the rental rate of each film to the power of 3.**
+15. **Get the ceiling value of the replacement cost of each film.**
+16. **Get the floor value of the replacement cost of each film.**
+17. **Calculate the modulus (remainder) of the rental duration divided by 3 for each film.**
+18. **Get the highest rental rate of all films.**
+19. **Get the lowest replacement cost of all films.**
+20. **Calculate the average length of all films.**
+21. **Extract the year from the rental date for each rental.**
+22. **Find the day of the week for each rental date.**
+23. **Calculate the age of each customer based on their create_date.**
+24. **Add 7 days to the rental date to get the return due date for each rental.**
+25. **Get the month name from the rental date for each rental.**
+26. **Extract the hour from the last update timestamp of each film.**
+27. **Calculate the difference in days between the return date and rental date for each rental.**
+28. **Find the first day of the month for each rental date.**
+29. **Format the rental date as 'DD-MM-YYYY' for each rental.**
+30. **Extract the quarter from the rental date for each rental.**
+31. **Find the ASCII value of the first character of each film title.**
+32. **Return the binary representation of the film_id for each film.**
+33. **Convert the rental duration of each film to a hexadecimal value.**
+34. **Find all films with a replacement cost that is a power of 2.**
+35. **Check if the length of the film title is even or odd.**
+36. **Find all films with a rental rate greater than 3 and categorize them as 'High' or 'Low'.**
+37. **Return the IP address equivalent of the film_id for the first 10 films.**
+38. **Select the 3rd character of each film title.**
+39. **Return the Unicode code point of the first character of each actor's first name.**
+40. **Convert the rental rate of each film to a binary string.**

@@ -1,0 +1,52 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VTIMEZONE
+TZID:Asia/Kolkata
+X-LIC-LOCATION:Asia/Kolkata
+BEGIN:STANDARD
+TZOFFSETFROM:+0530
+TZOFFSETTO:+0530
+TZNAME:IST
+DTSTART:19700101T000000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Kolkata:20240315T120000
+DTEND;TZID=Asia/Kolkata:20240315T130000
+DTSTAMP:20240314T072916Z
+ORGANIZER;CN=Jitendra Sonawane:mailto:jitendra.sonawane@cloudoptimo.com
+UID:5ts099hs85ne1fimr41216brgi@google.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE
+ ;CN=Jitendra Sonawane;X-NUM-GUESTS=0:mailto:jitendra.sonawane@cloudoptimo.c
+ om
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=kharanshuw@gmail.com;X-NUM-GUESTS=0:mailto:kharanshuw@gmail.com
+X-GOOGLE-CONFERENCE:https://meet.google.com/rak-rcou-ssq
+X-MICROSOFT-CDO-OWNERAPPTID:1736923100
+CREATED:20240314T072914Z
+DESCRIPTION:Dear Candidate\,\n\nWe're pleased to extend an invitation for a
+ n online interview for the Java-Fresher position at Xpanso Technologies.\n\
+ nInterview Details:\nDate: 15 March 2024\nTime: 12.00 PM\n\nPlease ensure y
+ ou have:\n1. A stable internet connection\n2. Access to a laptop or desktop
+  computer with webcam\n\nYour interview success is important to us\, so ple
+ ase confirm your availability by accepting invitation of this test and that
+  you have the necessary requirements. If there are any concerns or question
+ s\, don't hesitate to reach out.\n\n\nBest regards\,\nJitendra Sonawane\,\n
+ HR Team\,\n8329547832\,\nXpanso Technologies.\n\n-::~:~::~:~:~:~:~:~:~:~:~:
+ ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\nJoin with Go
+ ogle Meet: https://meet.google.com/rak-rcou-ssq\nOr dial: (US) +1 601-688-3
+ 161 PIN: 788120122#\nMore phone numbers: https://tel.meet/rak-rcou-ssq?pin=
+ 6288373588311&hs=7\n\nLearn more about Meet at: https://support.google.com/
+ a/users/answer/9282720\n\nPlease do not edit this section.\n-::~:~::~:~:~:~
+ :~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-
+LAST-MODIFIED:20240314T072914Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Online Test - Kharanshu Wanare
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

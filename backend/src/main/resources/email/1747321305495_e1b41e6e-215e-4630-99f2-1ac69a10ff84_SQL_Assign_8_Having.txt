@@ -1,0 +1,30 @@
+1. High revenue categories:
+Find categories with an average rental revenue greater than $10.
+
+2. Customers with many rentals:
+Identify customers who have rented more than 30 films.
+
+3. Popular languages:
+List languages with more than 50 films.
+
+4. Stores with high revenue:
+Find stores with total revenue exceeding $5000.
+
+5. Actors in popular films:
+Show actors who have appeared in more than 10 films.
+
+6. Staff with high customer interactions:
+List staff members who have handled more than 500 customer transactions.
+
+7. Active customers:
+Identify customers who have rented in the last 30 days.
+
+8. Long rentals:
+List films with an average rental duration of more than 7 days.
+
+9. Highly rented films:
+Identify films that have been rented more than 30 times.
+
+10. Customers with diverse film preferences:
+Find customers who have rented films from at least 5 different categories.
+

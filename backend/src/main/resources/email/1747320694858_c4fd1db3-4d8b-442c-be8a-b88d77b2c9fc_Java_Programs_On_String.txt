@@ -1,0 +1,22 @@
+1. Java Program to Remove Characters from the Input String which are Present in the Mask String
+Input: Enter String: Practice Java String Programs
+Enter Mask String: abc
+Output: Prtie Jv String Progrms
+2. Java Program to Remove All Adjacent Duplicates from String
+Input: String: ABBCCCD
+Output: ACD
+3. Java Program to Reverse Each Word in a String
+Input: String: Java Programs on String
+Output: avaj smargorp no gnirts
+4. Java Program to Find the Largest and Smallest Word in a String
+Input: Enter String: String Programs in Java
+Output: The largest and smallest word is “Programs” and “in”
+5. Java Program to Count the Number of Unique Words
+Input: Enter String: Java is great C++ is also great
+Output: Total number of unique words are 3
+6. Java Program to Implement the Monoalphabetic Cipher
+Input: Enter the message: Sanfoundry
+Output: Encrypted message: LQFYGXFRKN; Decrypted message: sanfoundry.
+7. Java Program to Implement Caesar Cipher
+Input: Enter the String for Encryption: Sanfoundry
+Output: vdqirxqgub

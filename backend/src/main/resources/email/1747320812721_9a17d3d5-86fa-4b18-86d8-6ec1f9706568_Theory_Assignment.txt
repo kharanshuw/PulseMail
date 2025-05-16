@@ -1,0 +1,25 @@
+1.	How do you declare a variable of type double named temperature and assign it the value 25.5 in Java?
+2.	List at least three primitive data types in Java and provide an example of each.
+3.	Write a Java if statement that checks if a variable age is greater than or equal to 18. If it is, print "You are an adult".
+4.	Write a Java for loop that prints all even numbers between 1 and 20.
+5.	How do you declare an array of integers named numbers with a length of 5 in Java?
+6.	Write Java code to concatenate two strings str1 and str2 together and store the result in a variable result.
+7.	Define a method in Java called calculateSum that takes two integers as parameters and returns their sum.
+8.	What is a class in Java? Provide an example of a class declaration.
+9.	How do you read input from the console in Java using the Scanner class?
+10.	Write Java code to demonstrate the use of a try-catch block for handling exceptions.
+11.	Write Java code to add an element at the end of an `ArrayList`, remove an element at a specific index, and check if a particular element exists in the list.
+12.	Explain the concepts of inheritance and polymorphism in Java. Provide an example illustrating both concepts using classes and methods.
+13.	How do you read data from a text file named `data.txt` and store it in a Java program? Also, explain how to handle potential exceptions during file I/O operations.
+14.	Describe the difference between checked and unchecked exceptions in Java. Provide examples of each and explain how you would handle them in a Java program.
+15.	Discuss the differences between interfaces and abstract classes in Java. When would you use one over the other, and provide an example illustrating your explanation.
+16.	Implement a simple sorting algorithm (e.g., bubble sort or selection sort) in Java. Describe how the algorithm works and provide the code for it.
+17.	Explain the concept of recursion in Java with an example. Write a recursive function to calculate the factorial of a given integer.
+18.	Discuss the concept of concurrency in Java and the use of synchronized blocks/methods. Provide an example of a scenario where synchronization is necessary and demonstrate how you would implement it.
+19.	What are generics in Java, and why are they useful? Provide an example of a generic class or method in Java and explain its benefits.
+20.	Explain the Java Collections Framework and its main interfaces (e.g., `List`, `Set`, `Map`). Provide examples of how you would use each interface in a Java program.
+21.	Explain the concept of a thread pool in Java. Provide an example of how you would create and use a thread pool using the ExecutorService framework.
+22.	Discuss the Singleton design pattern in Java. Explain its purpose, implementation, and potential pitfalls. Provide an example of a Singleton class in Java.
+23.	What are lambda expressions and streams in Java? Provide an example demonstrating how you can use lambda expressions and streams to perform operations on collections effectively.
+24.	Explain the purpose of annotations in Java and how they are used. Provide an example of creating a custom annotation and using reflection to access and process it at runtime.
+25.	Discuss the Java memory management model, including the concepts of heap, stack, garbage collection, and memory leaks. Explain how you can optimize memory usage and prevent memory leaks in Java applications.

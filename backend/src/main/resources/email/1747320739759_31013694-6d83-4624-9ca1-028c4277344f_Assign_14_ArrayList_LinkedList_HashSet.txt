@@ -1,0 +1,125 @@
+Using ArrayList
+1. Student Management System:
+Problem Statement: Create a simple student management system where you can add, remove, and search for students in a class. Each student should have properties such as id, name, and grade. Implement functionality to display all students, search for a student by id, and display students sorted by their grades.
+Tasks:
+Add a student to the list.
+Remove a student by id.
+Search for a student by id and display their details.
+Display all students sorted by their grades.
+
+2. Inventory Management System:
+Problem Statement: Develop an inventory management system for a store. Each product in the inventory should have a productID, name, quantity, and price. Implement functionality to add new products, update the quantity of a product, remove products from inventory, and display all products sorted by price.
+Tasks:
+Add a new product to the inventory.
+Update the quantity of an existing product.
+Remove a product from the inventory by productID.
+Display all products sorted by their price in ascending order.
+
+3. Library Book Management:
+Problem Statement: Create a library book management system where you can add, remove, and search for books. Each book should have properties such as ISBN, title, author, and yearPublished. Implement functionality to display all books, search for a book by ISBN, and display books published after a certain year.
+Tasks:
+Add a new book to the library.
+Remove a book by ISBN.
+Search for a book by ISBN and display its details.
+Display all books published after a specified year.
+
+4. Movie Collection Manager:
+Problem Statement: Develop a movie collection manager where users can add, remove, and search for movies in their collection. Each movie should have properties such as movieID, title, director, genre, and yearReleased. Implement functionality to display all movies, search for a movie by title, and display all movies of a specific genre.
+Tasks:
+Add a new movie to the collection.
+Remove a movie by movieID.
+Search for a movie by title and display its details.
+Display all movies of a specific genre.
+
+5. Contact List Application:
+Problem Statement: Create a contact list application where users can add, remove, and search for contacts. Each contact should have properties such as contactID, name, phoneNumber, and email. Implement functionality to display all contacts, search for a contact by name, and update a contact's phone number and email.
+Tasks:
+Add a new contact to the list.
+Remove a contact by contactID.
+Search for a contact by name and display their details.
+Update the phone number and email of an existing contact.
+
+Using LinkedList
+
+1. **Task Management System:**
+   - **Problem Statement:** Create a task management system where users can add, remove, and search for tasks. Each task should have properties such as `taskId`, `taskName`, `priority`, and `dueDate`. Implement functionality to display all tasks, search for a task by `taskId`, and display tasks sorted by their due dates.
+   - **Tasks:**
+     1. Add a new task to the list.
+     2. Remove a task by `taskId`.
+     3. Search for a task by `taskId` and display its details.
+     4. Display all tasks sorted by their due dates.
+
+2. **Customer Order Management:**
+   - **Problem Statement:** Develop a customer order management system for a retail business. Each order should have properties such as `orderId`, `customerName`, `product`, `quantity`, and `orderDate`. Implement functionality to add new orders, update the quantity of an order, remove orders, and display all orders sorted by order date.
+   - **Tasks:**
+     1. Add a new order to the list.
+     2. Update the quantity of an existing order.
+     3. Remove an order by `orderId`.
+     4. Display all orders sorted by their order date.
+
+3. **Playlist Manager:**
+   - **Problem Statement:** Create a music playlist manager where users can add, remove, and search for songs. Each song should have properties such as `songId`, `title`, `artist`, `album`, and `duration`. Implement functionality to display all songs, search for a song by `title`, and display songs sorted by their duration.
+   - **Tasks:**
+     1. Add a new song to the playlist.
+     2. Remove a song by `songId`.
+     3. Search for a song by `title` and display its details.
+     4. Display all songs sorted by their duration.
+
+4. **Event Scheduling System:**
+   - **Problem Statement:** Develop an event scheduling system where users can add, remove, and search for events. Each event should have properties such as `eventId`, `eventName`, `location`, `date`, and `time`. Implement functionality to display all events, search for an event by `eventName`, and display events happening at a specific location.
+   - **Tasks:**
+     1. Add a new event to the list.
+     2. Remove an event by `eventId`.
+     3. Search for an event by `eventName` and display its details.
+     4. Display all events happening at a specified location.
+
+5. **History Tracking System:**
+   - **Problem Statement:** Create a browsing history tracking system where users can add, remove, and search for web pages they have visited. Each web page should have properties such as `pageId`, `url`, `title`, and `visitDate`. Implement functionality to display all visited web pages, search for a web page by `url`, and display pages visited on a specific date.
+   - **Tasks:**
+     1. Add a new web page to the history.
+     2. Remove a web page by `pageId`.
+     3. Search for a web page by `url` and display its details.
+     4. Display all web pages visited on a specified date.
+
+Using HasSet
+
+1. **Unique Email Collector:**
+   - **Problem Statement:** Create a system to collect and manage unique email addresses. Implement functionality to add new email addresses, check if an email address already exists, remove an email address, and display all unique email addresses.
+   - **Tasks:**
+     1. Add a new email address to the collection.
+     2. Check if a specific email address exists.
+     3. Remove an email address from the collection.
+     4. Display all unique email addresses.
+
+2. **Unique Product Identifier Manager:**
+   - **Problem Statement:** Develop a system to manage a collection of unique product identifiers (e.g., SKUs). Each identifier should be unique. Implement functionality to add new identifiers, check for the existence of an identifier, remove an identifier, and display all unique identifiers.
+   - **Tasks:**
+     1. Add a new product identifier to the collection.
+     2. Check if a specific product identifier exists.
+     3. Remove a product identifier from the collection.
+     4. Display all unique product identifiers.
+
+3. **Duplicate Word Filter:**
+   - **Problem Statement:** Create a program that reads a list of words and filters out the duplicates, ensuring that each word in the final list is unique. Implement functionality to add words from a list, remove a word, check for the existence of a word, and display all unique words.
+   - **Tasks:**
+     1. Add words from a list to the collection.
+     2. Check if a specific word exists in the collection.
+     3. Remove a word from the collection.
+     4. Display all unique words.
+
+4. **Unique Visitor Tracker:**
+   - **Problem Statement:** Develop a system to track unique visitors to a website. Each visitor can be represented by their IP address. Implement functionality to add new visitor IP addresses, check if an IP address has visited before, remove an IP address, and display all unique visitor IP addresses.
+   - **Tasks:**
+     1. Add a new visitor's IP address to the collection.
+     2. Check if a specific IP address has visited before.
+     3. Remove an IP address from the collection.
+     4. Display all unique visitor IP addresses.
+
+5. **Unique Course Enrollment:**
+   - **Problem Statement:** Create a system to manage unique course enrollments for students. Each course can be represented by its course code. Implement functionality to add new course codes, check for the existence of a course code, remove a course code, and display all unique course codes.
+   - **Tasks:**
+     1. Add a new course code to the collection.
+     2. Check if a specific course code exists in the collection.
+     3. Remove a course code from the collection.
+     4. Display all unique course codes.
+

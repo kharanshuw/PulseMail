@@ -1,0 +1,6 @@
+1.	Create an abstract class Employee which contains name, paymentPerHour as attribute  and abstract calculateSalary() method. Let the sub classes extend this Employee class and implement its calculateSalary() method. Create Contractor and FullTimeEmployee classes (variable workingHours should be in both the classes)  as we know that salary structure for a contractor and full time employee is different so let these classes override and implement a calculateSalary() method. Write complete Java code to implement this scenario.
+2.	Consider we have two interfaces, MotorBike and Cycle. MotorBike interface consists of the method speed(). Cycle interface consists of the method distance(). Also consider one parent class Car having method display(). Write a child class TwoWheeler, inside this class take method speed() to print speed as 90Km/Hr of MotorBike, Similarly take distance() method to print distance as 50 meter of Cycle and display() method to display name of Car. Write complete Java code for this scenario.
+3.	Write a Java program to throw an user defined exception “StringMismatch” if two string are not equal.
+4.	Write Java program to cause “NumberFormatException”, “StringIndexOutOfBoundsException”, after causing, solve these exceptions.
+5.	How can we use user defined package in Java? Explain with proper example. Also give one example of built-in package.
+

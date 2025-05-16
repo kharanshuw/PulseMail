@@ -1,0 +1,59 @@
+1. **Retrieve all films with a rental duration of more than 5 days:**
+
+2. **List all customers who live in the city of 'San Diego':**
+
+3. **Find all films with a rating of 'PG-13' and sort them by title:**
+
+4. **Display all actors whose last name starts with 'A' and order by first name:**
+
+5. **Retrieve all films released in the year 2006:**
+
+6. **Find all customers whose first name is 'John' and sort by last name in descending order:**
+
+7. **List all films with a rental rate between 2.99 and 4.99, inclusive:**
+
+8. **Retrieve all actors with a last name containing 'son' and order by last name:**
+
+9. **Find all stores in city 'Los Angeles' and sort by store ID:**
+
+10. **Display all films with a replacement cost greater than 20 and sort by replacement cost in ascending order:**
+
+11. **List all films with a length greater than 120 minutes:**
+
+12. **Find all customers who have an active status (status = 1):**
+   
+13. **Retrieve all films with a rental rate of 0.99 and sort them by length in descending order:**
+   
+14. **Display all actors with a first name containing 'Tom' and order by last name:**
+   
+15. **Find all films with a replacement cost less than 15 and sort them by title:**
+
+16. **List all customers with a last name ending with 'son':**
+
+17. **Retrieve all films with a rating of 'R' and sort them by rental duration:**
+
+18. **Find all actors with a last name exactly equal to 'Smith' and order by first name:**
+
+19. **Display all films with a rental duration of exactly 7 days and sort by replacement cost:**
+
+20. **List all customers with a first name starting with 'A' and order by last name in ascending order:**
+
+21. **Retrieve all films with a rental duration between 3 and 7 days and a rental rate greater than 2.99:**
+
+22. **List all customers who live in 'New York' or 'Los Angeles':**
+
+23. **Find all films with a rating of 'PG' or 'G' and a length less than 90 minutes:**
+
+24. **Display all actors with a first name containing 'Sam' or a last name starting with 'B':**
+
+25. **Retrieve all films with a replacement cost between 15 and 25 and sort them by title:**
+
+26. **Find all customers who have rented a film in the last month and have an active status (status = 1):**
+
+27. **List all films with a rental rate of 4.99, 3.99, or 2.99:**
+
+28. **Retrieve all actors with a first name starting with 'M' and a last name ending with 'y':**
+
+29. **Find all films released in the years 2005, 2006, or 2007 and sort them by release year:**
+
+30. **Display all customers with a first name of 'Emily' or a last name containing 'Lee':**

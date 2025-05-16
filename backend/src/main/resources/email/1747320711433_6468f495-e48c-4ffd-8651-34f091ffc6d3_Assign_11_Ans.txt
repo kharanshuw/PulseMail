@@ -1,0 +1,305 @@
+1.	Create an abstract class Employee which contains name, paymentPerHour as attribute  and abstract calculateSalary() method. Let the sub classes extend this Employee class and implement its calculateSalary() method. Create Contractor and FullTimeEmployee classes (variable workingHours should be in both the classes)  as we know that salary structure for a contractor and full time employee is different so let these classes override and implement a calculateSalary() method. Write complete Java code to implement this scenario.
+2.	Consider we have two interfaces, MotorBike and Cycle. MotorBike interface consists of the method speed(). Cycle interface consists of the method distance(). Also consider one parent class Car having method display(). Write a child class TwoWheeler, inside this class take method speed() to print speed as 90Km/Hr of MotorBike, Similarly take distance() method to print distance as 50 meter of Cycle and display() method to display name of Car. Write complete Java code for this scenario.
+3.	Write a Java program to throw an user defined exception “StringMismatch” if two string are not equal.
+4.	Write Java program to cause “NumberFormatException”, “StringIndexOutOfBoundsException”, after causing, solve these exceptions.
+5.	How can we use user defined package in Java? Explain with proper example. Also give one example of built-in package.
+
+1. 
+// Abstract class Employee
+abstract class Employee {
+    String name;
+    double paymentPerHour;
+
+    // Constructor
+    Employee(String name, double paymentPerHour) {
+        this.name = name;
+        this.paymentPerHour = paymentPerHour;
+    }
+
+    // Abstract method to calculate salary
+    abstract double calculateSalary();
+}
+
+// Subclass Contractor extending Employee
+class Contractor extends Employee {
+    int workingHours;
+
+    // Constructor
+    Contractor(String name, double paymentPerHour, int workingHours) {
+        super(name, paymentPerHour);
+        this.workingHours = workingHours;
+    }
+
+    // Override calculateSalary method for Contractor
+    @Override
+    double calculateSalary() {
+        // For contractors, salary is calculated as paymentPerHour * workingHours
+        return paymentPerHour * workingHours;
+    }
+}
+
+// Subclass FullTimeEmployee extending Employee
+class FullTimeEmployee extends Employee {
+    int workingHours;
+
+    // Constructor
+    FullTimeEmployee(String name, double paymentPerHour, int workingHours) {
+        super(name, paymentPerHour);
+        this.workingHours = workingHours;
+    }
+
+    // Override calculateSalary method for FullTimeEmployee
+    @Override
+    double calculateSalary() {
+        // For full-time employees, salary is calculated as paymentPerHour * workingHours * 40 (assuming 40 hours per week)
+        return paymentPerHour * workingHours * 40;
+    }
+}
+
+// Main class to test
+public class Main {
+    public static void main(String[] args) {
+        // Create instances of Contractor and FullTimeEmployee
+        Contractor contractor = new Contractor("John", 25.0, 50);
+        FullTimeEmployee fullTimeEmployee = new FullTimeEmployee("Alice", 30.0, 45);
+
+        // Calculate and print salaries
+        System.out.println("Contractor Salary: $" + contractor.calculateSalary());
+        System.out.println("Full Time Employee Salary: $" + fullTimeEmployee.calculateSalary());
+    }
+}
+
+2.
+// Interface MotorBike
+interface MotorBike {
+    void speed();
+}
+
+// Interface Cycle
+interface Cycle {
+    void distance();
+}
+
+// Parent class Car
+class Car {
+    String name;
+
+    // Constructor
+    Car(String name) {
+        this.name = name;
+    }
+
+    // Method to display car name
+    void display() {
+        System.out.println("Car Name: " + name);
+    }
+}
+
+// Child class TwoWheeler implementing MotorBike and Cycle interfaces
+class TwoWheeler extends Car implements MotorBike, Cycle {
+    // Constructor
+    TwoWheeler(String name) {
+        super(name);
+    }
+
+    // Override speed method from MotorBike interface
+    @Override
+    public void speed() {
+        System.out.println("Speed: 90 Km/Hr");
+    }
+
+    // Override distance method from Cycle interface
+    @Override
+    public void distance() {
+        System.out.println("Distance: 50 meters");
+    }
+}
+
+// Main class to test
+public class Main {
+    public static void main(String[] args) {
+        // Create instance of TwoWheeler
+        TwoWheeler twoWheeler = new TwoWheeler("Bike");
+
+        // Call methods
+        twoWheeler.speed();
+        twoWheeler.distance();
+        twoWheeler.display();
+    }
+}
+
+3.
+// User-defined exception StringMismatch
+class StringMismatch extends Exception {
+    // Constructor
+    StringMismatch(String message) {
+        super(message);
+    }
+}
+
+// Main class
+public class Main {
+    // Method to compare two strings and throw StringMismatch exception if they are not equal
+    static void compareStrings(String str1, String str2) throws StringMismatch {
+        if (!str1.equals(str2)) {
+            throw new StringMismatch("Strings are not equal");
+        }
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        String str1 = "Hello";
+        String str2 = "World";
+
+        try {
+            // Call method to compare strings
+            compareStrings(str1, str2);
+            System.out.println("Strings are equal");
+        } catch (StringMismatch e) {
+            // Catch StringMismatch exception and print the error message
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+4. 
+public class Main {
+    public static void main(String[] args) {
+        // Cause NumberFormatException
+        try {
+            String str = "abc";
+            int num = Integer.parseInt(str);
+            System.out.println("Parsed Number: " + num);
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException occurred: " + e.getMessage());
+        }
+
+        // Cause StringIndexOutOfBoundsException
+        try {
+            String str = "Hello";
+            char ch = str.charAt(10); // Trying to access character at index 10, which is out of bounds
+            System.out.println("Character at index 10: " + ch);
+        } catch (StringIndexOutOfBoundsException e) {
+            System.out.println("StringIndexOutOfBoundsException occurred: " + e.getMessage());
+        }
+
+        // Solving NumberFormatException
+        try {
+            String str = "123";
+            int num = Integer.parseInt(str);
+            System.out.println("Parsed Number: " + num);
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException occurred: " + e.getMessage());
+            // Provide a default value or handle the situation appropriately
+            System.out.println("Using default value instead.");
+            int defaultValue = 0;
+            System.out.println("Default Value: " + defaultValue);
+        }
+
+        // Solving StringIndexOutOfBoundsException
+        try {
+            String str = "Hello";
+            int index = 1;
+            if (index >= 0 && index < str.length()) {
+                char ch = str.charAt(index);
+                System.out.println("Character at index " + index + ": " + ch);
+            } else {
+                System.out.println("Index is out of bounds.");
+            }
+        } catch (StringIndexOutOfBoundsException e) {
+            System.out.println("StringIndexOutOfBoundsException occurred: " + e.getMessage());
+        }
+    }
+}
+
+5.
+To use a user-defined package in Java, you need to follow these steps:
+
+1. Create a directory structure that mirrors the package structure.
+2. Place your Java files in this directory structure.
+3. Use the `package` keyword in your Java files to declare the package.
+4. Compile your Java files using `javac`.
+5. Import the package in other Java files where you want to use its classes.
+
+Let's illustrate this with an example:
+
+Suppose you have a user-defined package named `myPackage`, and within this package, you have a class named `MyClass`.
+
+1. Directory structure:
+   ```
+   root
+   └── myPackage
+       └── MyClass.java
+   ```
+
+2. `MyClass.java`:
+   ```java
+   package myPackage;
+
+   public class MyClass {
+       public void display() {
+           System.out.println("Hello from MyClass");
+       }
+   }
+   ```
+
+3. Compile `MyClass.java`:
+   ```
+   javac myPackage/MyClass.java
+   ```
+
+4. Now, let's create another Java file `Main.java` in a different directory to demonstrate how to use the `myPackage` package:
+
+   ```java
+   // Importing user-defined package
+   import myPackage.MyClass;
+
+   public class Main {
+       public static void main(String[] args) {
+           // Creating an instance of MyClass
+           MyClass obj = new MyClass();
+           // Calling display method from MyClass
+           obj.display();
+       }
+   }
+   ```
+
+5. Compile `Main.java` and specify the classpath to include the directory containing the package:
+
+   ```
+   javac -classpath . Main.java
+   ```
+
+   Here, `-classpath .` tells the compiler to look for classes in the current directory.
+
+6. Run the compiled `Main` class:
+
+   ```
+   java Main
+   ```
+
+   You should see the output: `Hello from MyClass`.
+
+Now, let's give an example of a built-in package. One of the most commonly used built-in packages in Java is `java.util`, which provides utility classes for data structures, date and time manipulation, input/output operations, etc. For example, the `ArrayList` class from the `java.util` package:
+
+```java
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating an ArrayList
+        ArrayList<String> list = new ArrayList<>();
+        // Adding elements to the ArrayList
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Orange");
+
+        // Printing the elements of the ArrayList
+        System.out.println("Elements of ArrayList:");
+        for (String item : list) {
+            System.out.println(item);
+        }
+    }
+}
+```
+

@@ -1,0 +1,68 @@
+Create following tables and insert data
+Account - Account_No, Name, Address, City, Balance
+Transactions - Account_No, Amount, Transaction_Type, Date
+
+Try following queries
+### Problem 1
+**Problem Statement**: Retrieve the names and addresses of all account holders in 'New York'.
+
+### Problem 2
+**Problem Statement**: Find the total balance of all accounts.
+
+### Problem 3
+**Problem Statement**: List all transactions of account number '12345' sorted by date in descending order.
+
+### Problem 4
+**Problem Statement**: Find the names of account holders who have made a transaction greater than $500.
+
+### Problem 5
+**Problem Statement**: Retrieve the account number and balance of the account with the highest balance.
+
+### Problem 6
+**Problem Statement**: Find the average transaction amount for 'Debit' transactions.
+**Expected Result**:
+```
+| Avg_Debit_Amount |
+|------------------|
+| 150.75           |
+```
+
+### Problem 7
+**Problem Statement**: List the account numbers that have not made any transactions.
+**Expected Result**:
+```
+| Account_No |
+|------------|
+| 11223      |
+| 33445      |
+```
+
+### Problem 8
+**Problem Statement**: Retrieve the total number of transactions made in the month of May 2024.
+```
+**Expected Result**:
+```
+| Total_Transactions |
+|--------------------|
+| 75                 |
+```
+
+### Problem 9
+**Problem Statement**: Find the balance of the account with account number '56789'.
+**Expected Result**:
+```
+| Balance |
+|---------|
+| 3500    |
+```
+
+### Problem 10
+**Problem Statement**: List the names and total transaction amounts of account holders who have made transactions totaling more than $1000.
+**Expected Result**:
+```
+| Name          | Total_Amount |
+|---------------|--------------|
+| John Doe      | 1500         |
+| Emily Davis   | 1200         |
+```
+

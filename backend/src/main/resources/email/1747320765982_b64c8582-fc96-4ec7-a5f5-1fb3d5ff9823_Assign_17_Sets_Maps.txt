@@ -1,0 +1,122 @@
+### Problem 1: Unique Words Counter
+**Objective:** Implement a program that reads a large text file and counts the number of unique words.
+
+**Requirements:**
+- Use `HashSet` to store and ensure the uniqueness of words.
+- Read the file line by line, split each line into words, and add them to the `HashSet`.
+- Output the total count of unique words found in the text.
+
+### Problem 2: Order of Insertion Preservation
+**Objective:** Create a program that reads a sequence of integers from user input and stores them in the order they were entered, ensuring no duplicates.
+
+**Requirements:**
+- Use `LinkedHashSet` to maintain the insertion order while storing unique integers.
+- Allow the user to input integers one by one and add them to the set.
+- Print the elements of the `LinkedHashSet` in the order they were entered.
+
+### Problem 3: Sorted Unique Elements
+**Objective:** Develop a program that takes a list of integers from user input, removes duplicates, and sorts the remaining elements.
+
+**Requirements:**
+- Use `TreeSet` to store the integers in a sorted and unique manner.
+- Allow the user to input a list of integers (possibly with duplicates).
+- Print the elements of the `TreeSet` in ascending order.
+
+### Problem 4: Comparing Different Set Implementations
+**Objective:** Implement a program that demonstrates the differences between `HashSet`, `LinkedHashSet`, and `TreeSet` in terms of insertion order, retrieval order, and performance.
+
+**Requirements:**
+- Create three sets: `HashSet`, `LinkedHashSet`, and `TreeSet`.
+- Insert a predefined list of integers (including some duplicates) into each set.
+- Display the contents of each set after all insertions.
+- Measure and compare the time taken for insertion and retrieval operations for each set.
+
+### Problem 5: Case-Insensitive Word Storage
+**Objective:** Write a program that stores words in a case-insensitive manner, ensuring no duplicates regardless of case, and then retrieves the words in a case-insensitive sorted order.
+
+**Requirements:**
+- Use `TreeSet` with a custom comparator that ignores case for sorting and uniqueness.
+- Allow the user to input a series of words (case-insensitive).
+- Add words to the `TreeSet` and then print the words in alphabetical order, ignoring case.
+
+### Problem 6: Student Grades Management
+**Objective:** Implement a program to manage student grades using a map.
+
+**Requirements:**
+- Use `HashMap` to store student names as keys and their grades as values.
+- Provide functionalities to add, update, delete, and retrieve grades.
+- Display the list of all students and their grades.
+
+### Problem 7: Word Frequency Counter
+**Objective:** Count the frequency of each word in a large text file.
+
+**Requirements:**
+- Use `Hashtable` to store words as keys and their frequencies as values.
+- Read the file line by line, split each line into words, and update the frequencies.
+- Output the frequency of each word.
+
+### Problem 8: Browser Cache Simulation
+**Objective:** Simulate a simple browser cache that maintains the order of accessed pages.
+
+**Requirements:**
+- Use `LinkedHashMap` to store URL strings as keys and page contents as values.
+- Implement LRU (Least Recently Used) cache eviction policy.
+- Provide functionalities to add, access, and display cached pages.
+
+### Problem 9: Sorted Contact List
+**Objective:** Create a program to manage a sorted contact list.
+
+**Requirements:**
+- Use `TreeMap` to store contact names as keys and phone numbers as values.
+- Allow adding, updating, deleting, and retrieving contacts.
+- Print the contact list in alphabetical order.
+
+### Problem 10: Case-Insensitive Dictionary
+**Objective:** Implement a case-insensitive dictionary.
+
+**Requirements:**
+- Use `TreeMap` with a custom comparator for case-insensitive keys.
+- Store word definitions with case-insensitive words as keys.
+- Allow adding, updating, deleting, and retrieving word definitions.
+- Display all dictionary entries in case-insensitive sorted order.
+
+### Problem 11: Employee Records System
+**Objective:** Develop an employee records management system.
+
+**Requirements:**
+- Use `HashMap` to store employee IDs as keys and employee details as values.
+- Implement functionalities to add, update, delete, and retrieve employee records.
+- Provide a method to list all employees.
+
+### Problem 12: URL Shortener
+**Objective:** Implement a URL shortening service.
+
+**Requirements:**
+- Use `Hashtable` to store short URL codes as keys and original URLs as values.
+- Generate short codes for new URLs and store them in the hashtable.
+- Provide functionalities to add new URLs and retrieve original URLs using short codes.
+
+### Problem 13: Inventory Management System
+**Objective:** Create an inventory management system for a store.
+
+**Requirements:**
+- Use `LinkedHashMap` to maintain the order of items added.
+- Store item names as keys and item quantities as values.
+- Provide functionalities to add, update, delete, and retrieve items.
+- Display the list of items in the order they were added.
+
+### Problem 14: City Population Tracker
+**Objective:** Track the population of different cities.
+
+**Requirements:**
+- Use `TreeMap` to store city names as keys and population counts as values.
+- Allow adding, updating, deleting, and retrieving city population data.
+- Print the list of cities and their populations in alphabetical order.
+
+### Problem 15: Frequency of Characters in a String
+**Objective:** Count the frequency of each character in a given string.
+
+**Requirements:**
+- Use `HashMap` to store characters as keys and their frequencies as values.
+- Read the input string character by character and update the frequencies.
+- Output the frequency of each character.

@@ -1,0 +1,370 @@
+The `Vector` class in Java is a part of the `java.util` package and provides an implementation of a dynamic array, which means it can grow as needed to accommodate more elements. `Vector` is synchronized, which makes it thread-safe for use in multithreaded environments. Here is a detailed explanation of the `Vector` class:
+
+### Key Characteristics
+
+1. **Dynamic Array**: A `Vector` can grow and shrink in size as needed. When elements are added, and there is no more space, the `Vector` increases its capacity automatically.
+2. **Synchronized**: All methods of the `Vector` class are synchronized, making it safe to use in a multi-threaded environment. However, this also means it can be slower than unsynchronized collections like `ArrayList`.
+3. **Legacy Class**: `Vector` is part of Java’s original collection framework and has been retrofitted to implement the `List` interface, making it a part of the Java Collections Framework.
+
+### Constructors
+
+The `Vector` class provides several constructors to initialize the vector:
+
+- `Vector()`: Creates an empty vector with an initial capacity of 10.
+- `Vector(int initialCapacity)`: Creates a vector with the specified initial capacity.
+- `Vector(int initialCapacity, int capacityIncrement)`: Creates a vector with the specified initial capacity and capacity increment.
+- `Vector(Collection<? extends E> c)`: Creates a vector containing the elements of the specified collection, in the order they are returned by the collection's iterator.
+
+### Commonly Used Methods
+
+Here are some commonly used methods of the `Vector` class:
+
+- **Adding Elements**:
+  - `add(E e)`: Appends the specified element to the end of this vector.
+  - `add(int index, E element)`: Inserts the specified element at the specified position in this vector.
+  - `addAll(Collection<? extends E> c)`: Appends all of the elements in the specified collection to the end of this vector.
+  
+- **Accessing Elements**:
+  - `E get(int index)`: Returns the element at the specified position in this vector.
+  - `int size()`: Returns the number of elements in this vector.
+  - `boolean isEmpty()`: Tests if this vector has no components.
+  
+- **Modifying Elements**:
+  - `E set(int index, E element)`: Replaces the element at the specified position in this vector with the specified element.
+  
+- **Removing Elements**:
+  - `boolean remove(Object o)`: Removes the first occurrence of the specified element in this vector.
+  - `E remove(int index)`: Removes the element at the specified position in this vector.
+  - `void clear()`: Removes all of the elements from this vector.
+  
+- **Other Methods**:
+  - `boolean contains(Object o)`: Tests if the specified object is a component in this vector.
+  - `int indexOf(Object o)`: Returns the index of the first occurrence of the specified element in this vector.
+  - `Object[] toArray()`: Returns an array containing all of the elements in this vector in the correct order.
+
+### Example Usage
+
+Here is a simple example to demonstrate the usage of the `Vector` class:
+
+```java
+import java.util.Vector;
+
+public class VectorExample {
+    public static void main(String[] args) {
+        // Creating a vector
+        Vector<String> vector = new Vector<>();
+
+        // Adding elements
+        vector.add("Element1");
+        vector.add("Element2");
+        vector.add("Element3");
+
+        // Accessing elements
+        System.out.println("First Element: " + vector.get(0)); // Output: Element1
+
+        // Modifying elements
+        vector.set(1, "ModifiedElement");
+        System.out.println("Modified Vector: " + vector);
+
+        // Removing elements
+        vector.remove(2);
+        System.out.println("After Removal: " + vector);
+
+        // Checking size
+        System.out.println("Vector Size: " + vector.size());
+    }
+}
+```
+
+### Performance Considerations
+
+While `Vector` is thread-safe due to synchronization, it can be slower than alternatives like `ArrayList` for single-threaded applications. If synchronization is not required, `ArrayList` is often preferred due to its better performance. For thread-safe operations, other alternatives like `Collections.synchronizedList(new ArrayList<>())` or `CopyOnWriteArrayList` can be considered, depending on the specific requirements.
+
+In conclusion, the `Vector` class is a useful tool for creating dynamic arrays with built-in synchronization. However, due to performance considerations, its usage is generally limited to scenarios where thread safety is a critical requirement.
+***********
+In Java, the `Stack` class is a part of the `java.util` package and extends the `Vector` class, which means it inherits all the methods of the `Vector` class and adds its own methods to operate as a stack. The stack follows the Last-In-First-Out (LIFO) principle, meaning the last element added to the stack is the first one to be removed.
+
+Here is a detailed explanation of the `Stack` class and its methods:
+
+### Importing the Stack Class
+
+To use the `Stack` class, you need to import it from the `java.util` package:
+
+```java
+import java.util.Stack;
+```
+
+### Creating a Stack
+
+You can create a `Stack` object like this:
+
+```java
+Stack<Integer> stack = new Stack<>();
+```
+
+### Common Methods of the Stack Class
+
+1. **push(E item)**: Adds an item to the top of the stack.
+
+    ```java
+    stack.push(10);
+    stack.push(20);
+    ```
+
+2. **pop()**: Removes and returns the item at the top of the stack. Throws `EmptyStackException` if the stack is empty.
+
+    ```java
+    int topElement = stack.pop();
+    ```
+
+3. **peek()**: Returns the item at the top of the stack without removing it. Throws `EmptyStackException` if the stack is empty.
+
+    ```java
+    int topElement = stack.peek();
+    ```
+
+4. **isEmpty()**: Checks if the stack is empty.
+
+    ```java
+    boolean empty = stack.isEmpty();
+    ```
+
+5. **search(Object o)**: Searches for the object in the stack and returns its 1-based position from the top of the stack. Returns -1 if the object is not found.
+
+    ```java
+    int position = stack.search(20);
+    ```
+
+### Example Usage
+
+Here is an example of how to use the `Stack` class in Java:
+
+```java
+import java.util.Stack;
+
+public class StackExample {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+
+        // Pushing elements onto the stack
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+
+        // Peek at the top element
+        System.out.println("Top element: " + stack.peek()); // Outputs 30
+
+        // Pop elements from the stack
+        System.out.println("Popped element: " + stack.pop()); // Outputs 30
+        System.out.println("Popped element: " + stack.pop()); // Outputs 20
+
+        // Check if stack is empty
+        System.out.println("Is stack empty? " + stack.isEmpty()); // Outputs false
+
+        // Search for an element
+        System.out.println("Position of 10: " + stack.search(10)); // Outputs 1
+
+        // Pop the last element
+        System.out.println("Popped element: " + stack.pop()); // Outputs 10
+
+        // Check if stack is empty
+        System.out.println("Is stack empty? " + stack.isEmpty()); // Outputs true
+    }
+}
+```
+
+### Important Considerations
+
+- The `Stack` class is synchronized, which means it is thread-safe, but this can lead to performance overhead in single-threaded applications.
+- For non-synchronized stack implementation, consider using `Deque` interface and its implementations like `ArrayDeque`.
+
+### Using Deque as a Stack
+
+Here is an example of using `ArrayDeque` as a stack:
+
+```java
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+public class DequeAsStackExample {
+    public static void main(String[] args) {
+        Deque<Integer> stack = new ArrayDeque<>();
+
+        // Pushing elements onto the stack
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+
+        // Peek at the top element
+        System.out.println("Top element: " + stack.peek()); // Outputs 30
+
+        // Pop elements from the stack
+        System.out.println("Popped element: " + stack.pop()); // Outputs 30
+        System.out.println("Popped element: " + stack.pop()); // Outputs 20
+
+        // Check if stack is empty
+        System.out.println("Is stack empty? " + stack.isEmpty()); // Outputs false
+
+        // Pop the last element
+        System.out.println("Popped element: " + stack.pop()); // Outputs 10
+
+        // Check if stack is empty
+        System.out.println("Is stack empty? " + stack.isEmpty()); // Outputs true
+    }
+}
+```
+
+Using `ArrayDeque` provides a non-synchronized alternative to `Stack` that can be more efficient in single-threaded scenarios.
+
+***********
+The `ArrayDeque` class in Java, part of the `java.util` package, provides a resizable-array implementation of the `Deque` interface. A deque (double-ended queue) is a linear collection that supports element insertion, removal, and retrieval at both ends. The `ArrayDeque` class is not thread-safe and does not support concurrent access by multiple threads without external synchronization.
+
+### Key Characteristics
+
+1. **Resizable Array**: The `ArrayDeque` class is implemented using a resizable array, which means it can grow dynamically as elements are added.
+2. **Double-Ended Queue**: It allows for efficient insertion, removal, and retrieval of elements at both the front and the back of the queue.
+3. **No Capacity Restrictions**: There are no fixed capacity limits for an `ArrayDeque`, and it can grow as needed to accommodate additional elements.
+4. **No Null Elements**: `ArrayDeque` does not allow the insertion of `null` elements.
+5. **Non-Synchronized**: It is not synchronized, meaning it is not thread-safe without external synchronization.
+
+### Constructors
+
+The `ArrayDeque` class provides several constructors:
+
+- `ArrayDeque()`: Constructs an empty deque.
+- `ArrayDeque(int initialCapacity)`: Constructs an empty deque with the specified initial capacity.
+- `ArrayDeque(Collection<? extends E> c)`: Constructs a deque containing the elements of the specified collection, in the order they are returned by the collection's iterator.
+
+### Commonly Used Methods
+
+Here are some of the commonly used methods of the `ArrayDeque` class:
+
+- **Adding Elements**:
+  - `add(E e)`: Adds the specified element to the end of the deque.
+  - `addFirst(E e)`: Inserts the specified element at the front of the deque.
+  - `addLast(E e)`: Inserts the specified element at the end of the deque.
+  - `offer(E e)`: Inserts the specified element at the end of the deque (returns `true` upon success).
+  - `offerFirst(E e)`: Inserts the specified element at the front of the deque.
+  - `offerLast(E e)`: Inserts the specified element at the end of the deque.
+
+- **Accessing Elements**:
+  - `E getFirst()`: Retrieves, but does not remove, the first element of the deque.
+  - `E getLast()`: Retrieves, but does not remove, the last element of the deque.
+  - `E peek()`: Retrieves, but does not remove, the head of the deque.
+  - `E peekFirst()`: Retrieves, but does not remove, the first element of the deque.
+  - `E peekLast()`: Retrieves, but does not remove, the last element of the deque.
+
+- **Removing Elements**:
+  - `E remove()`: Retrieves and removes the head of the deque.
+  - `E remove
+
+***********
+In Java, `PriorityQueue` is a part of the Java Collections Framework and is used to hold elements that are to be processed based on their priority. Unlike a standard queue that processes elements in a first-in, first-out (FIFO) order, a `PriorityQueue` orders its elements based on their natural ordering or by a `Comparator` provided at queue construction time.
+
+### Key Characteristics of PriorityQueue
+
+1. **Ordering**:
+   - The elements of the `PriorityQueue` are ordered either by natural ordering (if they implement `Comparable`) or by a specified `Comparator`.
+   - The head of this queue is the least element with respect to the specified ordering. This is the element that is removed first.
+
+2. **Heap-Based Implementation**:
+   - `PriorityQueue` is typically implemented using a binary heap, which ensures that basic operations like insertions and deletions take logarithmic time, O(log n).
+
+3. **Null Elements Not Permitted**:
+   - `PriorityQueue` does not allow `null` elements.
+
+4. **Unbounded but Bounded by Memory**:
+   - Although a `PriorityQueue` is unbounded in size, it is constrained by available memory.
+
+### Important Methods
+
+- **add(E e) / offer(E e)**:
+  - Inserts the specified element into this priority queue.
+  - `add` will throw an exception if the element cannot be added, whereas `offer` will return `false`.
+
+- **poll()**:
+  - Retrieves and removes the head of this queue, or returns `null` if this queue is empty.
+
+- **peek()**:
+  - Retrieves, but does not remove, the head of this queue, or returns `null` if this queue is empty.
+
+- **remove(Object o)**:
+  - Removes a single instance of the specified element from this queue, if it is present.
+
+- **iterator()**:
+  - Returns an iterator over the elements in this queue. The iterator does not guarantee any specific order of iteration.
+
+### Example Usage
+
+Here's a simple example demonstrating how to use a `PriorityQueue` in Java:
+
+```java
+import java.util.PriorityQueue;
+
+public class PriorityQueueExample {
+    public static void main(String[] args) {
+        // Create a PriorityQueue of integers (min-heap by default)
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+        // Add elements to the PriorityQueue
+        pq.add(4);
+        pq.add(2);
+        pq.add(5);
+        pq.add(1);
+        pq.add(3);
+
+        // Display the elements in the PriorityQueue
+        System.out.println("Elements in PriorityQueue: " + pq);
+
+        // Retrieve and remove elements from the PriorityQueue
+        System.out.println("Polling elements from PriorityQueue:");
+        while (!pq.isEmpty()) {
+            System.out.println(pq.poll());
+        }
+    }
+}
+```
+
+### Custom Comparator
+
+To use a custom ordering, you can provide a `Comparator` when creating the `PriorityQueue`. Here’s an example with a custom comparator:
+
+```java
+import java.util.PriorityQueue;
+import java.util.Comparator;
+
+public class CustomPriorityQueueExample {
+    public static void main(String[] args) {
+        // Custom Comparator for reverse order (max-heap)
+        Comparator<Integer> customComparator = (a, b) -> b - a;
+
+        // Create a PriorityQueue with custom Comparator
+        PriorityQueue<Integer> pq = new PriorityQueue<>(customComparator);
+
+        // Add elements to the PriorityQueue
+        pq.add(4);
+        pq.add(2);
+        pq.add(5);
+        pq.add(1);
+        pq.add(3);
+
+        // Display the elements in the PriorityQueue
+        System.out.println("Elements in PriorityQueue: " + pq);
+
+        // Retrieve and remove elements from the PriorityQueue
+        System.out.println("Polling elements from PriorityQueue:");
+        while (!pq.isEmpty()) {
+            System.out.println(pq.poll());
+        }
+    }
+}
+```
+
+### Summary
+
+- **`PriorityQueue`** in Java is a heap-based priority queue.
+- It processes elements based on their priority, determined by natural ordering or a custom comparator.
+- Common operations include `add`, `offer`, `poll`, `peek`, and `remove`.
+- It is useful in scenarios where elements need to be processed according to their priority rather than their insertion order.
+
+Using `PriorityQueue`, you can efficiently manage and process elements where priority is a key factor, such as task scheduling, event simulation, and algorithm implementations like Dijkstra's shortest path algorithm.

@@ -1,0 +1,9 @@
+1. Develop a program to sort elements of an array in ascending order.
+2.Create a program to merge two arrays into a single array.
+3. Implement a program to find the second largest element in an array.
+4. Write a C program to check if an array is palindrome or not.
+5. Develop a program to remove duplicate elements from an array.
+6. Write a C program to find the frequency of each element in an array.
+7. Develop a program to find the median of elements in an array.
+8. Implement a program to find the intersection of two arrays.
+9. Create a program to rotate elements of an array by a given number of positions.

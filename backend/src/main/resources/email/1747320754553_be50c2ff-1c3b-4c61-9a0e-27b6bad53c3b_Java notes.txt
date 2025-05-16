@@ -1,0 +1,851 @@
+Java notes -
+The keywords of a programming language are the words that define the language, have special meaning to the compiler, and cannot be used as identifiers.
+Some unknown java keywords - transient, assert, strictfp . The keywords const and goto cannot be used in Java. 
+An identifier cannot be a keyword or true, false, or null.
+■■ An identifier can consist of letters, digits 0–9, the underscore, or the dollar sign.
+■■ An identifier must start with a letter, an underscore, or a dollar sign .
+
+Table 2.2 Eight Primitive Data Types
+data types- size     
+byte    - 8 bits 
+short   - 16 bits 
+int     - 32 bits 
+long    - 64 bits 
+float   - 32 bits 
+double  - 64 bits
+char    - 16 bits
+boolean - true or fals
+
+By writing a class to describe an employee, you are creating a new data type, one that was not built into the Java language.
+When you write a class in Java, you are creating a new data type. This concept of creating data types and developing programs based on the program’s data is the basis of object-oriented programming .
+
+type casting -
+int x;
+double d=3.5;
+x=(int)d; yaha pe x=3 aega kyuki int data type hai. casting me kuchh value loss ho jati hai.
+'a' it is character and "a" it is string.
+A String object in Java is immutable, meaning that the string of characters being represented by a String object cannot be changed .
+sout statement me agar string aur number value rahegi to jvm concatenation karega dono ko but agar sout statement me agar sirf number value hai to wo unhe addition karega.
+If the variable is a primitive data type, the value of that variable is stored in the same memory location as the variable. 
+If the variable is a reference, the value of that variable is a memory address. This memory address is the location of the object that the reference refers to. The object contains the actual data.
+
+Java has another class for representing strings, the StringBuffer class. A String object cannot be altered because String objects are immutable. If you are working with strings that need to be altered, the StringBuffer is a flexible alternative. 
+Strings represented as StringBuffer objects are basically an array of characters, allowing you to change, insert, or delete individual characters of the StringBuffer. 
+You can also append characters, change the length of the buffer, view characters at a specific location in the string, and reverse the order of characters.
+he final keyword is used in Java to declare a variable as a constant.
+
+int x = 5, y, z;
+y = x++;
+System.out.println(“x = “ + x + “ y = “ + y);===== x=6  and y=5.
+
+x = 5;
+z = ++x;
+System.out.println(“x = “ + x + “ z = “ + z);===== x=6 and z=6.
+
+System.out.println(“Ternary: “ + (x==5 ? “yes” : “no”));
+
+There are three shift operators in Java: one left-shift operator (<<) and two right-shift operators (>> and >>>).
+Shift operators act on integer values by shifting their binary values (how they are stored in memory) to the right or left.
+
+Nullpointr exception -
+
+class NullPointerExample {
+    private static void printFirstElement(String[] array) {
+        System.out.println(array[0]);
+    }
+
+    public static void main(String[] args) {
+        String[] myStringArray = null;
+        printFirstElement(myStringArray);
+    }
+}
+
+
+constructor madhe method nahi banvta yet.
+parametarised constructor lihacha asel tr ek default constructor pn lihacha nahi tr error deil.
+Student student1=student2 kel tr navin memory create honar nahi , object chya data la refer karel.student2 jya memory location la point karel to adress student1 la pass hoil mhanun object ha referal type ahe.
+object stack madhe ani tyache data member heap madhe store hoto. object madhe heap memory chi address asto.
+
+static method madhun non static method call karachi asel tr -1)non static la static banva lagel or 2)static method madhe class cha object banvun non static method call karavi lagel.
+mhanun psvm madhe object banva lagte.
+
+polymorphism madhe different return type la consider nahi kelya jat.
+
+method overloading- create more than one methods with different signature in a class. signature means- No. of arguments, data type of arguments.
+method overloading - static polymorphism
+method overriding - dynamic polymorphism.
+
+there are 3 types of inheritance- single, multilevel, hierarchical.
+protected- allows to access in its sub class only.
+
+
+method overriding- rewriting super class method in sub class.
+super keyword is used to access super class properties from sub class.
+
+
+
+Multilevel inheritance madhe [A-B-C] jar C cha object banvun C chi method call keli tar phakt C chi method call hoil, but constructor A<B<C tighanche pn call hotil.
+jar parametrised constructor lihache astil tar super keyword deun parent class cha constructor call karav lagel.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+ int num1=10;
+ double num2=num1; yala typecast karachi garaj nahi. implicite typecasting.
+
+double num1=10.0;
+        int num2=(int)num1; explicite typecasting, value loss hote mhanun karav lagte.
+
+Account account= new SavingAccount();  // upcasting
+object of base class and making new of subclass.
+
+SavingAccount cc=(SavingAccount) new Account();
+
+or
+
+SavingAccount cc=(SavingAccount)account; // downcasting
+object of subclass class and making new of base class.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+switch case madhe object banvla tr to tya scope madhech rahto, baher use nahi karta yenar .
+method abstract banvali tr class pn abstract banva lagel. abstract method madhe body naste. abstract keyword - It is used to create abstract method and abstract class.
+abstract class has atleast one abstract method. Abstract class cha object banvun new nahi karta yet, it can not be instantiated. It can be only extended or upcasting.
+abstract class la extend kelyawar tyachya sarv abstract methods override karavya lagtil.
+
+final keyword is used to create final method,final class,final variable(constant).
+final class can not be extended
+final method can not be overrriden.
+final variable (constant) can not be re-initialised.
+
+abstract- fuction extend karaan
+final - as it is vaparn.
+
+
+static method or static variables can be accessed without using object(with class name)-
+non static vaiable or method cannot be accessed from static context.
+static block is used to initialise static variables.
+static block executes at the time of loading of class after that main execution starts.
+pratyek object la navin memory ghyavi lagte eka variable saathi mhanun to variable static banvla tr sarv object tya variable la refer karel.
+
+final static for variable why it is used.
+
+Nested class/Inner class
+It is class within class
+
+
+eka file madhe multiple public classes nahi rahnaar. jo class public ahe tya navan save karachi file.
+
+outer class madhe inner class jar static define kela asel tr purn structure la - nested class mhanacha.
+outer class madhe sadha inner class asel tr purn structure la - inner class mhanach.
+
+Interface -
+component similar to class.
+can be created using interface keyword.
+contains only abstract methods.
+
+interface A
+{
+void display();
+}
+
+abstract class tevha banvach jevha kahi abstract and kahi concrete(sadhya) methods astil.
+interface tevha banvach jevha fakt abstract methods astil.
+interface madhlya methods by default public ani abstract astat.
+abstract class la partial abstraction mhantat.
+interface la full abstraction mhantat.
+interface can not be instantiated.
+interface can be used by implementing it in a class using the implements keyword.
+
+
+class B implements A
+{
+
+}
+
+on implementing interface it is necesarry to overrride all its methods.
+
+java chya navin version madhe interface madhe default and static methods pn astat.
+eka class madhe multiple interface implement karta yete and tyachya through multiple inheritance achieve karta yete.
+
+ek interface dusrya interface la extend karu shakto.
+-------------------------------------------------------------------------------------------------------------------------
+
+System class madhe sarv methods static ahet mhanun system cha object banvachi garaj nahi , directly system.method_name  karu shakto.
+
+System.out.println madhe System ha class ahe jo object class la extend karto. out he static field ahe jo printstream class cha object ahe jo ki System class madhe define kela ahe and println he method ahe printstream class chi. mhanun printstream cha object- out.println() lihto apan.
+
+class System
+{
+ static PrintStream err;
+ static PrintStream out;
+ static InputStream in;
+
+}
+
+examples - System.in;  System.out.println();
+
+System class is defined in java.lang package.
+println() method of PrintStream class.
+
+println() method is overloaded with different parameters so, call to the println method is decided based on the input given in the println circular brackets.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+String s1="shubham";
+string s2="shubham";
+sout(s1==s2)  // this will print true , because s1 and s2 are string literals so, jvm will store both string in string pool. It will refer both string as one string.
+
+string s3 = new string("shubham");
+sout(s1==s3)  // this will print false because, s3 is stored in the heap memory.
+
+string s3 = new string("shubham").intern()  // this will store in the string pool;
+
+abstract class interface la fakt implenets karu shakto.
+
+switch case madhe jar break nahi lavla tar to current case samplyawar next case read karto.
+
+String is immutable whereas StringBuffer and StringBuilder are mutable classes.
+StringBuffer is thread-safe and synchronized whereas StringBuilder is not. That’s why StringBuilder is faster than StringBuffer.
+String concatenation operator (+) internally uses StringBuffer or StringBuilder class.
+For String manipulations in a non-multi threaded environment, we should use StringBuilder else use StringBuffer class.
+
+
+Feature                   String                        StringBuilder                       StringBuffer
+
+Introduction   Introduced in JDK 1.0               Introduced in JDK 1.5                           Introduced in JDK 1.0
+
+Mutability        Immutable                              Mutable                                           Mutable
+
+Thread Safety     Thread Safe                       Not Thread Safe                                      Thread Safe
+
+Memory Efficiency      High                             Efficient                                         Less Efficient
+
+Performance    High(No-Synchronization)              High(No-Synchronization)                      Low(Due to Synchronization)
+
+Usage      This is used when we want immutability.   This is used when Thread safety is not required.    This is used when Thread safety is required.
+
+
+
+string la split karun array madhe store karach asel tr .spli() method vaprachi. string madhle samorchi ani magchi whitespaces remove karache astil tar .trim()method vaprachi.
+String la character array madhe convert karach asel tr .tocharArray() method vaprachi.
+String madhle character change karache astil tar .replace(char oldChar, char newChar) method vaprachi.
+String madhla ekhada word change karach asel tr replaceAll(String oldname, String newname) method vaprach.
+
+
+
+StringBuilder and StringBuffer default size is 16. we can use cpacity() method to check the size of its object.
+it increases the capacity by (oldcapacity*2)+2.
+
+tostring() method chya through ekhada object la string madhe convert karu shakto.
+samja str ha stringbuider cha object asel tar - sout(str.toString()); ata to string madhe convert zala.
+
+println method madhe jar object print kela tar tya object cha hashcode print hote (ex- data.Employee@154617c)  ani jar tya object che data members print karache astil tar tya class madhe jaun tostring method override karachi.
+tostring method pratyek class madhe aste, tila override karun ekhadi string print karu shakto, jevha object print kela jail tya class cha tevha ti string print hoil.
+
+
+java 1.8 chya nantar interface madhe default and static both are concrete method lihu shakto. default method la override karu shakto nahi keli tari chalel but static method la override nahi karu shakat.
+interface madhle variables he static final astat mhanje constants astat.
+
+class jevha interface implements karto tevha interface madhlya methods override karavya lagtat ani tevha public lihav lagte nahi tar error yeto. 
+reason - interface madhlya methods by default public abstract astat mhanun class madhe jevha methods override karto tevha public lihav lagte , wider scope is allowed but lower scope is not allowed.
+
+nested class madhe jevdhe class astil tevdhe .class file bante. inner class chi file - Outer$Inner.class ashi banel.
+
+=====================================================================================================================================================================================================================================
+
+Fundamental/ primitive data types-
+
+1) Integral - byte , short, int, long.
+2) Floating point - float, double.
+3) Logical - boolean.
+4) Textual - char.
+
+Wrapper classes in java -
+Integer,Float,Character,Byte,Short,Double,Boolean,Long. This classes are available in the java.lang package.
+java.lang package - String, Stringbuilder,Stringbuffer,object,Number,Math, common exception classes and error classes.
+
+
+
+int num=90;
+Integer a=new Integer(num); // Boxing
+Integer x=num; //Autoboxing
+int b=a.intvalue(); //Unboxing
+int v=a; Autounboxing
+
+Integer a=new Integer("90");
+int z= Integer.parseInt("34");
+
+=========================================================================================================================================================================
+Excepion Handling -
+
+Exception - Exceptional situation/ Abnormal situation/ Runtime error which program may face at the time of execution, due to which program terminates abbruptly.
+examples of exceptional situation
+insufficient memory space
+unable to locate file
+arithmatically invalid expression
+try to access non-existent element of an array
+Invalid Input
+unable to connect database
+network is not available.
+
+
+class Exception is a subclass of Throwable available in java.lang.
+
+there are subclasses of Exception class -
+
+ArithmeticException -this exception is thrown when program is trying to divide a number by 0.
+NullPointerException - this exception is thrown when an object refers NULL(an object refers to NULL, if it is not initialised).
+ArrayIndexOutOfBoundsException-  this exception is thrown when program is trying to access non existence element of an array.
+FileNotFoundException -  this exception is thrown when program is unable to locate required file.
+IOException -  this exception is thrown when there is general i/o failures.
+
+Types of exceptions -
+checked and unchecked.
+Checked exceptions like IOException known to the compiler at compile time while unchecked exceptions like ArrayIndexOutOfBoundException known to the compiler at runtime. 
+It is mostly caused by the program written by the programmer.
+
+checked exceptions are checked at compile time. 
+If some code within a method throws a checked exception, then the method must either handle the exception or it must specify the exception using the throws keyword.
+In short unchecked exceptions are runtime exceptions that are not required to be caught or declared in a throws clause. 
+These exceptions are usually caused by programming errors, such as attempting to access an index out of bounds in an array or attempting to divide by zero.
+
+handling exception- taking care of possible exceptions - the statements which may throw an exce[ption must be garded with try block followed by catch block.
+A try block can have multiple catch blocks but will execute only one.
+
+finally block catch chya khalich liha lagal . gap jamnar nahi.
+try block madhe error yeo ki nako yeo , finally block nehmich run honar.
+jar try block madhe error ala ani ( catch block nasel kiva tyani exception catch nahi kela) finally block present asel tr try madhun control finally madhe jail ani to block run honar ani program halt honar with exception message , finally chya nantar cha code run nahi honar.
+
+
+
+
+
+=====================================================================================================================================================================
+MKPITS_Java_Apr_2024_Shubham_Uprikar.
+
+C
+Java
+HTML_CSS
+SQL
+
+=====================================================================================================================================================================
+StackOverFlowError,OutOfMemoryError is the subclass  of VirtualMachineError is the subclass of Error.
+
+=====================================================================================================================================================================
+4/0 it will show divide by zero error but 4.0/0 or 14f/0 it will not show error, it will show infinity.
+0/0.0 it will print NaN(Not a Number).
+0/0 it will show divide by zero error.
+0/4 it will print 0.
+
+Values like INFINITY and NaN are available for floating-point numbers but not for integers. As a result, dividing an integer by zero will result in an exception. 
+However, for a float or double, Java allows the operation.
+=====================================================================================================================================================================
+java.lang.Class -
+
+ System.out.println(c.getClass().getSimpleName()); to print only class name.
+
+ System.out.println(c.getClass().getName()); to print class name with package name.
+
+==================================================================================================================================================================
+JVM Architecture -
+
+
+1)classloader -
+   a)loading
+   b)linking
+   c)initialization
+
+2) JVM memory-
+   a)method area
+   b)heap area
+   c)stack
+   d)PC register
+   e)native method stacks
+
+3)Execution engine -
+   a)interpreter
+   b)Just-In-Time-compiler
+   c)garbage collector
+
+
+
+Loading -
+
+bootstrap
+extension
+application
+
+
+Linking -
+
+verification
+preparation
+resolution
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+static variable sathi memory adhi pasunch tayar hote, mhanun garaj asel tithech static memory vaprachi.
+heap memory and other memories of JVM are created in primary memory.
+
+Byte ranges between -128 and 127 inclusive. When int is assigned to the value between -128 to 127 inclusive, the conversion to the byte of that number will remain the same.
+  If int is less than -128, we just add than number with 256 to convert into byte.
+   If int ranges between 128 to 256 inclusive, that number will be deducted with 256.
+   If the number is greater than 256, We will divide that number with 256 and take the reminder...
+
+=========================================================================================================================================================================
+Shift operators in java -
+
+Signed Left Shift Operator (<<)
+Signed Right Shift Operator (>>)
+Unsigned Right Shift Operator (>>>)
+Java does not support the unsigned left shift operator (<<< ).
+
+1)left shift operator - << - binary me convert karke right side me zero lagana.
+
+ to move the bits of the expression to the left according to the number specified after the operator.
+ex=  int x=10;
+      int y = x<<2 ;
+     sout(y);  // so binary of 10 is 1010. after shifting 2 bits to left it becomes 101000. so after converting it to decimal it becomes 40.
+
+ similarly, if x<<3 it will print 80.
+
+2)right shift operator - >> - binary me convert karke right side ke digits kam karna.
+
+ to move the bits of the expression to the right according to the number specified after the operator..
+ex=  int x=160;
+      int y = x>>4 ;
+     sout(y);  // so binary of 160 is 10100000. after shifting 4 bits to right it becomes 1010. so after converting it to decimal it becomes 10.
+
+ similarly, if x>>3 it will print 80.
+
+========================================================================================================================================================================
+Implementing Thread -
+
+A task is devided into multiple processes , processor handles this processes simultaneously using the concept of time sharing , this is called multiprocessing or process based multitasking . 
+Process is further divided into smaller pieces called thread. processor handles this threads simultaneously again using the concept of time sharing and it is called multithreading or thread based multitasking .
+process is heavy weight because it requires its own memory space whereas thread shares the memory space therefore it is called light weight . 
+Similar to program , a thread has start, steps to execute and the end, but thread is not a program , program may contain thread or threads. A program containing single thread is called single threaded application and program containing multiple threads is called as multithreaded application.
+
+Class - 
+public class Thread extends Object implements Runnable
+
+java provides inbuilt support for multithreading. for it , it provides Thread class and Runnable interface for the implementation of thread.
+
+run() method is of Runnable interface. start() method is of Thread class.
+
+implementation of thread using the Thread class   -
+1) Extend Thread class
+2) Override run() method
+
+Implementation of thread using Runnable interface   -
+1) create object of thread class and pass the object of another class who implemented runnable interface.
+2) override run method
+
+
+
+
+java multiple inheritance support karat nahi mhanun thread class la extend n karta runnable intarface implement karav lagte. 
+jar samja ek class la dusrya class la extend karach asel ani thread class la pn extend karach asel tr tasa jamnar nahi mhanun thread class la extend n karta runnable interface la implement karav lagte.
+
+default values of Thread class fields -
+The default priority is set to 5 as excepted.
+Minimum priority is set to 1.
+Maximum priority is set to 10.
+
+main thread la highest priority rahate mhanun pahile main method cha content print hote ani nantar run method cha code execute hote.
+sleep() method InterruptedException throw karto mhanun tyala try block madhe lihav lagte.
+
+Life cycle of Thread - It has 4 possible states.
+1) new thread state
+2) runnable state
+3) not runnable state
+4) dead state .
+
+New thread state - a thread enters in the new thread state on initializing it. it is also called as birth of the thread.
+Thread t =new Thread();
+
+Runnable state - After initialization of thread we need to start it using start() method which calls run() method automatically then it enters in the runnable state.
+
+Not Runnable state - A thread is said to be not runnable if it is sleeping, waiting, or being blocked by another thread.
+
+dead state - After performing its tasks thread dies naturally  or can be killed using destroy().
+
+
+draw the diagram of thread life cycle.
+
+start() n karta direct t.run() kel tr navin thread tayar hot nahi main thread madhech run() chya atmadhla code run  hoil. tyamule thread cha navin stack tayar honar nahi.
+activeCount() only returns the number of threads in the same ThreadGroup. Java divides all the threads into groups for easier management. 
+If there are many thread groups in a Java application, activeCount() won't give a correct output. 
+
+Anonymous thread class -
+
+psvm
+{
+new Thread(new runnable
+{
+public void run()
+{
+code
+}
+}
+).start().
+
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Anonymous runnable class
+
+public class AnonymousRunnableDemo {
+    public static void main(String[] args) {
+        Runnable runnable=new Runnable()
+        {
+            @Override
+            public void run() {
+                System.out.println("hello i am in Runnable 1");
+            }
+        };
+
+        Thread t1=new Thread(runnable);
+        t1.start();
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ SAM - Single Abstract Method- functional interface- jis interface me sirf 1 method rehti hai. ex- Runnable.
+ Anonymous Inner Class: An anonymous inner class is a class that is defined and instantiated inside another class, without giving it a name.
+ Anonymous inner classes are used when we need to implement an interface or extend a class with a single-use implementation that is not reused in other parts of the code.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Dirty read -
+Uncommitted data is read.
+
+Phantom read - 
+When the user reads records, another transaction inserts or deletes rows to the records being read. 
+When the user reads the same rows again, a new “phantom” row will be found.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Synchronisation of Threads - second transaction should be run after completing first transaction. ex - reading should be start after the write opearation.
+The synchronization is mainly used - To prevent thread interference, To prevent consistency problem.
+
+Objects, Methods, and Blocks can be synchronised.
+
+Deamon Thread - service thread- priority is low- jis thread ki deamon thread hai wo thread agar end ho gayi to deamon thread bhi end ho jaegi- garbage collector is also deamon thread. 
+Microsoft word me thodi thodi der me autosaving hoti rehti hai , wo bhi ek supporting thread yani deamon thread hai.
+methods - setDeamon() / isDeamon() .
+
+Runnable ki tarah aur ek Callable naam ka bhi interface hai jisme call() method rehti hai.
+
+Inter-Thread communication - 
+wait() - sends a thread to wait mode .
+notify() - wakes up a thread which is in wait mode, if more than one threads are in wait mode then one of them is choosen arbitarily.
+notifyAll() - wake up all the threads in which are in the wait mode.
+yield() - 
+
+============================================================================================================================================================
+
+The wait() method releases the lock.	                        The sleep() method doesn't release the lock.
+It is a method of Object class	                                     It is a method of Thread class
+It is the non-static method	                                       It is the static method
+It should be notified by notify() or notifyAll() methods	After the specified amount of time, sleep is completed.
+
+============================================================================================================================================================
+t.start();
+t.start();
+Thread la double start kel tar IllegalStateException yeil.
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Synchronized method.
+Synchronized block.
+Static synchronization.
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+for(i=0;i<10;i++)
+{
+Example e=new Example(i);
+}
+
+This is allowed in java at the runtime only. 
+but
+Example e=new Example();
+Example e=new Example();
+Example e=new Example();
+This is not allowed because it is happening in the compile time. It will show errors.
+
+
+================================================================================================================================================================
+
+if we print thread object it will show -[thread name,priority,threadgroup].priority of main is 5.
+Multithreaded programming = a process in which two or more parts of the same process run simultaneously .
+There are two types of multitasking: Process based multitasking and Thread based multitasking.
+In cases where two or more thread with same priority are competing for CPU cycles, different operating system handle this situation differently. 
+Some execute them in time sliced manner some depending on the thread they call.
+
+In Java, a thread's priority is an integer in the range 1 to 10.
+Thread is a lightweight and requires less resources to create and exist in the process. Thread shares the process resources.
+Time slicing is the process to divide the available CPU time to available runnable thread.
+Deadlock is java programming situation where one thread waits for an object lock that is acquired by other thread and vice-versa.
+To avoid deadlock situation in Java programming do not execute foreign code while holding a lock.
+Polling is a usually implemented by looping in CPU is wastes CPU time, one thread being executed depends on other thread output and the other thread depends on the response on the data given to the first thread. 
+In such situation CPU time is wasted, in Java this is avoided by using methods wait(), notify() and notifyAll().
+Default handler is used to handle all the exceptions if catch is not used to handle exception.
+
+keywords is used to by the calling function to guard against the exception -throws.
+keywords is used to by the called function - try .
+
+=====================================================================================================================================================================
+What is race condition?
+A condition in which the critical section (a part of the program where shared memory is accessed) is concurrently executed by two or more threads. 
+It leads to incorrect behavior of a program.
+In layman terms, a race condition can be defined as, a condition in which two or more threads compete together to get certain shared resources.
+
+A marker interface is an interface that doesn't have any methods or constants inside it.
+======================================================================================================================================================================
+java.io package -
+Java I/O (Input and Output) is used to process the input and produce the output.
+Java uses the concept of a stream to make I/O operation fast. 
+The java.io package contains all the classes required for input and output operations.
+
+ 
+classes -
+for bytestream - InputStream and OutputStream
+for characterstream - Reader and Writer 
+this all four classes are abstract, so we will use their subclasses.
+Read the pdf file of sun.
+
+java madhe null samll madhe lihach - null.
+c madhe null capital madhe lihach - NULL.
+
+=======================================================================================================================================================================
+int value=10;
+bufferedWriter.write(String.valueOf(value)); // this is because bufferedWriter object is of characterstream so
+if we write int value without converting it to string then it will print character value of that int(ascii).
+
+String word="1345";
+bufferedWriter.write(Integer.parseInt(word)); //parseInt will convert string to int and then again write method will convert int to character.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+serialization - object lihacha asel kiva read karach asel then that class must be serialized. conversion of object into bytestream.
+deserialization - conversion of bytestream into object.
+
+implemnts Serializable.
+
+=======================================================================================================================================================================
+
+The Collections API -
+Interface Collection.
+a collection is a single object managing group of objects called elements.
+
+collection is further divided into :
+set - unordered elements. duplicate elements are not allowed.
+list - ordered elements. duplicate elements are allowed.
+
+ArrayList -public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, Serializable .
+Resizable-array implementation of the List interface. Implements all optional list operations, and permits all elements, including null. 
+(This class is roughly equivalent to Vector, except that it is unsynchronized.)
+
+arraylist representation in output - [50, 100, 40, 60].
+
+ArraList background madhe array la implement karto eka specific siza cha, ani jar to bharat ala ki navin array tayar karto ani juna array che elements navin array madhe copy karun delete karto.
+ArrayList intial capacity is 10 then if the size getting filled then formula for new Array is n+n/2+1 .
+LinkedList - It implements DoublyLinked list internally.
+linkedlist representation in output - [50, 100, 40, 60].
+
+Difference between the ArrayList and LinkedList -
+
+                ArrayList	                                                                                                                                                                LinkedList
+1) ArrayList internally uses a dynamic array to store the elements.	                                                                                                              LinkedList internally uses a doubly linked list to store the elements.
+2) Manipulation with ArrayList is slow because it internally uses an array.If any element is removed from the array, all the other elements are shifted in memory.	    Manipulation with LinkedList is faster than ArrayList because it uses a doubly linked list, so no bit shifting is required in memory.
+3) An ArrayList class can act as a list only because it implements List only.	                                                                                            LinkedList class can act as a list and queue both because it implements List and Deque interfaces.
+4) ArrayList is better for storing and accessing data.	                                                                                                                     LinkedList is better for manipulating data.
+5) The memory location for the elements of an ArrayList is contiguous.	                                                                                                     The location for the elements of a linked list is not contagious. 
+6) Generally, when an ArrayList is initialized, a default capacity of 10 is assigned to the ArrayList.                                                                       There is no case of default capacity in a LinkedList. In LinkedList, an empty list is created when a LinkedList is initialized.
+7) To be precise, an ArrayList is a resizable array.	                                                                                                                     LinkedList implements the doubly linked list of the list interface.
+
+ArrayList uses an array, which allows for fast random access but slow insertion and deletion. While LinkedList uses a doubly linked list, which allows for fast insertion and deletion but slow random access.
+
+Also one of the major difference lies in the access time. ArrayList provides O(1) time complexity for index-based access but O(n) for insertions and removals within the list.
+In contrast, LinkedList offers O(1) time complexity for insertions and removals but O(n) for index-based access, as it requires traversing the list.
+
+Manipulating ArrayList takes more time due to the internal implementation. Whenever we remove an element, internally, the array is traversed and the memory bits are shifted. 
+Manipulating LinkedList takes less time compared to ArrayList because, in a doubly-linked list, there is no concept of shifting the memory bits. The list is traversed and the reference link is changed.
+
+========================================================================================================================================================================
+
+HashSet - allows only uniuq elements. unordered elements .
+
+Set representation in output - [50, 100, 40, 60].
+
+Hashset internally uses HashTable.
+
+Multidimensional collection is possible.
+ArrayList<ArrayList<Object>> a = new ArrayList<ArrayList<Object>>();
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+varargs-variable arguments- int sum(int ... a
+
+directly assign list to List -
+List<Integer> list=Arrays.asList(13,56,78,90); //asList returns fixed sized list.
+ArrayList<Integer> arraylist=new ArrayList();
+arraylist.addAll(list);
+//OR using constructor
+ArrayList<Integer> arraylist=new ArrayList(list);
+
+//creating Arraylist of student class -
+  List list1=Arrays.asList(new Student(90,"shubham"),new Student(80,"rahul"),new Student(10,"zooja"));
+        ArrayList<Student> student =new ArrayList<Student>(list1);
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+next method is annonymous inner class -
+ArrayList<Integer> arraylist =new ArrayList<Integer>()
+{{
+add(79);
+add(16);
+add(90);
+}};  // yaha dono angular brackets me Integer likhna padega nahi to error aega .
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Comparable Interface -
+Comparable interface sarv wrapper claases vr already implemented ahe.
+mhanun Collections.sort() method ni directly sort karta yete.
+
+Comparable interface Student class madhe implement karach ani Student madhech compareTo method implement karachi, Collections.sort() method Main class madhe lihachi.
+Comparator alag ahe.
+Comparable interface madhe compareTo method override karachi ani tya madhe sorting cha code lihacha return statement chya through.
+program lihla ahe.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Difference between Comparable and Comparator
+Logically, Comparable interface compares “this” reference with the object specified and Comparator in Java compares two different class objects provided.
+If any class implements Comparable interface in Java then collection of that object either List or Array can be sorted automatically by using Collections.sort() or Arrays.sort() method and objects will be sorted based on there natural order defined by CompareTo method.
+A basic differentiating feature is that using comparable we can use only one comparison. Whereas, we can write more than one custom comparators as you want for a given type, all using different interpretations of what sorting means.
+Like in the comparable example we could just sort by only one attribute, i.e., year but in the comparator, we were able to use different attributes like rating, name, and year as well.
+To summarize, if sorting of objects needs to be based on natural order then use Comparable whereas if you sorting needs to be done on attributes of different objects, then use Comparator in Java.
+
+
+Comparable provides compareTo() method to sort elements.	Comparator provides compare() method to sort elements.
+
+Comparable is present in java.lang package.	                 A Comparator is present in the java.util package.
+
+To call Comparable- Collections.sort(arraylist);                 To call Comparator- Collections.sort(arraylist,new class_Name_Of_Comparator_Implemented());
+=========================================================================================================================================================================
+jevha integer, String, Long, Double, char, byte la sort karacha asel tevha Arrays.sort() use karach.
+jevha class object chya members chya through sort karach ahe tevha Comparable or Comparator use karach.
+Comparable Student class var implement karav lagte tyamule class modify hote whereas different Comparator che different classes banvu shakto tyamule Student class vr implement karaychi garaj nahi.
+
+=========================================================================================================================================================================
+Comparable interface use to sort the collection of customized object on a single key.
+Comparator interface use to sort the collection of customized object on the multiple keys.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+for each loop madhe arraylist jar int,float,char,String type cha asel tr integer,Float,Character,String cha object banvach. mhanje wrapper class cha object banvach.
+jar generic nasel tar Object class cha object banvach.
+
+Arraylist,LinkedList,HashSet are all unsynchronised.
+LinkedList implements both List and Queue interface so it is possible to write -
+list list=new LinkedList();
+Queue q=new LinkedList();
+=========================================================================================================================================================================
+Queue Interface methods -
+
+Summary of Queue methods -
+        Throws exception                 Returns special value
+        collection Interface methods	  Queue methods
+Insert	  add(e)	                      offer(e)
+Remove	  remove()		              poll()
+Examine	  element()		              peek()
+
+The offer method inserts an element if possible, otherwise returning false. This differs from the Collection.add method, which can fail to add an element only by throwing an unchecked exception.
+The remove() and poll() methods differ only in their behavior when the queue is empty: the remove() method throws an exception, while the poll() method returns null.
+The element() and peek() methods return, but do not remove, the head of the queue.
+
+list list=new LinkedList();// can use only List methods .
+Queue q=new LinkedList();// can use only Queue methods .
+LinkedList l =new LinkedList();// can use both List and Queue methods .
+
+iterator banane ke baad aur use karne ke bich me agar koi element add karenge to exception dega.
+Iterator itr=List.iterator();
+list.add() // will throw exception .
+while(itr.hasNext())
+{
+}
+=========================================================================================================================================================================
+
+ListIterator is a sub Interface of Iterator . public interface ListIterator extends Iterator
+It has both hasnext() and hasPrevious() methods . It can be only implemented on List.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Vector class - 
+Vector is like the dynamic array which can grow or shrink its size .
+It is synchronised and thread safe. default size is 10;
+if capacity gets filled then new capacity will be created double the size of old capacity.
+It is available in java.util package
+if thread safe environment is not needed then use ArrayList.
+
+
+Adding elements using addElement() method of Vector .
+=========================================================================================================================================================================
+Stack class -
+public class Stack extends Vector .
+Vector class implements List interface and stack class extends Vector class. so, by default List interface get implemented on Stack class.
+stack.search(element) returns index of element. NOTE- index starts from top element not from bottom .
+Stack class is thread safe .
+In order to create a stack, we must import java.util.stack package 
+
+=========================================================================================================================================================================
+ArrayDeque class -
+The ArrayDeque in Java provides a way to apply resizable-array in addition to the implementation of the Deque interface.
+This is a special kind of array that grows and allows users to add or remove an element from both sides of the queue. 
+Unlike Queue, we can add or remove elements from both sides.
+Null elements are not allowed in the ArrayDeque.
+ArrayDeque is not thread safe . Therefore it is faster .Null elements are not accepted.
+methods of ArrayDeque -
+
+Insertion from Head -	offerFirst(e)
+Insertion from Tail	offerLast(e)
+Removal from Head	pollFirst()
+Removal from Tail	pollLast()
+========================================================================================================================================================================
+PriorityQueue class -
+
+by default it uses min heap . 
+therefor when we use poll() method then minimum value get deleted first -
+Queue<Integer> q=new PriorityQueue();
+q.poll(); // it will delete smaller element.
+
+If we use max heap then bigger value deleted first -
+Comparator c=Comparator.reverseOrder();
+Queue<Integer> q=new PriorityQueue(c);
+q.poll(); // it will delete bigger element .
+
+========================================================================================================================================================================
+
+CopyOnWriteArrayList check about it.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

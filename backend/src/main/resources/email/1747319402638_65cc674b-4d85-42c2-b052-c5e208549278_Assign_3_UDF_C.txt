@@ -1,0 +1,10 @@
+1. WAF to accept a number as an argument nad check wheather it is even or odd.
+2. WAF to accept a marks as an argument and if it is >=50 the display "Pass" otherwise display "Fail".
+3. WAF to accept 2 numbers as an argument and return greater.
+4. WAF to acceot 3 numbers as an argument and return greatest.
+5. WAF to accept a number as an argument and return its factorial.
+6. WAF to accept a number as an argument and return its reverse.
+7. WAF to accept a number as an argument and check wheather it is armstrong or not.
+8. WAF to accept a number as an argument and check wheather it is Prime or Not.
+9. WAF to accept 2 numbers as an argument and display all armstrong numbers lies between these 2 numbers.
+10. WAF to accept 2 numbers as an argument and display all prime numbers lies between these 2 numbers.

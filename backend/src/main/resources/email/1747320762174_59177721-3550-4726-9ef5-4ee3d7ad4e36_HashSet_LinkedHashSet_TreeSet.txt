@@ -1,0 +1,273 @@
+A `HashSet` in Java is a part of the Java Collections Framework and is used to store a collection of unique elements. It is backed by a hash table, providing high performance for basic operations like adding, removing, and checking for the presence of elements. Here are the key aspects and features of `HashSet`:
+
+### Key Features
+1. **No Duplicates**: A `HashSet` does not allow duplicate elements. If you try to add a duplicate, it will be ignored.
+2. **Null Elements**: It allows the insertion of a null element.
+3. **Unordered**: The elements in a `HashSet` are not stored in any particular order. The order might change over time, especially as elements are added and removed.
+4. **Performance**: `HashSet` provides constant-time performance for basic operations (`add`, `remove`, `contains`, and `size`), assuming the hash function disperses elements properly among the buckets.
+5. **Non-Synchronized**: `HashSet` is not synchronized, which means it is not thread-safe without external synchronization. For concurrent access from multiple threads, consider using `Collections.synchronizedSet` or `ConcurrentHashMap`.
+
+### Common Methods
+Here are some common methods provided by the `HashSet` class:
+
+- `boolean add(E e)`: Adds the specified element to the set if it is not already present.
+- `boolean remove(Object o)`: Removes the specified element from the set if it is present.
+- `boolean contains(Object o)`: Returns `true` if the set contains the specified element.
+- `int size()`: Returns the number of elements in the set.
+- `void clear()`: Removes all the elements from the set.
+- `boolean isEmpty()`: Returns `true` if the set contains no elements.
+- `Iterator<E> iterator()`: Returns an iterator over the elements in the set.
+
+### Example Usage
+
+Here's a simple example demonstrating how to use `HashSet` in Java:
+
+```java
+import java.util.HashSet;
+
+public class HashSetExample {
+    public static void main(String[] args) {
+        // Create a HashSet
+        HashSet<String> set = new HashSet<>();
+
+        // Add elements to the HashSet
+        set.add("Apple");
+        set.add("Banana");
+        set.add("Orange");
+
+        // Attempt to add a duplicate element
+        boolean added = set.add("Apple");  // Returns false, as "Apple" is already present
+
+        // Display the HashSet
+        System.out.println("HashSet: " + set);
+
+        // Check for the presence of an element
+        boolean containsApple = set.contains("Apple");  // Returns true
+        boolean containsGrapes = set.contains("Grapes");  // Returns false
+
+        // Remove an element
+        set.remove("Banana");
+
+        // Display the updated HashSet
+        System.out.println("Updated HashSet: " + set);
+
+        // Iterate over the elements
+        for (String item : set) {
+            System.out.println(item);
+        }
+
+        // Get the size of the HashSet
+        int size = set.size();  // Returns 2
+
+        // Clear all elements
+        set.clear();
+
+        // Check if the HashSet is empty
+        boolean isEmpty = set.isEmpty();  // Returns true
+    }
+}
+```
+
+### Internal Working
+
+Internally, `HashSet` uses a `HashMap` to store the elements. When you add an element to a `HashSet`, it is actually added as a key in the underlying `HashMap` with a constant dummy value. This allows the `HashSet` to leverage the `HashMap`'s efficient hashing mechanism for storing and retrieving elements.
+
+### When to Use HashSet
+
+- When you need to maintain a collection of unique elements.
+- When you don't care about the order of the elements.
+- When you need fast access to elements (constant-time performance for basic operations).
+
+### Limitations
+
+- **Order is not maintained**: If you need ordered sets, consider using `LinkedHashSet` (which maintains insertion order) or `TreeSet` (which maintains a sorted order).
+- **Not thread-safe**: If multiple threads access a `HashSet` concurrently and at least one thread modifies it, external synchronization is required.
+
+In summary, `HashSet` is a powerful and efficient data structure for maintaining a collection of unique elements with fast access time.
+
+************
+A `LinkedHashSet` in Java is a part of the Java Collections Framework that combines the unique element guarantee of a `HashSet` with the predictable iteration order of a `LinkedList`. It is backed by a hash table (actually a `HashMap` instance) and a linked list running through all its entries, which defines the iteration ordering (insertion-order).
+
+### Key Features
+1. **No Duplicates**: Just like `HashSet`, a `LinkedHashSet` does not allow duplicate elements.
+2. **Insertion-Order**: It maintains a doubly-linked list running through all of its entries, which defines the order in which elements were inserted into the set. Thus, elements are returned in the order in which they were inserted.
+3. **Null Elements**: It permits the insertion of one null element.
+4. **Performance**: The performance is slightly lower than `HashSet` due to the added overhead of maintaining the linked list, but still offers O(1) time complexity for basic operations like add, remove, and contains.
+5. **Non-Synchronized**: Like `HashSet`, it is not synchronized. For concurrent access from multiple threads, external synchronization is required.
+
+### Common Methods
+`LinkedHashSet` inherits all the methods from `HashSet` and `AbstractSet`. Here are some common methods:
+
+- `boolean add(E e)`: Adds the specified element to the set if it is not already present.
+- `boolean remove(Object o)`: Removes the specified element from the set if it is present.
+- `boolean contains(Object o)`: Returns `true` if the set contains the specified element.
+- `int size()`: Returns the number of elements in the set.
+- `void clear()`: Removes all of the elements from the set.
+- `boolean isEmpty()`: Returns `true` if the set contains no elements.
+- `Iterator<E> iterator()`: Returns an iterator over the elements in this set in the order they were inserted.
+
+### Example Usage
+
+Here's a simple example demonstrating how to use `LinkedHashSet` in Java:
+
+```java
+import java.util.LinkedHashSet;
+
+public class LinkedHashSetExample {
+    public static void main(String[] args) {
+        // Create a LinkedHashSet
+        LinkedHashSet<String> set = new LinkedHashSet<>();
+
+        // Add elements to the LinkedHashSet
+        set.add("Apple");
+        set.add("Banana");
+        set.add("Orange");
+
+        // Attempt to add a duplicate element
+        boolean added = set.add("Apple");  // Returns false, as "Apple" is already present
+
+        // Display the LinkedHashSet
+        System.out.println("LinkedHashSet: " + set);
+
+        // Check for the presence of an element
+        boolean containsApple = set.contains("Apple");  // Returns true
+        boolean containsGrapes = set.contains("Grapes");  // Returns false
+
+        // Remove an element
+        set.remove("Banana");
+
+        // Display the updated LinkedHashSet
+        System.out.println("Updated LinkedHashSet: " + set);
+
+        // Iterate over the elements
+        for (String item : set) {
+            System.out.println(item);
+        }
+
+        // Get the size of the LinkedHashSet
+        int size = set.size();  // Returns 2
+
+        // Clear all elements
+        set.clear();
+
+        // Check if the LinkedHashSet is empty
+        boolean isEmpty = set.isEmpty();  // Returns true
+    }
+}
+```
+
+### Internal Working
+
+Internally, `LinkedHashSet` uses a combination of a hash table (specifically a `HashMap` instance) and a doubly-linked list. Each element in the set is stored as a key in the `HashMap`, with a constant dummy value. Additionally, each entry maintains links to the previous and next entries, preserving insertion order.
+
+### When to Use LinkedHashSet
+
+- When you need a collection of unique elements.
+- When the order of elements matters and should be predictable (insertion order).
+- When you need fast access to elements, but the slight overhead compared to `HashSet` is acceptable.
+
+### Limitations
+
+- **Slightly Lower Performance**: Due to the overhead of maintaining the linked list, `LinkedHashSet` is slightly slower than `HashSet` for basic operations.
+- **Not thread-safe**: It is not synchronized, so external synchronization is needed for concurrent access.
+
+In summary, `LinkedHashSet` is an excellent choice when you need a set that maintains the insertion order of elements while still providing fast access times.
+****************
+
+A `TreeSet` in Java is a part of the Java Collections Framework that implements the `NavigableSet` interface and is backed by a `TreeMap`. It is used to store elements in a sorted and navigable order. This class guarantees that the set will be in ascending order, sorted according to the natural ordering of its elements or by a comparator provided at set creation time, depending on which constructor is used.
+
+### Key Features
+1. **Sorted Order**: Elements in a `TreeSet` are sorted in ascending order. This can be either the natural ordering of the elements or an ordering specified by a `Comparator` provided at set creation time.
+2. **No Duplicates**: Like other sets, a `TreeSet` does not allow duplicate elements.
+3. **NavigableSet Interface**: Provides methods to navigate through the set (e.g., `lower`, `floor`, `ceiling`, `higher`).
+4. **Null Elements**: Does not permit null elements if using natural ordering or comparator that does not allow nulls.
+5. **Performance**: Offers log(n) time cost for the basic operations (`add`, `remove`, and `contains`), which is due to the underlying `TreeMap`.
+
+### Common Methods
+`TreeSet` inherits methods from `AbstractSet` and implements all the methods from the `NavigableSet` and `SortedSet` interfaces. Here are some commonly used methods:
+
+- `boolean add(E e)`: Adds the specified element to the set if it is not already present.
+- `boolean remove(Object o)`: Removes the specified element from the set if it is present.
+- `boolean contains(Object o)`: Returns `true` if the set contains the specified element.
+- `E first()`: Returns the first (lowest) element currently in this set.
+- `E last()`: Returns the last (highest) element currently in this set.
+- `E lower(E e)`: Returns the greatest element in this set strictly less than the given element, or `null` if there is no such element.
+- `E floor(E e)`: Returns the greatest element in this set less than or equal to the given element, or `null` if there is no such element.
+- `E ceiling(E e)`: Returns the least element in this set greater than or equal to the given element, or `null` if there is no such element.
+- `E higher(E e)`: Returns the least element in this set strictly greater than the given element, or `null` if there is no such element.
+- `Iterator<E> iterator()`: Returns an iterator over the elements in this set in ascending order.
+- `Iterator<E> descendingIterator()`: Returns an iterator over the elements in this set in descending order.
+- `int size()`: Returns the number of elements in the set.
+- `void clear()`: Removes all elements from the set.
+
+### Example Usage
+
+Here's an example demonstrating how to use `TreeSet` in Java:
+
+```java
+import java.util.TreeSet;
+
+public class TreeSetExample {
+    public static void main(String[] args) {
+        // Create a TreeSet
+        TreeSet<String> set = new TreeSet<>();
+
+        // Add elements to the TreeSet
+        set.add("Banana");
+        set.add("Apple");
+        set.add("Orange");
+
+        // Attempt to add a duplicate element
+        boolean added = set.add("Apple");  // Returns false, as "Apple" is already present
+
+        // Display the TreeSet (sorted order)
+        System.out.println("TreeSet: " + set);  // Output: [Apple, Banana, Orange]
+
+        // Check for the presence of an element
+        boolean containsApple = set.contains("Apple");  // Returns true
+        boolean containsGrapes = set.contains("Grapes");  // Returns false
+
+        // Remove an element
+        set.remove("Banana");
+
+        // Display the updated TreeSet
+        System.out.println("Updated TreeSet: " + set);  // Output: [Apple, Orange]
+
+        // Get first and last elements
+        String first = set.first();  // Returns "Apple"
+        String last = set.last();  // Returns "Orange"
+
+        // Iterate over the elements
+        for (String item : set) {
+            System.out.println(item);
+        }
+
+        // Get the size of the TreeSet
+        int size = set.size();  // Returns 2
+
+        // Clear all elements
+        set.clear();
+
+        // Check if the TreeSet is empty
+        boolean isEmpty = set.isEmpty();  // Returns true
+    }
+}
+```
+
+### Internal Working
+
+Internally, `TreeSet` uses a `TreeMap` to store elements. When an element is added to a `TreeSet`, it is actually added as a key in the underlying `TreeMap` with a constant dummy value. This allows the `TreeSet` to maintain its elements in a sorted order.
+
+### When to Use TreeSet
+
+- When you need a collection of unique elements that are maintained in a sorted order.
+- When you need efficient range operations (e.g., finding elements within a certain range).
+- When you need to quickly access the smallest or largest element, or perform ordered traversal.
+
+### Limitations
+
+- **Performance**: Operations are generally slower than `HashSet` due to the tree structure, with a time complexity of O(log n) compared to O(1) for `HashSet`.
+- **No null elements**: Unlike `HashSet` or `LinkedHashSet`, `TreeSet` does not allow null elements if natural ordering is used or if the comparator does not support nulls.
+- **Not thread-safe**: Like other collection classes, `TreeSet` is not synchronized. External synchronization is needed for concurrent access.
+
+In summary, `TreeSet` is a powerful data structure when you need to maintain a sorted collection of unique elements with efficient navigation capabilities.

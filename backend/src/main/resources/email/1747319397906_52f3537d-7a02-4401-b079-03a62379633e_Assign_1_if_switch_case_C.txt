@@ -1,0 +1,18 @@
+if
+1. Write a program that determines the type of a given triangle (equilateral, isosceles, or scalene) based on its side lengths using if statements.
+2. Develop a program that calculates the roots of a quadratic equation ax^2 + bx + c = 0 using if statements.
+3. Write a program that calculates the net salary of an employee based on their basic salary, allowances, and deductions using if statements.
+4. Write a program that determines the eligibility of a person for a discount based on their total purchase amount at a store using if statements.
+5. Develop a program that checks if a given number is a perfect square using if statements.
+6. Write a program that categorizes a given person's BMI (Body Mass Index) into different weight categories (underweight, normal weight, overweight, obese) using if statements.
+7. Write a program that determines the eligibility of a student for admission to a university based on their entrance exam score and previous academic performance using if statements.
+8.Implement a program that calculates the total cost of a meal at a restaurant including tax and tip based on the menu items ordered and their prices using if statements.
+9. Create a program that simulates a basic ATM machine allowing users to withdraw, deposit, and check balance based on user input using if statements.
+10. Develop a program that categorizes a given angle as acute, right, obtuse, or straight based on its measure using if statements
+
+switch case
+11. Write a program to display the name of the month based on the given number using switch-case.
+12. Develop a program that calculates the total number of days in a given month based on the month number and the year using switch-case.
+13. Write a program that determines the day of the week based on the given number (1 for Sunday, 2 for Monday, etc.) using switch-case.
+14. Write a program that converts a given temperature from Celsius to Fahrenheit or vice versa based on user selection using switch-case.
+15. Develop a program that simulates a basic ATM machine allowing users to perform actions such as withdraw, deposit, and check balance using switch-case.

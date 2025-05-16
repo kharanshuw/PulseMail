@@ -3,10 +3,7 @@ package com.example.demo.service.impl;
 import com.example.demo.model.EmailMessage;
 import com.example.demo.service.EmailService;
 import jakarta.activation.DataSource;
-import jakarta.mail.Folder;
-import jakarta.mail.MessagingException;
-import jakarta.mail.Session;
-import jakarta.mail.Store;
+import jakarta.mail.*;
 import jakarta.mail.internet.MimeMessage;
 import jakarta.mail.util.ByteArrayDataSource;
 import org.slf4j.Logger;
@@ -21,10 +18,9 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.InputStream;
-import java.security.NoSuchProviderException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Properties;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.util.*;
 
 @Service
 public class EmailServiceImpl implements EmailService {
@@ -424,8 +420,20 @@ public class EmailServiceImpl implements EmailService {
 
     }
 
+    /**
+     * Fetches messages from the INBOX folder of the user's email account.
+     * Ensures proper resource management and robust exception handling.
+     * 
+     * @return List of EmailMessage objects containing subject, content, and
+     *         attachments.
+     */
     public List<EmailMessage> getInboxMessages() {
+
+        Store store = null;
+        Folder folder = null;
         try {
+
+            // ✅ Initialize email session properties
 
             Properties properties = new Properties();
 
@@ -437,25 +445,226 @@ public class EmailServiceImpl implements EmailService {
 
             Session session = Session.getDefaultInstance(properties);
 
-            Store store = session.getStore();
+            // ✅ Connect to email store
+
+            store = session.getStore();
 
             store.connect(username, password);
 
-            Folder folder = store.getFolder("INBOX");
+            logger.info("Successfully connected to mail store.");
+
+            // ✅ Open INBOX folder in read-only mode
+
+            folder = store.getFolder("INBOX");
 
             folder.open(Folder.READ_ONLY);
 
+            logger.info("Inbox folder opened successfully.");
+
+            List<EmailMessage> list = new ArrayList<>();
+
+            // ✅ Fetch messages
+
             jakarta.mail.Message[] messages = folder.getMessages();
 
-            for (jakarta.mail.Message message : messages) {
-                logger.info(message.getSubject());
-                logger.info("-----------------------------------------------------------------");
+            /**
+             *
+             * for (jakarta.mail.Message message : messages) {
+             *
+             * String content = getContentFromEmailMessage(message);
+             *
+             * List<String> files = getFilesFromEmailMessage(message);
+             *
+             * EmailMessage emailMessage = new EmailMessage();
+             * emailMessage.setSubject(message.getSubject());
+             * emailMessage.setFiles(files);
+             *
+             * emailMessage.setContent(content);
+             *
+             * list.add(emailMessage);
+             *
+             * }
+             */
+
+            // 🔹 Processing the last email only (for testing)
+
+            if (messages.length > 0) {
+                // Message message1 = messages[messages.length - 1];
+
+                // logger.info("Processing the latest email with subject: " + message1.getSubject());
+
+                // // ✅ Extract content and attachments
+
+                // String content = getContentFromEmailMessage(message1);
+                // List<String> files = getFilesFromEmailMessage(message1);
+
+                // // ✅ Create EmailMessage object
+
+                // EmailMessage emailMessage = new EmailMessage();
+                // emailMessage.setSubject(message1.getSubject());
+                // emailMessage.setFiles(files);
+                // emailMessage.setContent(content);
+
+                // list.add(emailMessage);
+
+
+                for (jakarta.mail.Message message : messages) {
+             
+                    String content = getContentFromEmailMessage(message);
+                    
+                     List<String> files = getFilesFromEmailMessage(message);
+                    
+                     EmailMessage emailMessage = new EmailMessage();
+                     emailMessage.setSubject(message.getSubject());
+                     emailMessage.setFiles(files);
+                   
+                     emailMessage.setContent(content);
+                    
+                     list.add(emailMessage);
+                    }
+            } else {
+                logger.warn("No emails found in the inbox!");
+
+            }
+
+
+
+
+
+            return list;
+
+        } catch (Exception e) {
+            logger.error("Exception occurred inside getInboxMessages", e);
+
+            throw new RuntimeException("Exception occured inside getInboxMessages");
+        } finally {
+
+            // ✅ Ensure folder and store are properly closed to prevent memory leaks
+
+            if (folder != null && folder.isOpen()) {
+                try {
+                    folder.close(false); // Ensures the folder is properly closed
+
+                    logger.info("Inbox folder closed successfully.");
+
+                } catch (MessagingException e) {
+                    logger.error(
+                            "Failed to close folder in getInboxMessages. Possible issue: disconnection or lock state.",
+                            e);
+
+                }
+            }
+            if (store != null) {
+                try {
+                    store.close(); // Ensures the store connection is released
+
+                    logger.info("Mail store closed successfully.");
+
+                } catch (MessagingException e) {
+                    logger.error(
+                            "Failed to close store in getInboxMessages. Possible issue: disconnection or session termination.",
+                            e);
+
+                }
+            }
+        }
+
+    }
+
+    /**
+     * Extracts attachments from an email and saves them in a local directory.
+     * Ensures unique file names to prevent overwrites.
+     * 
+     * @param message The email message to extract attachments from.
+     * @return A list of saved file paths.
+     */
+    private List<String> getFilesFromEmailMessage(Message message) {
+
+        try {
+            List<String> files = new ArrayList<>();
+
+            if (message.isMimeType("multipart/*")) {
+
+                Multipart multipart = (Multipart) message.getContent();
+
+                for (int i = 0; i < multipart.getCount(); i++) {
+                    BodyPart bodyPart = multipart.getBodyPart(i);
+
+                    InputStream inputStream = bodyPart.getInputStream();
+
+                    // ✅ Validate and process attachments
+
+                    if (Part.ATTACHMENT.equalsIgnoreCase(bodyPart.getDisposition()) && bodyPart.getFileName() != null) {
+
+                        String uniqueFilename = System.currentTimeMillis() + "_" + UUID.randomUUID() + "_"
+                                + bodyPart.getFileName();
+                        File file = new File("src/main/resources/email/" + uniqueFilename);
+
+                        Files.copy(inputStream, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+
+                        files.add(file.getAbsolutePath());
+                        logger.info("Saved attachment: " + uniqueFilename);
+                    }
+
+                }
+            }
+
+            return files;
+        } catch (Exception e) {
+            logger.error("Error occurred inside getFilesFromEmailMessage", e);
+
+            throw new RuntimeException("error occured inside getFilesFromEmailMessage");
+        }
+
+    }
+
+    /**
+     * Extracts content from an email, prioritizing HTML format over plain text.
+     * 
+     * @param message The email message to extract content from.
+     * @return The extracted email content or null if unavailable.
+     */
+    private String getContentFromEmailMessage(jakarta.mail.Message message) {
+
+        try {
+
+            logger.info("Extracting content from email with subject: " + message.getSubject());
+
+            if (message.isMimeType("text/html")) {
+                return (String) message.getContent();
+            }
+            if (message.isMimeType("text/plain")) {
+                return (String) message.getContent();
+            }
+            if (message.isMimeType("multipart/*")) {
+                Multipart multipart = (Multipart) message.getContent();
+
+                String htmlContent = null;
+                String textContent = null;
+
+                for (int i = 0; i < multipart.getCount(); i++) {
+                    BodyPart bodyPart = multipart.getBodyPart(i);
+
+                    if (bodyPart.isMimeType("text/html")) {
+                        htmlContent = (String) bodyPart.getContent();
+                    }
+                    if (bodyPart.isMimeType("text/plain")) {
+                        textContent = (String) bodyPart.getContent();
+                    }
+                }
+
+                return htmlContent != null ? htmlContent : textContent;
             }
 
         } catch (Exception e) {
             // TODO: handle exception
-        }
+            logger.error("exception occured in getContentFromEmailMessage", e);
 
+            throw new RuntimeException("exception occured in getContentFromEmailMessage");
+        }
+        logger.warn("No content found in email.");
         return null;
+
     }
+
 }

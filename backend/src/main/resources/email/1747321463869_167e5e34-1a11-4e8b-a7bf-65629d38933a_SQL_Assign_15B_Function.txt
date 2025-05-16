@@ -1,0 +1,14 @@
+Problem Statement 1: Calculate Total Order Value
+Design a user-defined function that takes order quantity and unit price as input and calculates the total order value for each order.
+
+Problem Statement 2: Calculate Age from Birthdate
+Develop a user-defined function that takes a person's birthdate as input and calculates their current age in years.
+
+Problem Statement 3: String Reversal
+Design a user-defined function that takes a string as input and returns the reversed string.
+
+Problem Statement 4: Calculate BMI (Body Mass Index)
+Create a user-defined function that takes a person's weight (in kilograms) and height (in meters) as input and calculates their BMI.
+
+Problem Statement 5: Generate a Unique Customer ID
+Design a user-defined function that generates a unique customer ID based on a predefined pattern and the customer's personal details.

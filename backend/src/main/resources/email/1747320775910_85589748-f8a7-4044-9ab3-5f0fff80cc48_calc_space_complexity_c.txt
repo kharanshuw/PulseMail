@@ -1,0 +1,128 @@
+Space complexity measures the amount of memory an algorithm uses relative to the size of its input. It is usually expressed using Big O notation (O), which describes an upper bound on the space requirements in terms of the input size \( n \). Here’s a step-by-step guide to calculate the space complexity of an algorithm:
+
+### Step-by-Step Guide
+
+1. **Identify the Variables:**
+   - Determine all the variables used by the algorithm, including data structures like arrays, lists, stacks, queues, and any other memory allocations.
+
+2. **Calculate Space for Variables:**
+   - For each variable or data structure, determine the amount of space it requires in relation to the input size \( n \).
+
+3. **Sum Up the Space Requirements:**
+   - Add up the space requirements of all variables to get the total space complexity.
+
+4. **Consider Different Parts of the Algorithm:**
+   - Analyze different parts of the algorithm (e.g., initialization, loops, recursive calls) to ensure all space requirements are accounted for.
+
+5. **Simplify Using Big O Notation:**
+   - Express the total space complexity in Big O notation, focusing on the term that grows the fastest as \( n \) increases, and ignore constant factors and lower-order terms.
+
+public class Example1 {
+    public static int sumArray(int[] arr) {
+        int sum = 0;  // O(1)
+        for (int i = 0; i < arr.length; i++) {  // O(1) for `i`
+            sum += arr[i];
+        }
+        return sum;
+    }
+}
+```
+
+**Space Complexity Calculation:**
+- The `sum` variable requires O(1) space.
+- The loop variable `i` requires O(1) space.
+- The input array `arr` is not part of the auxiliary space, but let's assume it's given.
+- Total auxiliary space complexity: O(1).
+
+### Example 2: Dynamic Programming - Fibonacci Sequence
+
+```java
+public class Example2 {
+    public static int fibonacci(int n) {
+        if (n <= 1) return n;  // O(1)
+        
+        int[] fib = new int[n + 1];  // O(n)
+        fib[0] = 0;
+        fib[1] = 1;
+        
+        for (int i = 2; i <= n; i++) {  // O(1) for `i`
+            fib[i] = fib[i - 1] + fib[i - 2];
+        }
+        return fib[n];
+    }
+}
+```
+
+**Space Complexity Calculation:**
+- The array `fib` requires O(n) space.
+- The loop variable `i` requires O(1) space.
+- Total space complexity: O(n).
+
+### Example 3: Recursive Factorial
+
+```java
+public class Example3 {
+    public static int factorial(int n) {
+        if (n == 0) return 1;  // O(1)
+        return n * factorial(n - 1);
+    }
+}
+```
+
+**Space Complexity Calculation:**
+- Each recursive call adds a new frame to the call stack.
+- In the worst case, there are `n` recursive calls.
+- Total space complexity: O(n).
+
+### Example 4: Matrix Multiplication
+
+```java
+public class Example4 {
+    public static int[][] multiplyMatrices(int[][] a, int[][] b) {
+        int n = a.length;
+        int[][] result = new int[n][n];  // O(n^2)
+        
+        for (int i = 0; i < n; i++) {  // O(1) for `i`
+            for (int j = 0; j < n; j++) {  // O(1) for `j`
+                result[i][j] = 0;
+                for (int k = 0; k < n; k++) {  // O(1) for `k`
+                    result[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
+        return result;
+    }
+}
+```
+
+**Space Complexity Calculation:**
+- The `result` matrix requires O(n^2) space.
+- Loop variables `i`, `j`, and `k` each require O(1) space.
+- Total space complexity: O(n^2).
+
+### Key Points
+
+1. **Single Variables and Constants:**
+   - Simple variables (e.g., `int`, `float`, `boolean`) use O(1) space.
+   
+2. **Arrays and Data Structures:**
+   - An array of size \( n \) uses O(n) space.
+   - A 2D array of size \( n \times n \) uses O(n^2) space.
+
+3. **Recursive Calls:**
+   - Each recursive call adds a frame to the call stack, so the space complexity depends on the depth of the recursion.
+
+4. **Multiple Loops and Nested Loops:**
+   - The space complexity of nested loops is often dictated by the data structures they interact with, not the number of iterations.
+
+### Tips
+
+- **Auxiliary Space:** Sometimes it’s useful to distinguish between auxiliary space (extra space or temporary space used by the algorithm) and input space. Often, space complexity is concerned with auxiliary space.
+- **Data Structures:** Understand the space requirements of common data structures (e.g., arrays, linked lists, trees) to make accurate calculations.
+- **Recursive Algorithms:** Consider the depth of the recursion stack when analyzing recursive algorithms.
+
+### Practice
+
+To get better at calculating space complexity, practice with different types of algorithms and data structures. Look at both simple and complex examples, including those with nested loops and recursive calls.
+### Example 1: Sum of an Array
+

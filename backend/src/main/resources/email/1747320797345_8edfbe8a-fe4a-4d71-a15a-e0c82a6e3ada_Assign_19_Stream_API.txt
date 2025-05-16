@@ -1,0 +1,22 @@
+1. Filtering and Collecting:
+Create a list of strings and use a stream to filter out strings that start with the letter "A". Collect the filtered strings into a new list.
+2. Mapping:
+Create a list of integers and use a stream to double each integer in the list.
+3. Sorting:
+Create a list of strings and use a stream to sort them in ascending order.
+4. Combining Operations:
+Create a list of integers and use a stream to filter out the even numbers, double each remaining number, and then find the sum of the doubled numbers.
+5. Grouping and Counting:
+Create a list of strings and use a stream to group them by their length, and then count the number of strings in each group.
+6. Finding Max and Min:
+Create a list of objects (e.g., custom objects with attributes like name and age) and use a stream to find the oldest and youngest objects based on a certain attribute (e.g., age).
+7. Using Predicates:
+Create a list of integers and use a stream to filter out numbers greater than 10 using a custom predicate.
+8. FlatMap:
+Create a list of lists of integers and use a stream to flatten the structure (i.e., merge all the lists into one) and then calculate the sum of all the integers.
+9. Parallel Stream:
+Modify one of the previous assignments to use a parallel stream and compare the performance with the sequential stream.
+10. Infinite Streams:
+Create a stream of random numbers and limit it to generate 10 random numbers.
+11. File Processing:
+Read a text file line by line using the Files.lines() method and process each line using a stream.
