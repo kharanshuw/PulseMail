@@ -5,7 +5,7 @@ import java.util.List;
 
 public class EmailMessages {
 
-    private String from;
+    private List<String> from;
 
     private String content;
 
@@ -13,11 +13,11 @@ public class EmailMessages {
 
     private String subject;
 
-    public String getFrom() {
+    public List<String> getFrom() {
         return from;
     }
 
-    public void setFrom(String from) {
+    public void setFrom(List<String> from) {
         this.from = from;
     }
 
@@ -48,7 +48,7 @@ public class EmailMessages {
     public EmailMessages() {
     }
 
-    public EmailMessages(String from, String content, List<String> files, String subject) {
+    public EmailMessages(List<String> from, String content, List<String> files, String subject) {
         this.from = from;
         this.content = content;
         this.files = files;

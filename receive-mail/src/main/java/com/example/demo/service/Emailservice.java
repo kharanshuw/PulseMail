@@ -8,6 +8,8 @@ import java.util.List;
 @Service
 public interface Emailservice {
 
-    List<EmailMessages> getInboxMessages();
+    List<EmailMessages> getInboxSubject();
+
+    public List<EmailMessages> getInboxMessages();
 
 }

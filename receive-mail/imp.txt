@@ -1,3 +1,30 @@
 
+
+git status
+
+git add .
+
+git commit -m ""
+
+
+
+git commit -m "feat: Retrieve Gmail inbox folder and add Spring Boot tests" -m "- Implemented Gmail inbox retrieval using JavaMail  - Integrated Spring Boot tests to validate email fetching- Ensured logging of email subjects for debugging- Added error handling for email connection failures"
+
+git commit --amend --all
+
+
+feat: Retrieve Gmail inbox folder and add Spring Boot tests
+
+- Implemented Gmail inbox retrieval using JavaMail
+- Integrated Spring Boot tests to validate email fetching
+- Ensured logging of email subjects for debugging
+- Added error handling for email connection failures
+
+
+
+
 //command to run specific method of springboottest
 mvn -Dtest=EmailTest#reciveingemail test
+
+
+mvn -Dtest=EmailTest#testGetInboxMessages test
