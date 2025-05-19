@@ -28,3 +28,9 @@ mvn -Dtest=EmailTest#reciveingemail test
 
 
 mvn -Dtest=EmailTest#testGetInboxMessages test
+
+
+mvn -Dtest=EmailTest#testGetEmailCount_Failure test
+
+
+mvn -Dtest=EmailTest#testsearchEmails test
