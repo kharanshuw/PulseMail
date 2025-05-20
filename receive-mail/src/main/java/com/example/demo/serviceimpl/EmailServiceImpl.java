@@ -1,13 +1,15 @@
 package com.example.demo.serviceimpl;
 
+import com.example.demo.dto.responsedto.EmailDto;
+import com.example.demo.exception.EmailDeletionException;
+import com.example.demo.exception.EmailFetchException;
 import com.example.demo.exception.EmailServiceException;
 import com.example.demo.helper.EmailMessages;
 import com.example.demo.service.Emailservice;
 import jakarta.mail.*;
 import jakarta.mail.internet.AddressException;
-import jakarta.mail.search.FromStringTerm;
-import jakarta.mail.search.OrTerm;
-import jakarta.mail.search.SearchTerm;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.search.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,6 +21,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Service
@@ -29,18 +32,14 @@ public class EmailServiceImpl implements Emailservice {
     @Value("${mail.store.protocol}")
     private String protocol;
 
-
     @Value("${mail.imaps.host}")
     private String host;
-
 
     @Value("${mail.imaps.port}")
     private String port;
 
-
     @Value("${spring.mail.username}")
     private String username;
-
 
     @Value("${spring.mail.password}")
     private String password;
@@ -48,12 +47,15 @@ public class EmailServiceImpl implements Emailservice {
     /**
      * Retrieves email messages from the user's Gmail inbox.
      * <p>
-     * This method connects to the Gmail server using IMAP, accesses the INBOX folder,
-     * fetches email subjects, and logs them. It ensures proper resource management by
+     * This method connects to the Gmail server using IMAP, accesses the INBOX
+     * folder,
+     * fetches email subjects, and logs them. It ensures proper resource management
+     * by
      * closing connections in a `finally` block.
      * </p>
      *
-     * @return A list of {@link EmailMessages} containing the subjects of fetched emails.
+     * @return A list of {@link EmailMessages} containing the subjects of fetched
+     * emails.
      * Returns an empty list if the inbox is empty.
      * @throws EmailFetchException     If an error occurs while retrieving emails.
      * @throws MessagingException      If there is an issue with the email protocol.
@@ -67,16 +69,13 @@ public class EmailServiceImpl implements Emailservice {
 
         List<EmailMessages> emailMessages = new ArrayList<>();
 
-
         logger.info("Starting email retrieval process..."); // ✅ Initial logging
-
 
         try {
 
             // ✅ Step 1: Setting up properties
 
             logger.info("Configuring email properties...");
-
 
             Properties properties = new Properties();
 
@@ -88,9 +87,7 @@ public class EmailServiceImpl implements Emailservice {
 
             // ✅ Step 2: Establishing Session & Store connection
 
-
             logger.info("Initializing email session...");
-
 
             Session session = Session.getDefaultInstance(properties);
 
@@ -98,14 +95,11 @@ public class EmailServiceImpl implements Emailservice {
 
             logger.info("Connecting to email store...");
 
-
             store.connect(username, password);
 
             // ✅ Step 3: Accessing INBOX folder
 
-
             logger.info("Accessing INBOX folder...");
-
 
             folder = store.getFolder("INBOX");
 
@@ -114,7 +108,6 @@ public class EmailServiceImpl implements Emailservice {
             logger.info("INBOX folder opened in READ_ONLY mode.");
 
             logger.info("Retrieving email messages...");
-
 
             // ✅ Step 4: Fetching email messages
 
@@ -130,9 +123,7 @@ public class EmailServiceImpl implements Emailservice {
 
             }
 
-
-            boolean fetchSingleEmail = true;  // ✅ Make it configurable
-
+            boolean fetchSingleEmail = true; // ✅ Make it configurable
 
             // ✅ Step 6: Processing and logging email subjects
 
@@ -142,21 +133,19 @@ public class EmailServiceImpl implements Emailservice {
                 EmailMessages emailMessages1 = new EmailMessages();
                 emailMessages1.setSubject(subject);
                 emailMessages.add(emailMessages1);
-                if (fetchSingleEmail) break;  // ✅ Controlled behavior
+                if (fetchSingleEmail)
+                    break; // ✅ Controlled behavior
             }
-
 
             // ✅ Step 7: Logging latest email subject
 
             Message latestMessage = messages[messages.length - 1];
 
-
             logger.info("✔ Latest Email Retrieved | Subject: {}", latestMessage.getSubject());
-
 
         } catch (NoSuchProviderException e) {
             logger.error("Email provider error: " + e.getMessage(), e);
-            //  throw new RuntimeException(e);
+            // throw new RuntimeException(e);
         } catch (MessagingException e) {
 
             logger.error("Messaging error occurred: " + e.getMessage(), e);
@@ -165,7 +154,7 @@ public class EmailServiceImpl implements Emailservice {
         } catch (Exception e) {
             logger.error("Unexpected error during email retrieval: " + e.getMessage(), e);
 
-            //    throw new RuntimeException(e);
+            // throw new RuntimeException(e);
         } finally {
 
             // ✅ Step 8: Cleaning up resources
@@ -191,9 +180,7 @@ public class EmailServiceImpl implements Emailservice {
         logger.info("Email retrieval process completed.");
         return emailMessages;
 
-
     }
-
 
     /**
      * Retrieves email messages from the INBOX folder.
@@ -212,23 +199,17 @@ public class EmailServiceImpl implements Emailservice {
 
         List<EmailMessages> emailMessages = new ArrayList<>();
 
-
         logger.info("Starting email retrieval process..."); // ✅ Initial logging
-
 
         try {
 
-
-            //✅ step 1 and 2 Modularized session and store connection
+            // ✅ step 1 and 2 Modularized session and store connection
             Session session = createEmailSession();
             store = connectToEmailStore(session);
 
-
             // ✅ Step 3: Accessing INBOX folder
 
-
             logger.info("Accessing INBOX folder...");
-
 
             folder = store.getFolder("INBOX");
 
@@ -237,7 +218,6 @@ public class EmailServiceImpl implements Emailservice {
             logger.info("INBOX folder opened in READ_ONLY mode.");
 
             logger.info("Retrieving email messages...");
-
 
             // ✅ Step 4: Fetching email messages
 
@@ -253,14 +233,11 @@ public class EmailServiceImpl implements Emailservice {
 
             }
 
-
-            boolean fetchSingleEmail = true;  // ✅ Make it configurable
-
+            boolean fetchSingleEmail = true; // ✅ Make it configurable
 
             // ✅ Step 6: Processing and logging email subjects
 
             for (jakarta.mail.Message message : messages) {
-
 
                 try {
                     EmailMessages processedMessage = processMessage(message);
@@ -269,10 +246,9 @@ public class EmailServiceImpl implements Emailservice {
                     logger.error("Error processing a message: {}", ex.getMessage(), ex);
                 }
                 if (fetchSingleEmail) {
-                    break;  // Controlled behavior: process only one email
+                    break; // Controlled behavior: process only one email
                 }
             }
-
 
         } catch (NoSuchProviderException e) {
             logger.error("Email provider error: {}", e.getMessage(), e);
@@ -281,10 +257,8 @@ public class EmailServiceImpl implements Emailservice {
 
             logger.error("Messaging error occurred: " + e.getMessage(), e);
 
-
         } catch (Exception e) {
             logger.error("Unexpected error during email retrieval: " + e.getMessage(), e);
-
 
         } finally {
 
@@ -313,9 +287,9 @@ public class EmailServiceImpl implements Emailservice {
 
     }
 
-
     /**
-     * Processes a single email message by extracting its subject, sender addresses, and content.
+     * Processes a single email message by extracting its subject, sender addresses,
+     * and content.
      *
      * @param message the email message to process
      * @return an EmailMessages object with processed data
@@ -333,7 +307,6 @@ public class EmailServiceImpl implements Emailservice {
                 emailMessages.setSubject(subject);
             }
 
-
             // Process "from" addresses
             List<String> fromList = new ArrayList<>();
 
@@ -346,7 +319,6 @@ public class EmailServiceImpl implements Emailservice {
             } else {
                 logger.warn("Email 'from' addresses are null.");
             }
-
 
             if (fromList.isEmpty()) {
                 logger.warn("From list is empty");
@@ -384,7 +356,6 @@ public class EmailServiceImpl implements Emailservice {
 
         logger.info("Configuring email properties...");
 
-
         // Set email properties required for connection
 
         Properties properties = new Properties();
@@ -392,15 +363,14 @@ public class EmailServiceImpl implements Emailservice {
         properties.setProperty("mail.imaps.host", host);
         properties.setProperty("mail.imaps.port", port);
 
-
         // Create a session based on the properties.
-        // Using Session.getDefaultInstance() ensures the system-wide configuration is applied.
+        // Using Session.getDefaultInstance() ensures the system-wide configuration is
+        // applied.
 
         Session session = Session.getDefaultInstance(properties);
         logger.info("Email session created.");
         return session;
     }
-
 
     /**
      * Connects to the email store using the provided session and credentials.
@@ -411,13 +381,15 @@ public class EmailServiceImpl implements Emailservice {
      */
     private Store connectToEmailStore(Session session) throws MessagingException {
 
-        // Get the Store object from the session. The store will be used for accessing mail folders.
+        // Get the Store object from the session. The store will be used for accessing
+        // mail folders.
 
         Store store = session.getStore();
         logger.info("Connecting to email store...");
 
         // Connect to the email store using the username and password.
-        // This step may throw MessagingException if the credentials or server are incorrect.
+        // This step may throw MessagingException if the credentials or server are
+        // incorrect.
         store.connect(username, password);
         logger.info("Connected to email store.");
         return store;
@@ -432,6 +404,7 @@ public class EmailServiceImpl implements Emailservice {
      * </p>
      *
      * <b>Usage:</b>
+     *
      * <pre>
      * Map<String, Integer> emailStats = getEmailCount();
      * int totalEmails = emailStats.get("totalMessages");
@@ -442,7 +415,8 @@ public class EmailServiceImpl implements Emailservice {
      * and unread email count (key: "unreadMessages").
      * @throws MessagingException If there is an issue connecting to the email store
      *                            or retrieving the message count.
-     * @throws Exception          If any unexpected error occurs during email retrieval.
+     * @throws Exception          If any unexpected error occurs during email
+     *                            retrieval.
      */
     public Map<String, Integer> getEmailCount() {
         Folder folder = null;
@@ -465,9 +439,7 @@ public class EmailServiceImpl implements Emailservice {
 
             logger.info("Accessing INBOX folder...");
 
-
             folder = store.getFolder("INBOX");
-
 
             folder.open(Folder.READ_ONLY);
 
@@ -477,9 +449,7 @@ public class EmailServiceImpl implements Emailservice {
 
             logger.info("Fetching total and unread email counts...");
 
-
             int messageCount = folder.getMessageCount();
-
 
             int unreadMessageCount = folder.getUnreadMessageCount();
 
@@ -491,7 +461,6 @@ public class EmailServiceImpl implements Emailservice {
 
             emailStats.put("totalMessages", messageCount);
             emailStats.put("unreadMessages", unreadMessageCount);
-
 
         } catch (MessagingException e) {
 
@@ -541,249 +510,169 @@ public class EmailServiceImpl implements Emailservice {
     }
 
 
-    public void searchEmails2(String senderemail) {
-
-        Folder folder = null;
-
-        Store store = null;
-        try {
-            Session session = createEmailSession();
-            store = connectToEmailStore(session);
-
-            folder = store.getFolder("INBOX");
-
-            folder.open(Folder.READ_ONLY);
-
-            if (senderemail == null || senderemail.isEmpty()) {
-                logger.warn("Skipping email search due to empty sender email.");
-                return;
-            }
-
-
-            SearchTerm searchTerm = new OrTerm(new FromStringTerm(senderemail), new FromStringTerm(senderemail.toLowerCase()));
-
-
-            Message[] messages = folder.search(searchTerm);
-
-            // ✅ Log how many emails were found before processing them
-            logger.info("Total emails found for '{}': {}", senderemail, messages.length);
-
-
-            if (messages.length == 0) {
-                logger.warn("No emails found for '{}'.", senderemail);
-                return;
-            }
-
-
-            for (Message message : messages) {
-                logger.info("Subject: {}", message.getSubject());
-
-
-                Object content = message.getContent();
-                if (content instanceof String) {
-                    logger.info("content: {}", content);
-                } else if (content instanceof Multipart) {
-                    logger.info("content: [Multipart message detected]");
-                } else {
-                    logger.info("content: [Unsupported content type]");
-                }
-            }
-
-
-        } catch (AddressException e) {
-            logger.error("Invalid email address format: {}", e.getMessage(), e);
-        } catch (MessagingException e) {
-            logger.error("Messaging exception occurred while searching emails: {}", e.getMessage(), e);
-        } catch (IOException e) {
-            logger.error("Error reading email content: {}", e.getMessage(), e);
-        } finally {
-            try {
-                if (folder != null && folder.isOpen()) {
-                    folder.close(false);  // Closes folder safely
-                    logger.info("INBOX folder closed.");
-                }
-                if (store != null) {
-                    store.close();  // Closes store safely
-                    logger.info("Email store connection closed.");
-                }
-            } catch (MessagingException e) {
-                logger.error("Error closing email resources: {}", e.getMessage(), e);
-            }
-        }
-
-
-    }
-
-
-    public void searchEmails3(String senderemail) {
-
-        Folder folder = null;
-
-        Store store = null;
-        try {
-            Session session = createEmailSession();
-            store = connectToEmailStore(session);
-
-            folder = store.getFolder("INBOX");
-
-            folder.open(Folder.READ_ONLY);
-
-            if (senderemail == null || senderemail.isEmpty()) {
-                logger.error("Email search failed: Sender email is empty or null.");
-                return;
-            }
-
-            SearchTerm searchTerm = new OrTerm(new FromStringTerm(senderemail), new FromStringTerm(senderemail.toLowerCase()));
-
-
-            Message[] messages = folder.search(searchTerm);
-
-            // ✅ Log how many emails were found before processing them
-            logger.info("Total emails found for '{}': {}", senderemail, messages.length);
-
-
-            if (messages.length == 0) {
-                logger.warn("No emails found for '{}'. Ensure the sender address is correct or check the inbox.", senderemail);
-                return;
-            }
-
-
-            for (Message message : messages) {
-                logger.info("Subject: {}", message.getSubject());
-
-
-                Object content = message.getContent();
-                if (content instanceof String) {
-                    logger.info("content: {}", content);
-                } else if (content instanceof Multipart) {
-
-                    String extractedContent = "[No readable content]";
-
-                    Multipart multipart = (Multipart) content;
-
-                    for (int i = 0; i < multipart.getCount(); i++) {
-                        BodyPart bodyPart = multipart.getBodyPart(i);
-                        if (bodyPart.isMimeType("text/plain")) {
-                            extractedContent = bodyPart.getContent().toString();
-                            break;
-                        } else if (bodyPart.isMimeType("text/html") && extractedContent.equals("[No readable content]")) {
-                            extractedContent = bodyPart.getContent().toString();
-                        }
-
-                        // ✅ Detect inline images inside HTML emails
-                        if (bodyPart.isMimeType("text/html") && bodyPart.getContent().toString().contains("<img")) {
-                            logger.info("Email contains embedded images.");
-                        }
-                    }
-
-                    logger.info("content: {}", extractedContent);
-                } else {
-                    logger.info("content: [Unsupported content type]");
-                }
-            }
-
-
-        } catch (AddressException e) {
-            logger.error("Invalid email address format: {}", e.getMessage(), e);
-        } catch (MessagingException e) {
-            logger.error("Messaging exception occurred while searching emails: {}", e.getMessage(), e);
-        } catch (IOException e) {
-            logger.error("Error reading email content: {}", e.getMessage(), e);
-        } finally {
-            try {
-                if (folder != null && folder.isOpen()) {
-                    folder.close(false);  // Closes folder safely
-                    logger.info("INBOX folder closed.");
-                }
-                if (store != null) {
-                    store.close();  // Closes store safely
-                    logger.info("Email store connection closed.");
-                }
-            } catch (MessagingException e) {
-                logger.error("Error closing email resources: {}", e.getMessage(), e);
-            }
-        }
-
-
-    }
-
-
+    /**
+     * Searches for emails from a specific sender in the INBOX folder.
+     * Extracts plain text or HTML content, detects inline images, and handles attachments (images, videos, PDFs).
+     *
+     * @param senderemail The email address of the sender to search for.
+     */
     public void searchEmails(String senderemail) {
 
         Folder folder = null;
 
         Store store = null;
         try {
+            // ✅ Start process: Log method execution
+
+            logger.info("Starting searchEmails with sender: {}", senderemail);
+
+            // ✅ Initialize email session
+
+
+            logger.info("Creating email session...");
+
             Session session = createEmailSession();
+
+            logger.info("Email session created.");
+
+
+            // ✅ Connect to email store
+
+            logger.info("Connecting to email store...");
+
             store = connectToEmailStore(session);
+            logger.info("Connected to email store.");
+
+            // ✅ Open INBOX folder in read-only mode
+            logger.info("Retrieving INBOX folder...");
 
             folder = store.getFolder("INBOX");
 
+            logger.info("Opening INBOX folder in READ_ONLY mode...");
+
             folder.open(Folder.READ_ONLY);
+
+
+            // ✅ Validate sender email before proceeding
 
             if (senderemail == null || senderemail.isEmpty()) {
                 logger.error("Email search failed: Sender email is empty or null.");
                 return;
             }
 
-            SearchTerm searchTerm = new OrTerm(new FromStringTerm(senderemail), new FromStringTerm(senderemail.toLowerCase()));
+            // ✅ Create search term for sender email
 
+            logger.info("Creating search term for sender: {}", senderemail);
+
+            SearchTerm searchTerm = new OrTerm(new FromStringTerm(senderemail),
+                    new FromStringTerm(senderemail.toLowerCase()));
+
+
+            // ✅ Execute search in INBOX
+
+            logger.info("Executing search with search term...");
 
             Message[] messages = folder.search(searchTerm);
 
-            // ✅ Log how many emails were found before processing them
-            logger.info("Total emails found for '{}': {}", senderemail, messages.length);
+            logger.info("Search completed. Total emails found for '{}': {}", senderemail, messages.length);
 
+            // ✅ If no matching emails found, log and exit
 
             if (messages.length == 0) {
-                logger.warn("No emails found for '{}'. Ensure the sender address is correct or check the inbox.", senderemail);
+                logger.warn("No emails found for '{}'. Ensure the sender address is correct or check the inbox.",
+                        senderemail);
                 return;
             }
+            // ✅ Process each found email message
 
+
+            logger.info("Processing {} message(s)...", messages.length);
 
             for (Message message : messages) {
-                logger.info("Subject: {}", message.getSubject());
 
 
+                logger.info("Processing message with subject: {}", message.getSubject());
+
+
+                // ✅ Extract email content
                 Object content = message.getContent();
+
+
                 if (content instanceof String) {
-                    logger.info("content: {}", content);
+
+
+                    logger.info("Content extracted as plain text: {}", content);
+
+
                 } else if (content instanceof Multipart) {
+
+                    logger.info("Multipart content detected. Extracting content parts...");
 
                     String extractedContent = "[No readable content]";
 
                     Multipart multipart = (Multipart) content;
 
+                    // ✅ Extract email content (text/plain preferred, fallback to text/html)
                     for (int i = 0; i < multipart.getCount(); i++) {
                         BodyPart bodyPart = multipart.getBodyPart(i);
+
+                        logger.info("Processing part {} with MIME type: {}", i, bodyPart.getContentType());
+
+
                         if (bodyPart.isMimeType("text/plain")) {
+
+                            logger.info("Text/plain part found. Extracting text...");
                             extractedContent = bodyPart.getContent().toString();
                             break;
-                        } else if (bodyPart.isMimeType("text/html") && extractedContent.equals("[No readable content]")) {
+
+                            // ✅ Detect inline images within HTML emails
+                        } else if (bodyPart.isMimeType("text/html")
+                                && extractedContent.equals("[No readable content]")) {
+                            logger.info("Text/html part found. Using HTML content as fallback...");
                             extractedContent = bodyPart.getContent().toString();
                         }
 
                         // ✅ Detect inline images inside HTML emails
                         if (bodyPart.isMimeType("text/html") && bodyPart.getContent().toString().contains("<img")) {
-                            logger.info("Email contains embedded images.");
+
+                            logger.info("Inline image detected in HTML content.");
+
                         }
                     }
 
-                    logger.info("content: {}", extractedContent);
+                    logger.info("Extracted content: {}", extractedContent);
+
+                    // ✅ Handle attachments (images, videos, PDFs)
+                    logger.info("Checking for attachments in multipart content...");
 
 
                     for (int i = 0; i < multipart.getCount(); i++) {
+
                         BodyPart bodyPart = multipart.getBodyPart(i);
+
+                        // ✅ Detect file attachments
+
                         if (Part.ATTACHMENT.equalsIgnoreCase(bodyPart.getDisposition())) {
+
+
                             logger.info("Attachment found: {}", bodyPart.getFileName());
 
                             try (InputStream inputStream = bodyPart.getInputStream()) {
-                                Path attachmentPath = Paths.get("attachments/", System.currentTimeMillis() + "_" + bodyPart.getFileName());
+                                Path attachmentPath = Paths.get("attachments/",
+                                        System.currentTimeMillis() + "_" + bodyPart.getFileName());
 
-                                Files.copy(inputStream, attachmentPath , StandardCopyOption.REPLACE_EXISTING);
+                                Files.copy(inputStream, attachmentPath, StandardCopyOption.REPLACE_EXISTING);
                                 logger.info("Attachment saved: {}", bodyPart.getFileName());
+
+
+                                // ✅ Read attachment into byte array before saving
+                                byte[] filedata = inputStream.readAllBytes();
+
+                                logger.info("Attachment '{}' detected - Size: {} KB", bodyPart.getFileName(),
+                                        filedata.length / 1024);
                             } catch (IOException e) {
-                                logger.error("Error saving attachment {}: {}", bodyPart.getFileName(), e.getMessage(), e);
+                                logger.error("Error saving attachment {}: {}", bodyPart.getFileName(), e.getMessage(),
+                                        e);
                             }
                         } else if (bodyPart.isMimeType("image/*")) {
                             logger.info("Image attachment detected: {}", bodyPart.getFileName());
@@ -792,14 +681,12 @@ public class EmailServiceImpl implements Emailservice {
                         } else if (bodyPart.isMimeType("application/pdf")) {
                             logger.info("PDF document detected: {}", bodyPart.getFileName());
                         }
-                       
 
                     }
                 } else {
                     logger.info("content: [Unsupported content type]");
                 }
             }
-
 
         } catch (AddressException e) {
             logger.error("Invalid email address format: {}", e.getMessage(), e);
@@ -809,12 +696,13 @@ public class EmailServiceImpl implements Emailservice {
             logger.error("Error reading email content: {}", e.getMessage(), e);
         } finally {
             try {
+                // ✅ Cleanup resources (Closing folder and store)
                 if (folder != null && folder.isOpen()) {
-                    folder.close(false);  // Closes folder safely
+                    folder.close(false); // Closes folder safely
                     logger.info("INBOX folder closed.");
                 }
                 if (store != null) {
-                    store.close();  // Closes store safely
+                    store.close(); // Closes store safely
                     logger.info("Email store connection closed.");
                 }
             } catch (MessagingException e) {
@@ -822,8 +710,226 @@ public class EmailServiceImpl implements Emailservice {
             }
         }
 
+    }
+
+
+
+    /**
+     * Deletes all emails in the INBOX received from a specific sender.
+     * <p>
+     * This method connects to the email store using IMAP, searches the "INBOX" folder
+     * for messages from the given sender, marks them as deleted, and closes the folder
+     * with expunge to permanently remove them. If the sender email is blank or null,
+     * or if there is an error during the process, a custom {@link EmailDeletionException} is thrown.
+     * </p>
+     *
+     * @param senderEmails the email address of the sender whose emails should be deleted
+     * @throws EmailDeletionException if the deletion fails due to connection or messaging errors
+     */
+    public void deleteEmailsFromSender(String senderEmails) {
+        Session session = null;
+        Folder folder = null;
+        Store store = null;
+
+        logger.info("Starting email deletion process for sender: {}", senderEmails);
+
+        try {
+            // Validate sender email input
+
+            if (senderEmails == null || senderEmails.isBlank()) {
+                logger.warn("No sender email provided. Aborting delete operation.");
+
+                throw new EmailDeletionException("Sender email must not be null or blank.");
+
+
+            }
+            // Step 1: Create the email session with IMAP properties
+            logger.info("Creating email session...");
+
+            session = createEmailSession();
+
+            // Step 2: Connect to the email store using credentials
+            logger.info("Connecting to email store...");
+
+            store = connectToEmailStore(session);
+
+
+            // Step 3: Access the INBOX folder in READ_WRITE mode
+            logger.info("Accessing 'INBOX' folder...");
+
+            folder = store.getFolder("INBOX");
+
+            folder.open(Folder.READ_WRITE);
+
+            logger.info("'INBOX' folder opened in READ_WRITE mode.");
+
+            // Step 4: Search for emails from the specified sender
+            logger.info("Searching for emails from sender: {}", senderEmails);
+
+            Message[] messages = folder.search(new FromTerm(new InternetAddress(senderEmails)));
+
+
+            // Step 5: Exit early if no messages are found
+
+            if (messages.length == 0) {
+                logger.info("No emails found from sender '{}'. Nothing to delete.", senderEmails);
+                return;
+            }
+
+
+            // Step 6: Mark each matching email as deleted
+            int deletedCount = 0;
+
+            for (Message message : messages) {
+                message.setFlag(Flags.Flag.DELETED, true);
+                deletedCount++;
+
+                logger.info("Marked email for deletion: Subject='{}'", message.getSubject());
+
+            }
+
+
+            logger.info("Marked {} emails from '{}' for deletion.", deletedCount, senderEmails);
+
+
+        } catch (Exception e) {
+
+// Step 7: Wrap and rethrow exception as a custom exception for consistent error handling
+            logger.error("Failed to delete emails from sender '{}': {}", senderEmails, e.getMessage(), e);
+
+            throw new EmailDeletionException("Failed to delete emails from sender: " + senderEmails, e);
+
+        } finally {
+            // Step 8: Safely close folder and store, with fallback if expunge fails
+            try {
+                if (folder != null && folder.isOpen()) {
+                    try {
+                        folder.close(true);// Expunge messages marked as deleted
+                        logger.info("Folder closed with expunge (deleted messages permanently).");
+                    } catch (MessagingException ex) {
+                        logger.warn("Expunge failed. Closing folder without deleting flagged messages.");
+                        
+                        folder.close(false);  // Close without expunging
+
+                        logger.info("Folder closed without expunging.");
+                    }
+                }
+                if (store != null) {
+                    store.close();
+
+                    logger.info("Email store connection closed.");
+                }
+            } catch (MessagingException me) {
+                logger.warn("Error closing folder/store: {}", me.getMessage(), me);
+            }
+        }
+
+
+        logger.info("Email deletion process completed for sender: {}", senderEmails);
+
 
     }
 
+
+    private SearchTerm buildSearchTerm(String sender, String subject, Boolean unread, String sinceDateStr) {
+        List<SearchTerm> terms = new ArrayList<>();
+
+        try {
+            if (sender != null && !sender.isBlank()) {
+                terms.add(new FromTerm(new InternetAddress(sender)));
+            }
+
+            if (subject != null && !subject.isBlank()) {
+                terms.add(new SubjectTerm(subject));
+            }
+
+            if (unread != null && unread) {
+                terms.add(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
+            }
+
+            if (sinceDateStr != null) {
+                Date sinceDate = new SimpleDateFormat("yyyy-MM-dd").parse(sinceDateStr);
+                terms.add(new ReceivedDateTerm(ComparisonTerm.GE, sinceDate));
+            }
+
+            if (terms.isEmpty()) return null;
+
+            SearchTerm finalTerm = terms.get(0);
+            for (int i = 1; i < terms.size(); i++) {
+                finalTerm = new AndTerm(finalTerm, terms.get(i));
+            }
+            return finalTerm;
+        } catch (Exception e) {
+            logger.warn("Error parsing search filters. Returning all emails.");
+            return null;
+        }
+    }
+    
+    
+    public List<EmailDto> fetchEmails(String sender,String subject,Boolean unread,int limit,String sinceDate)
+
+    {
+        List<EmailDto> results = new ArrayList<>();
+        Session session = createEmailSession();
+
+        try (Store store = connectToEmailStore(session)) {
+            Folder inbox = store.getFolder("INBOX");
+
+            try {
+                inbox.open(Folder.READ_ONLY);
+                logger.info("INBOX folder opened successfully.");
+
+                SearchTerm searchTerm = buildSearchTerm(sender, subject, unread, sinceDate);
+                Message[] messages = (searchTerm != null)
+                        ? inbox.search(searchTerm)
+                        : inbox.getMessages();
+
+                logger.info("Found {} email(s) matching the criteria.", messages.length);
+
+                // Sort by received date descending
+                Arrays.sort(messages, Comparator.comparing((Message m) -> {
+                    try {
+                        return Optional.ofNullable(m.getReceivedDate()).orElse(new Date(0));
+                    } catch (MessagingException e) {
+                        logger.warn("Failed to get received date", e);
+                        return new Date(0);
+                    }
+                }).reversed());
+
+                // Limit and transform to DTO
+                for (int i = 0; i < Math.min(limit, messages.length); i++) {
+                    Message message = messages[i];
+                    EmailDto emailDto = new EmailDto();
+
+                    try {
+                        emailDto.setSubject(message.getSubject());
+                        Address[] fromAddresses = message.getFrom();
+                        if (fromAddresses != null && fromAddresses.length > 0) {
+                            emailDto.setSender(fromAddresses[0].toString());
+                        }
+                        Date receivedDate = message.getReceivedDate();
+                        emailDto.setReceivedDate(receivedDate != null ? receivedDate.toString() : "N/A");
+                        emailDto.setRead(message.isSet(Flags.Flag.SEEN));
+
+                        results.add(emailDto);
+                    } catch (Exception ex) {
+                        logger.warn("Failed to parse message #{}: {}", i + 1, ex.getMessage(), ex);
+                    }
+                }
+
+            } finally {
+                if (inbox != null && inbox.isOpen()) {
+                    inbox.close(false); // Don't expunge since it's read-only
+                    logger.info("INBOX folder closed.");
+                }
+            }
+
+        } catch (Exception e) {
+            logger.error("Error while fetching emails: {}", e.getMessage(), e);
+            throw new EmailFetchException("Failed to fetch emails", e);
+        }
+
+        return results;
+    }
 
 }

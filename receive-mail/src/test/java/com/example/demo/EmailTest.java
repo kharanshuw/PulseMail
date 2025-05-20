@@ -69,4 +69,13 @@ public class EmailTest {
         emailservice.searchEmails("orders@adda247.com");
     }
 
+
+    @Test
+    public void testdeleteEmailsFromSender()
+    {
+        emailservice.deleteEmailsFromSender("mail@hireclap.com");
+    }
+    
+    
+
 }
