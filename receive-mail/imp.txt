@@ -40,3 +40,10 @@ mvn -Dtest=EmailTest#testsearchEmails test
 
 
 mvn -Dtest=EmailTest#testdeleteEmailsFromSender test
+
+
+mvn spring-boot:run
+
+
+
+http://localhost:8080/emails/27315/unread

@@ -7,6 +7,8 @@ public class EmailDto {
     private String receivedDate;
     private boolean isRead;
 
+    private long uid;
+
 
     public String getSubject() {
         return subject;
@@ -40,6 +42,13 @@ public class EmailDto {
         isRead = read;
     }
 
+    public long getUid() {
+        return uid;
+    }
+
+    public void setUid(long uid) {
+        this.uid = uid;
+    }
 
     public EmailDto() {
     }

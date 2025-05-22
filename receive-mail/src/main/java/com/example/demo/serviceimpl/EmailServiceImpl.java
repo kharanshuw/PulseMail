@@ -1,9 +1,7 @@
 package com.example.demo.serviceimpl;
 
 import com.example.demo.dto.responsedto.EmailDto;
-import com.example.demo.exception.EmailDeletionException;
-import com.example.demo.exception.EmailFetchException;
-import com.example.demo.exception.EmailServiceException;
+import com.example.demo.exception.*;
 import com.example.demo.helper.EmailMessages;
 import com.example.demo.service.Emailservice;
 import jakarta.mail.*;
@@ -831,60 +829,125 @@ public class EmailServiceImpl implements Emailservice {
     }
 
 
+    /**
+     * Builds a composite SearchTerm based on optional filters like sender, subject, unread status, and since date.
+     *
+     * @param sender       Filter by sender's email address (can be null)
+     * @param subject      Filter by subject keyword (can be null)
+     * @param unread       Filter for unread emails if true (can be null)
+     * @param sinceDateStr Filter for emails received on or after this date (format: yyyy-MM-dd)
+     * @return A combined SearchTerm or null if no filters are applied
+     */
     private SearchTerm buildSearchTerm(String sender, String subject, Boolean unread, String sinceDateStr) {
         List<SearchTerm> terms = new ArrayList<>();
 
         try {
+            // Add sender filter
+            logger.debug("Building search term with parameters - sender: {}, subject: {}, unread: {}, sinceDate: {}",
+                    sender, subject, unread, sinceDateStr);
+            
+            
             if (sender != null && !sender.isBlank()) {
                 terms.add(new FromTerm(new InternetAddress(sender)));
+
+                logger.info("Added sender filter to search term.");
             }
+
+            // Add subject filter
 
             if (subject != null && !subject.isBlank()) {
                 terms.add(new SubjectTerm(subject));
+
+                logger.info("Added subject filter to search term.");
             }
 
+            // Add unread filter
             if (unread != null && unread) {
                 terms.add(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
+
+                logger.info("Added unread filter to search term.");
             }
 
+            // Add since date filter
             if (sinceDateStr != null) {
                 Date sinceDate = new SimpleDateFormat("yyyy-MM-dd").parse(sinceDateStr);
                 terms.add(new ReceivedDateTerm(ComparisonTerm.GE, sinceDate));
+
+                logger.info("Added sinceDate filter to search term.");
             }
 
-            if (terms.isEmpty()) return null;
+            if (terms.isEmpty()) {
+                logger.info("No filters provided. Returning null SearchTerm to fetch all emails.");
+                return null;
+            }
 
+            // Combine filters using AND
             SearchTerm finalTerm = terms.get(0);
             for (int i = 1; i < terms.size(); i++) {
                 finalTerm = new AndTerm(finalTerm, terms.get(i));
             }
+
+
+
+            logger.info("Search term built successfully with {} conditions.", terms.size());
             return finalTerm;
         } catch (Exception e) {
-            logger.warn("Error parsing search filters. Returning all emails.");
+            logger.warn("Error parsing search filters. Returning all emails. Error: {}", e.getMessage(), e);
             return null;
         }
     }
-    
-    
-    public List<EmailDto> fetchEmails(String sender,String subject,Boolean unread,int limit,String sinceDate)
 
+
+    /**
+     * Fetches emails from the user's inbox using optional filters.
+     *
+     * @param sender    Optional sender email to filter
+     * @param subject   Optional subject keyword to filter
+     * @param unread    If true, fetch only unread emails
+     * @param limit     Max number of emails to return (default to 10 if non-positive)
+     * @param sinceDate Optional date in yyyy-MM-dd format to filter emails received since
+     * @return List of filtered EmailDto objects
+     */
+    public List<EmailDto> fetchEmails(String sender,String subject,Boolean unread,int limit,String sinceDate)
     {
+
+        logger.info("Fetching emails with filters - sender: {}, subject: {}, unread: {}, limit: {}, sinceDate: {}",
+                sender, subject, unread, limit, sinceDate);
+        
+        
         List<EmailDto> results = new ArrayList<>();
         Session session = createEmailSession();
 
-        try (Store store = connectToEmailStore(session)) {
-            Folder inbox = store.getFolder("INBOX");
+        logger.info("Email session created successfully.");
 
+
+
+        try (Store store = connectToEmailStore(session)) {
+            Folder inbox = store.getFolder("[Gmail]/All Mail");
+
+
+            logger.info("Connected to email store.");
+
+            
             try {
                 inbox.open(Folder.READ_ONLY);
+                
+                
                 logger.info("INBOX folder opened successfully.");
 
+
+                // Build search term based on filters
                 SearchTerm searchTerm = buildSearchTerm(sender, subject, unread, sinceDate);
+                
+                
+                
                 Message[] messages = (searchTerm != null)
                         ? inbox.search(searchTerm)
                         : inbox.getMessages();
 
                 logger.info("Found {} email(s) matching the criteria.", messages.length);
+                
+                
 
                 // Sort by received date descending
                 Arrays.sort(messages, Comparator.comparing((Message m) -> {
@@ -896,28 +959,54 @@ public class EmailServiceImpl implements Emailservice {
                     }
                 }).reversed());
 
+
+                int safeLimit = limit > 0 ? limit : 10;
+
+                logger.info("Processing up to {} email(s).", safeLimit);
+                
+
                 // Limit and transform to DTO
-                for (int i = 0; i < Math.min(limit, messages.length); i++) {
+                for (int i = 0; i < Math.min(safeLimit, messages.length); i++) {
+                    
+                    
                     Message message = messages[i];
                     EmailDto emailDto = new EmailDto();
 
                     try {
                         emailDto.setSubject(message.getSubject());
+                        
+                        
                         Address[] fromAddresses = message.getFrom();
+                        
+                        
                         if (fromAddresses != null && fromAddresses.length > 0) {
                             emailDto.setSender(fromAddresses[0].toString());
                         }
                         Date receivedDate = message.getReceivedDate();
                         emailDto.setReceivedDate(receivedDate != null ? receivedDate.toString() : "N/A");
                         emailDto.setRead(message.isSet(Flags.Flag.SEEN));
+                        
+                        if (inbox instanceof UIDFolder)
+                        {
+                            logger.info("getting uid for current messages");
+                            UIDFolder uidFolder = (UIDFolder) inbox;
+                            
+                            long uid = uidFolder.getUID(message);
+                            
+                            emailDto.setUid(uid);
+                        }
 
                         results.add(emailDto);
+
+                        logger.info("Processed message #{}: subject='{}'", i + 1, message.getSubject());
+
                     } catch (Exception ex) {
                         logger.warn("Failed to parse message #{}: {}", i + 1, ex.getMessage(), ex);
                     }
                 }
 
             } finally {
+                // Always close the folder safely
                 if (inbox != null && inbox.isOpen()) {
                     inbox.close(false); // Don't expunge since it's read-only
                     logger.info("INBOX folder closed.");
@@ -929,7 +1018,113 @@ public class EmailServiceImpl implements Emailservice {
             throw new EmailFetchException("Failed to fetch emails", e);
         }
 
+
+        logger.info("Returning {} email(s) to the client.", results.size());
+
         return results;
     }
+
+    /**
+     * Marks an email as read or unread based on its UID.
+     *
+     * This method connects to the Gmail "[Gmail]/All Mail" folder, retrieves the email message by its unique UID,
+     * and updates its read status flag (SEEN) accordingly.
+     *
+     * @param uid  the unique identifier of the email message to update
+     * @param read true to mark the email as read, false to mark it as unread
+     * @throws EmailStatusUpdateException if any error occurs while updating the email status
+     */
+    public void markEmailReadStatus(long uid, boolean read)
+    {
+
+        logger.info("Starting to mark email UID {} as {}", uid, read ? "READ" : "UNREAD");
+
+        
+        // Create email session
+
+        Session session = createEmailSession();
+
+        Folder folder = null;
+        
+        try(Store store = connectToEmailStore(session)) {
+
+            logger.info("Connected to email store.");
+
+            // Access the "[Gmail]/All Mail" folder (Gmail specific folder)
+            folder = store.getFolder("[Gmail]/All Mail");
+
+
+            // Open folder in read-write mode to allow flag modification
+
+            folder.open(Folder.READ_WRITE);
+
+            logger.info("Folder opened in READ_WRITE mode.");
+            
+            
+
+            // Check if the folder supports UID operations
+            if (folder instanceof  UIDFolder)
+            {
+                logger.info("Selected folder is instance of UIDFolder.");
+            }
+            else {
+                logger.error("Selected folder is NOT instance of UIDFolder.");
+                
+                throw  new MessagingException("Folder does not support UIDs");
+            }
+            
+            UIDFolder uidFolder =(UIDFolder) folder;
+
+            // Retrieve the message by its unique UID
+
+            Message message = uidFolder.getMessageByUID(uid);
+            
+            if (message == null)
+            {
+                logger.error("Message with UID {} not found.", uid);
+
+                throw new EmailNotFoundException("Message with UID " + uid + " not found.");
+            }
+
+
+            logger.info("Message with UID {} retrieved successfully.", uid);
+            
+            
+            // Set or unset the SEEN flag to mark read/unread status
+
+            message.setFlag(Flags.Flag.SEEN,read);
+
+
+            logger.info("Email with UID {} marked as {}", uid, read ? "READ" : "UNREAD");
+            
+            
+            
+        } catch (Exception e) {
+            logger.error("Failed to update read status for UID {}: {}", uid, e.getMessage(), e);
+            throw new EmailStatusUpdateException("Could not update email status", e);
+        }
+        finally {
+
+            // Ensure folder is closed properly to release resources
+
+            try {
+                if (folder != null && folder.isOpen()) {
+                    folder.close(false); // false = do not expunge deleted messages
+
+                    logger.info("Folder closed successfully.");
+                }
+
+            } catch (MessagingException e) {
+
+                // Log warning if closing folder fails, but do not rethrow to avoid crashing
+
+                logger.warn("Failed to close folder: {}", e.getMessage(), e);
+                
+            }
+        }
+    }
+    
+    
+    
 
 }

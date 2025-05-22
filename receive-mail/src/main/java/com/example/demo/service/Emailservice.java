@@ -23,4 +23,7 @@ public interface Emailservice {
 
     public List<EmailDto> fetchEmails(String sender, String subject, Boolean unread, int limit, String sinceDate);
 
+
+    public void markEmailReadStatus(long uid, boolean read);
+
 }
